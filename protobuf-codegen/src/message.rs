@@ -133,7 +133,7 @@ impl<'a> MessageGen<'a> {
 
     fn write_get_cached_size(&self, w: &mut CodeWriter) {
         w.def_fn("get_cached_size(&self) -> u32", |w| {
-            w.write_line("self.cached_size.get()");
+            w.write_line("self.compute_size()");
         });
     }
 
@@ -165,7 +165,6 @@ impl<'a> MessageGen<'a> {
             w.write_line(
                 "my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());",
             );
-            w.write_line("self.cached_size.set(my_size);");
             w.write_line("my_size");
         });
     }
