@@ -28,7 +28,6 @@ pub struct Duration {
     pub nanos: i32,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Duration {

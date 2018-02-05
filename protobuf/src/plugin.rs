@@ -29,7 +29,6 @@ pub struct CodeGeneratorRequest {
     proto_file: ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl CodeGeneratorRequest {
@@ -314,7 +313,6 @@ pub struct CodeGeneratorResponse {
     file: ::protobuf::RepeatedField<CodeGeneratorResponse_File>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl CodeGeneratorResponse {
@@ -552,7 +550,6 @@ pub struct CodeGeneratorResponse_File {
     content: ::protobuf::SingularField<::std::string::String>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl CodeGeneratorResponse_File {

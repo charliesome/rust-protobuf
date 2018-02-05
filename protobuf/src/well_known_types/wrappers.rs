@@ -27,7 +27,6 @@ pub struct DoubleValue {
     pub value: f64,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl DoubleValue {
@@ -190,7 +189,6 @@ pub struct FloatValue {
     pub value: f32,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl FloatValue {
@@ -353,7 +351,6 @@ pub struct Int64Value {
     pub value: i64,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Int64Value {
@@ -516,7 +513,6 @@ pub struct UInt64Value {
     pub value: u64,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl UInt64Value {
@@ -679,7 +675,6 @@ pub struct Int32Value {
     pub value: i32,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Int32Value {
@@ -842,7 +837,6 @@ pub struct UInt32Value {
     pub value: u32,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl UInt32Value {
@@ -1005,7 +999,6 @@ pub struct BoolValue {
     pub value: bool,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl BoolValue {
@@ -1168,7 +1161,6 @@ pub struct StringValue {
     pub value: ::std::string::String,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl StringValue {
@@ -1338,7 +1330,6 @@ pub struct BytesValue {
     pub value: ::std::vec::Vec<u8>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl BytesValue {

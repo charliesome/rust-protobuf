@@ -33,7 +33,6 @@ pub struct Api {
     pub syntax: ::protobuf::well_known_types::Syntax,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Api {
@@ -532,7 +531,6 @@ pub struct Method {
     pub syntax: ::protobuf::well_known_types::Syntax,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Method {
@@ -983,7 +981,6 @@ pub struct Mixin {
     pub root: ::std::string::String,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Mixin {

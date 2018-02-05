@@ -25,7 +25,6 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 pub struct Empty {
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Empty {

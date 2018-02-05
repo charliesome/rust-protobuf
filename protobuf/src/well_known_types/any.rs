@@ -28,7 +28,6 @@ pub struct Any {
     pub value: ::std::vec::Vec<u8>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Any {

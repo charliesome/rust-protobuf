@@ -27,7 +27,6 @@ pub struct Struct {
     pub fields: ::std::collections::HashMap<::std::string::String, Value>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Struct {
@@ -192,7 +191,6 @@ pub struct Value {
     kind: ::std::option::Option<Value_oneof_kind>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 #[derive(Clone,PartialEq)]
@@ -677,7 +675,6 @@ pub struct ListValue {
     pub values: ::protobuf::RepeatedField<Value>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl ListValue {

@@ -32,7 +32,6 @@ pub struct Type {
     pub syntax: Syntax,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Type {
@@ -477,7 +476,6 @@ pub struct Field {
     pub default_value: ::std::string::String,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Field {
@@ -1231,7 +1229,6 @@ pub struct Enum {
     pub syntax: Syntax,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Enum {
@@ -1621,7 +1618,6 @@ pub struct EnumValue {
     pub options: ::protobuf::RepeatedField<Option>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl EnumValue {
@@ -1890,7 +1886,6 @@ pub struct Option {
     pub value: ::protobuf::SingularPtrField<::protobuf::well_known_types::Any>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl Option {

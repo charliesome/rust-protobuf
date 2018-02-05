@@ -27,7 +27,6 @@ pub struct SourceContext {
     pub file_name: ::std::string::String,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
-    cached_size: ::protobuf::CachedSize,
 }
 
 impl SourceContext {
