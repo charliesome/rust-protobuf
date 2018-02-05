@@ -66,7 +66,6 @@ impl ::protobuf::Message for Empty {
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -76,7 +75,7 @@ impl ::protobuf::Message for Empty {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {

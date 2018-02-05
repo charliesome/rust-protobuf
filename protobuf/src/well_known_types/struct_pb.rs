@@ -105,7 +105,6 @@ impl ::protobuf::Message for Struct {
         let mut my_size = 0;
         my_size += ::protobuf::rt::compute_map_size::<::protobuf::types::ProtobufTypeString, ::protobuf::types::ProtobufTypeMessage<Value>>(1, &self.fields);
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -116,7 +115,7 @@ impl ::protobuf::Message for Struct {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
@@ -536,7 +535,6 @@ impl ::protobuf::Message for Value {
             };
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -572,7 +570,7 @@ impl ::protobuf::Message for Value {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
@@ -765,7 +763,6 @@ impl ::protobuf::Message for ListValue {
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -780,7 +777,7 @@ impl ::protobuf::Message for ListValue {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {

@@ -204,7 +204,6 @@ impl ::protobuf::Message for CodeGeneratorRequest {
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -225,7 +224,7 @@ impl ::protobuf::Message for CodeGeneratorRequest {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
@@ -451,7 +450,6 @@ impl ::protobuf::Message for CodeGeneratorResponse {
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -469,7 +467,7 @@ impl ::protobuf::Message for CodeGeneratorResponse {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
@@ -745,7 +743,6 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
             my_size += ::protobuf::rt::string_size(15, &v);
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -764,7 +761,7 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {

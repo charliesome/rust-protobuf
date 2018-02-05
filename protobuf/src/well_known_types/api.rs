@@ -375,7 +375,6 @@ impl ::protobuf::Message for Api {
             my_size += ::protobuf::rt::enum_size(7, self.syntax);
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -414,7 +413,7 @@ impl ::protobuf::Message for Api {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
@@ -838,7 +837,6 @@ impl ::protobuf::Message for Method {
             my_size += ::protobuf::rt::enum_size(7, self.syntax);
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -871,7 +869,7 @@ impl ::protobuf::Message for Method {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
@@ -1106,7 +1104,6 @@ impl ::protobuf::Message for Mixin {
             my_size += ::protobuf::rt::string_size(2, &self.root);
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -1122,7 +1119,7 @@ impl ::protobuf::Message for Mixin {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {

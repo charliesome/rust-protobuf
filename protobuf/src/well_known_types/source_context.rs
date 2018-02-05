@@ -108,7 +108,6 @@ impl ::protobuf::Message for SourceContext {
             my_size += ::protobuf::rt::string_size(1, &self.file_name);
         }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
-        self.cached_size.set(my_size);
         my_size
     }
 
@@ -121,7 +120,7 @@ impl ::protobuf::Message for SourceContext {
     }
 
     fn get_cached_size(&self) -> u32 {
-        self.cached_size.get()
+        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
