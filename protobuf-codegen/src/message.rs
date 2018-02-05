@@ -407,7 +407,6 @@ impl<'a> MessageGen<'a> {
             w.comment("special fields");
             // TODO: make public
             w.field_decl("unknown_fields", "::protobuf::UnknownFields");
-            w.field_decl("cached_size", "::protobuf::CachedSize");
         });
     }
 
