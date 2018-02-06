@@ -553,12 +553,12 @@ impl ::protobuf::Message for Value {
                 },
                 &Value_oneof_kind::struct_value(ref v) => {
                     os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-                    os.write_raw_varint32(v.get_cached_size())?;
+                    os.write_raw_varint32(v.compute_size())?;
                     v.write_to_with_cached_sizes(os)?;
                 },
                 &Value_oneof_kind::list_value(ref v) => {
                     os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-                    os.write_raw_varint32(v.get_cached_size())?;
+                    os.write_raw_varint32(v.compute_size())?;
                     v.write_to_with_cached_sizes(os)?;
                 },
             };
@@ -766,7 +766,7 @@ impl ::protobuf::Message for ListValue {
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.values {
             os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;

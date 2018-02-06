@@ -215,7 +215,7 @@ impl ::protobuf::Message for CodeGeneratorRequest {
         }
         for v in &self.proto_file {
             os.write_tag(15, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -457,7 +457,7 @@ impl ::protobuf::Message for CodeGeneratorResponse {
         }
         for v in &self.file {
             os.write_tag(15, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;

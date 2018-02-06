@@ -118,7 +118,7 @@ impl ::protobuf::Message for FileDescriptorSet {
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.file {
             os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -828,32 +828,32 @@ impl ::protobuf::Message for FileDescriptorProto {
         };
         for v in &self.message_type {
             os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         for v in &self.enum_type {
             os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         for v in &self.service {
             os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         for v in &self.extension {
             os.write_tag(7, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         if let Some(ref v) = self.options.as_ref() {
             os.write_tag(8, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
         if let Some(ref v) = self.source_code_info.as_ref() {
             os.write_tag(9, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
         if let Some(ref v) = self.syntax.as_ref() {
@@ -1522,42 +1522,42 @@ impl ::protobuf::Message for DescriptorProto {
         }
         for v in &self.field {
             os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         for v in &self.extension {
             os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         for v in &self.nested_type {
             os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         for v in &self.enum_type {
             os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         for v in &self.extension_range {
             os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         for v in &self.oneof_decl {
             os.write_tag(8, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         if let Some(ref v) = self.options.as_ref() {
             os.write_tag(7, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
         for v in &self.reserved_range {
             os.write_tag(9, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         for v in &self.reserved_name {
@@ -2658,7 +2658,7 @@ impl ::protobuf::Message for FieldDescriptorProto {
         }
         if let Some(ref v) = self.options.as_ref() {
             os.write_tag(8, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -3099,7 +3099,7 @@ impl ::protobuf::Message for OneofDescriptorProto {
         }
         if let Some(ref v) = self.options.as_ref() {
             os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -3389,12 +3389,12 @@ impl ::protobuf::Message for EnumDescriptorProto {
         }
         for v in &self.value {
             os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         if let Some(ref v) = self.options.as_ref() {
             os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -3685,7 +3685,7 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
         }
         if let Some(ref v) = self.options.as_ref() {
             os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -3981,12 +3981,12 @@ impl ::protobuf::Message for ServiceDescriptorProto {
         }
         for v in &self.method {
             os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         if let Some(ref v) = self.options.as_ref() {
             os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -4420,7 +4420,7 @@ impl ::protobuf::Message for MethodDescriptorProto {
         }
         if let Some(ref v) = self.options.as_ref() {
             os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
         if let Some(v) = self.client_streaming {
@@ -5271,7 +5271,7 @@ impl ::protobuf::Message for FileOptions {
         }
         for v in &self.uninterpreted_option {
             os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -5747,7 +5747,7 @@ impl ::protobuf::Message for MessageOptions {
         }
         for v in &self.uninterpreted_option {
             os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -6193,7 +6193,7 @@ impl ::protobuf::Message for FieldOptions {
         }
         for v in &self.uninterpreted_option {
             os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -6509,7 +6509,7 @@ impl ::protobuf::Message for OneofOptions {
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.uninterpreted_option {
             os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -6767,7 +6767,7 @@ impl ::protobuf::Message for EnumOptions {
         }
         for v in &self.uninterpreted_option {
             os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -6996,7 +6996,7 @@ impl ::protobuf::Message for EnumValueOptions {
         }
         for v in &self.uninterpreted_option {
             os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -7219,7 +7219,7 @@ impl ::protobuf::Message for ServiceOptions {
         }
         for v in &self.uninterpreted_option {
             os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -7442,7 +7442,7 @@ impl ::protobuf::Message for MethodOptions {
         }
         for v in &self.uninterpreted_option {
             os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -7891,7 +7891,7 @@ impl ::protobuf::Message for UninterpretedOption {
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.name {
             os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         if let Some(ref v) = self.identifier_value.as_ref() {
@@ -8353,7 +8353,7 @@ impl ::protobuf::Message for SourceCodeInfo {
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.location {
             os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
@@ -8925,7 +8925,7 @@ impl ::protobuf::Message for GeneratedCodeInfo {
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.annotation {
             os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
+            os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
