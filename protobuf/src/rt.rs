@@ -778,8 +778,8 @@ where
         let key_tag_size = 1;
         let value_tag_size = 1;
 
-        let key_len = K::get_cached_size_with_length_delimiter(k);
-        let value_len = V::get_cached_size_with_length_delimiter(v);
+        let key_len = K::compute_size_with_length_delimiter(k);
+        let value_len = V::compute_size_with_length_delimiter(v);
 
         let entry_len = key_tag_size + key_len + value_tag_size + value_len;
 
