@@ -39,12 +39,6 @@ pub trait ProtobufType {
         unimplemented!()
     }
 
-    /// Get previously computed size
-    #[inline]
-    fn get_cached_size(value: &Self::Value) -> u32 {
-        Self::compute_size(value)
-    }
-
     /// Get previously cached size with length prefix
     #[inline]
     fn get_cached_size_with_length_delimiter(value: &Self::Value) -> u32 {
@@ -538,10 +532,6 @@ impl<M : Message + Clone + ProtobufValue> ProtobufType for ProtobufTypeMessage<M
     }
 
     fn compute_size(value: &M) -> u32 {
-        value.compute_size()
-    }
-
-    fn get_cached_size(value: &M) -> u32 {
         value.compute_size()
     }
 

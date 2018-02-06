@@ -43,9 +43,6 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     /// Compute and cache size of this message and all nested messages
     fn compute_size(&self) -> u32;
 
-    /// Get size previously computed by `compute_size`.
-    fn get_cached_size(&self) -> u32;
-
     /// Write the message to the stream.
     ///
     /// Results in error if message is not fully initialized.
