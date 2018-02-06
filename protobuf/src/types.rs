@@ -14,7 +14,6 @@ use wire_format::WireType;
 use rt;
 use reflect::ProtobufValue;
 use unknown::UnknownValues;
-use cached_size::SizeCache;
 
 pub trait ProtobufType {
     type Value: ProtobufValue + Clone + 'static;

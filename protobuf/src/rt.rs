@@ -25,9 +25,7 @@ use singular::SingularField;
 use singular::SingularPtrField;
 use repeated::RepeatedField;
 use stream::CodedInputStream;
-use stream::CodedOutputStream;
 use types::*;
-use cached_size::SizeCache;
 
 use unknown::UnknownFields;
 

@@ -74,7 +74,7 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     /// Write the message to the vec, prepend the message with message length
     /// encoded as varint.
     fn write_length_delimited_to_vec(&self, vec: &mut Vec<u8>) -> ProtobufResult<()> {
-        let mut os = CodedOutputStream::vec(vec);
+        let mut os = CodedOutputStream::new(vec);
         self.write_length_delimited_to(&mut os)?;
         os.flush()?;
         Ok(())
@@ -111,18 +111,14 @@ pub trait Message: fmt::Debug + Clear + Any + Send + Sync {
     fn write_to_bytes(&self) -> ProtobufResult<Vec<u8>> {
         self.check_initialized()?;
 
-        let size = self.compute_size() as usize;
-        let mut v = Vec::with_capacity(size);
-        // skip zerofill
-        unsafe {
-            v.set_len(size);
-        }
+        let mut vec = Vec::new();
+
         {
-            let mut os = CodedOutputStream::bytes(&mut v);
+            let mut os = CodedOutputStream::new(&mut vec);
             self.write_to_with_cached_sizes(&mut os)?;
-            os.check_eof();
         }
-        Ok(v)
+
+        Ok(vec)
     }
 
     /// Write the message to the writer, prepend the message with message length

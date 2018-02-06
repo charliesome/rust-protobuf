@@ -71,8 +71,6 @@ mod varint;
 #[cfg(feature = "bytes")]
 pub mod chars; // TODO: make private
 
-mod misc;
-
 mod buf_read_iter;
 
 
