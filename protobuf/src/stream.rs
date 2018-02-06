@@ -1,7 +1,9 @@
-use std::mem;
-use std::io;
-use std::io::{BufRead, Read};
+use std::collections::HashMap;
+use std::hash::Hash;
 use std::io::Write;
+use std::io::{BufRead, Read};
+use std::io;
+use std::mem;
 use std::slice;
 
 #[cfg(feature = "bytes")]
@@ -12,6 +14,7 @@ use chars::Chars;
 use varint;
 use misc::remaining_capacity_as_slice_mut;
 use misc::remove_lifetime_mut;
+use cached_size::SizeCache;
 use core::Message;
 use core::ProtobufEnum;
 use unknown::UnknownFields;
@@ -25,6 +28,9 @@ use error::ProtobufResult;
 use error::ProtobufError;
 use error::WireError;
 use buf_read_iter::BufReadIter;
+use types::ProtobufType;
+use rt;
+use wire_format::WireType;
 
 // Equal to the default buffer size of `BufWriter`, so when
 // `CodedOutputStream` wraps `BufWriter`, it often skips double buffering.
@@ -831,6 +837,8 @@ pub struct CodedOutputStream<'a> {
     buffer: &'a mut [u8],
     // within buffer
     position: usize,
+    // size cache
+    pub sizes: SizeCache,
 }
 
 impl<'a> CodedOutputStream<'a> {
@@ -848,6 +856,7 @@ impl<'a> CodedOutputStream<'a> {
             target: OutputTarget::Write(writer, buffer_storage),
             buffer: buffer,
             position: 0,
+            sizes: SizeCache::new(),
         }
     }
 
@@ -859,6 +868,7 @@ impl<'a> CodedOutputStream<'a> {
             target: OutputTarget::Bytes,
             buffer: bytes,
             position: 0,
+            sizes: SizeCache::new(),
         }
     }
 
@@ -871,7 +881,12 @@ impl<'a> CodedOutputStream<'a> {
             target: OutputTarget::Vec(vec),
             buffer: &mut [],
             position: 0,
+            sizes: SizeCache::new(),
         }
+    }
+
+    pub fn size_of<T: ProtobufType>(&mut self, val: &T::Value) -> usize {
+        self.sizes.size_of::<T>(val)
     }
 
     pub fn check_eof(&self) {
@@ -1223,6 +1238,45 @@ impl<'a> CodedOutputStream<'a> {
         self.write_tag(field_number, wire_format::WireTypeLengthDelimited)?;
         self.write_message_no_tag(msg)?;
         Ok(())
+    }
+
+    /// Write map, message sizes must be already known.
+    pub fn write_map<K, V>(
+        &mut self,
+        field_number: u32,
+        map: &HashMap<K::Value, V::Value>,
+    ) -> ProtobufResult<()>
+    where
+        K : ProtobufType,
+        V : ProtobufType,
+        K::Value : Eq + Hash,
+    {
+        for (k, v) in map {
+
+            let key_tag_size = 1;
+            let value_tag_size = 1;
+
+            let key_len = self.size_with_length_delimiter::<K>(k);
+            let value_len = self.size_with_length_delimiter::<V>(v);
+
+            let entry_len = key_tag_size + key_len + value_tag_size + value_len;
+
+            self.write_tag(field_number, WireType::WireTypeLengthDelimited)?;
+            self.write_raw_varint32(entry_len as u32)?;
+            K::write_with_cached_size(1, k, self)?;
+            V::write_with_cached_size(2, v, self)?;
+        }
+        Ok(())
+    }
+
+    fn size_with_length_delimiter<T: ProtobufType>(&mut self, value: &T::Value) -> usize {
+        let size = self.size_of::<T>(value);
+
+        if T::wire_type() == WireType::WireTypeLengthDelimited {
+            rt::compute_raw_varint32_size(size as u32) as usize + size
+        } else {
+            size
+        }
     }
 }
 

@@ -27,6 +27,7 @@ use repeated::RepeatedField;
 use stream::CodedInputStream;
 use stream::CodedOutputStream;
 use types::*;
+use cached_size::SizeCache;
 
 use unknown::UnknownFields;
 
@@ -753,11 +754,11 @@ where
         let key_tag_size = 1;
         let value_tag_size = 1;
 
-        let key_len = K::compute_size_with_length_delimiter(k);
-        let value_len = V::compute_size_with_length_delimiter(v);
+        let key_len = size_with_length_delimiter::<K>(k) as u32;
+        let value_len = size_with_length_delimiter::<V>(v) as u32;
 
         let entry_len = key_tag_size + key_len + value_tag_size + value_len;
-        sum += tag_size(field_number) + compute_raw_varint32_size(entry_len) + entry_len;
+        sum += tag_size(field_number) + compute_raw_varint32_size(entry_len as u32) + entry_len;
     }
     sum
 }
@@ -778,13 +779,13 @@ where
         let key_tag_size = 1;
         let value_tag_size = 1;
 
-        let key_len = K::compute_size_with_length_delimiter(k);
-        let value_len = V::compute_size_with_length_delimiter(v);
+        let key_len = size_with_length_delimiter::<K>(k);
+        let value_len = size_with_length_delimiter::<V>(v);
 
         let entry_len = key_tag_size + key_len + value_tag_size + value_len;
 
         os.write_tag(field_number, WireType::WireTypeLengthDelimited)?;
-        os.write_raw_varint32(entry_len)?;
+        os.write_raw_varint32(entry_len as u32)?;
         K::write_with_cached_size(1, k, os)?;
         V::write_with_cached_size(2, v, os)?;
     }
@@ -839,4 +840,14 @@ where
     }
 
     Ok(())
+}
+
+pub fn size_with_length_delimiter<T: ProtobufType>(value: &T::Value) -> usize {
+    let size = T::compute_size(value) as usize;
+
+    if T::wire_type() == WireType::WireTypeLengthDelimited {
+        compute_raw_varint32_size(size as u32) as usize + size
+    } else {
+        size
+    }
 }

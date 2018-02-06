@@ -1,5 +1,8 @@
+use std::collections::HashMap;
 use std::sync::atomic::AtomicUsize;
 use std::sync::atomic::Ordering;
+
+use types::ProtobufType;
 
 /// Cached size field used in generated code.
 /// It is always equal to itself to simplify generated code.
@@ -34,3 +37,23 @@ impl PartialEq<CachedSize> for CachedSize {
 }
 
 impl Eq for CachedSize {}
+
+pub struct SizeCache {
+    sizes: HashMap<*const (), usize>,
+}
+
+impl SizeCache {
+    pub fn new() -> Self {
+        SizeCache { sizes: HashMap::new() }
+    }
+
+    pub fn size_of<T: ProtobufType>(&mut self, val: &T::Value) -> usize {
+        let key = val as *const T::Value as *const ();
+
+        let cached_size = self.sizes
+            .entry(key)
+            .or_insert_with(|| T::compute_size(val) as usize);
+
+        *cached_size
+    }
+}

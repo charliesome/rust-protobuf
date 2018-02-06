@@ -14,6 +14,7 @@ use wire_format::WireType;
 use rt;
 use reflect::ProtobufValue;
 use unknown::UnknownValues;
+use cached_size::SizeCache;
 
 pub trait ProtobufType {
     type Value: ProtobufValue + Clone + 'static;
@@ -23,17 +24,6 @@ pub trait ProtobufType {
     fn read(is: &mut CodedInputStream) -> ProtobufResult<Self::Value>;
 
     fn compute_size(value: &Self::Value) -> u32;
-
-    /// Compute size adding length prefix if wire type is length delimited
-    /// (i. e. string, bytes, message)
-    fn compute_size_with_length_delimiter(value: &Self::Value) -> u32 {
-        let size = Self::compute_size(value);
-        if Self::wire_type() == WireType::WireTypeLengthDelimited {
-            rt::compute_raw_varint32_size(size) + size
-        } else {
-            size
-        }
-    }
 
     fn get_from_unknown(_unknown_values: &UnknownValues) -> Option<Self::Value> {
         unimplemented!()
