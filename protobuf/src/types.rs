@@ -519,9 +519,6 @@ impl<M : Message + Clone + ProtobufValue> ProtobufType for ProtobufTypeMessage<M
         value: &Self::Value,
         os: &mut CodedOutputStream,
     ) -> ProtobufResult<()> {
-        os.write_tag(field_number, WireType::WireTypeLengthDelimited)?;
-        os.write_raw_varint32(value.compute_size())?;
-        value.write_to_with_cached_sizes(os)?;
-        Ok(())
+        os.write_message(field_number, value)
     }
 }
