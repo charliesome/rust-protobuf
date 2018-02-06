@@ -202,7 +202,6 @@ impl ::protobuf::Message for CodeGeneratorRequest {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -218,7 +217,6 @@ impl ::protobuf::Message for CodeGeneratorRequest {
             os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -443,7 +441,6 @@ impl ::protobuf::Message for CodeGeneratorResponse {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -456,7 +453,6 @@ impl ::protobuf::Message for CodeGeneratorResponse {
             os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -731,7 +727,6 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
         if let Some(ref v) = self.content.as_ref() {
             my_size += ::protobuf::rt::string_size(15, &v);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -745,7 +740,6 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
         if let Some(ref v) = self.content.as_ref() {
             os.write_string(15, &v)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 

@@ -133,7 +133,6 @@ impl ::protobuf::Message for Timestamp {
         if self.nanos != 0 {
             my_size += ::protobuf::rt::value_size(2, self.nanos, ::protobuf::wire_format::WireTypeVarint);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -144,7 +143,6 @@ impl ::protobuf::Message for Timestamp {
         if self.nanos != 0 {
             os.write_int32(2, self.nanos)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 

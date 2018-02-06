@@ -105,7 +105,6 @@ impl ::protobuf::Message for FieldMask {
         for value in &self.paths {
             my_size += ::protobuf::rt::string_size(1, &value);
         };
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -113,7 +112,6 @@ impl ::protobuf::Message for FieldMask {
         for v in &self.paths {
             os.write_string(1, &v)?;
         };
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 

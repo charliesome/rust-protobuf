@@ -106,7 +106,6 @@ impl ::protobuf::Message for SourceContext {
         if !self.file_name.is_empty() {
             my_size += ::protobuf::rt::string_size(1, &self.file_name);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -114,7 +113,6 @@ impl ::protobuf::Message for SourceContext {
         if !self.file_name.is_empty() {
             os.write_string(1, &self.file_name)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 

@@ -147,7 +147,6 @@ impl ::protobuf::Message for Any {
         if !self.value.is_empty() {
             my_size += ::protobuf::rt::bytes_size(2, &self.value);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -158,7 +157,6 @@ impl ::protobuf::Message for Any {
         if !self.value.is_empty() {
             os.write_bytes(2, &self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 

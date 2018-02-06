@@ -99,7 +99,6 @@ impl ::protobuf::Message for DoubleValue {
         if self.value != 0. {
             my_size += 9;
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -107,7 +106,6 @@ impl ::protobuf::Message for DoubleValue {
         if self.value != 0. {
             os.write_double(1, self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -257,7 +255,6 @@ impl ::protobuf::Message for FloatValue {
         if self.value != 0. {
             my_size += 5;
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -265,7 +262,6 @@ impl ::protobuf::Message for FloatValue {
         if self.value != 0. {
             os.write_float(1, self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -415,7 +411,6 @@ impl ::protobuf::Message for Int64Value {
         if self.value != 0 {
             my_size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -423,7 +418,6 @@ impl ::protobuf::Message for Int64Value {
         if self.value != 0 {
             os.write_int64(1, self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -573,7 +567,6 @@ impl ::protobuf::Message for UInt64Value {
         if self.value != 0 {
             my_size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -581,7 +574,6 @@ impl ::protobuf::Message for UInt64Value {
         if self.value != 0 {
             os.write_uint64(1, self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -731,7 +723,6 @@ impl ::protobuf::Message for Int32Value {
         if self.value != 0 {
             my_size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -739,7 +730,6 @@ impl ::protobuf::Message for Int32Value {
         if self.value != 0 {
             os.write_int32(1, self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -889,7 +879,6 @@ impl ::protobuf::Message for UInt32Value {
         if self.value != 0 {
             my_size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -897,7 +886,6 @@ impl ::protobuf::Message for UInt32Value {
         if self.value != 0 {
             os.write_uint32(1, self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -1047,7 +1035,6 @@ impl ::protobuf::Message for BoolValue {
         if self.value != false {
             my_size += 2;
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -1055,7 +1042,6 @@ impl ::protobuf::Message for BoolValue {
         if self.value != false {
             os.write_bool(1, self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -1212,7 +1198,6 @@ impl ::protobuf::Message for StringValue {
         if !self.value.is_empty() {
             my_size += ::protobuf::rt::string_size(1, &self.value);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -1220,7 +1205,6 @@ impl ::protobuf::Message for StringValue {
         if !self.value.is_empty() {
             os.write_string(1, &self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -1377,7 +1361,6 @@ impl ::protobuf::Message for BytesValue {
         if !self.value.is_empty() {
             my_size += ::protobuf::rt::bytes_size(1, &self.value);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -1385,7 +1368,6 @@ impl ::protobuf::Message for BytesValue {
         if !self.value.is_empty() {
             os.write_bytes(1, &self.value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 

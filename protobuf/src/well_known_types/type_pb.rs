@@ -326,7 +326,6 @@ impl ::protobuf::Message for Type {
         if self.syntax != Syntax::SYNTAX_PROTO2 {
             my_size += ::protobuf::rt::enum_size(6, self.syntax);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -355,7 +354,6 @@ impl ::protobuf::Message for Type {
         if self.syntax != Syntax::SYNTAX_PROTO2 {
             os.write_enum(6, self.syntax.value())?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -881,7 +879,6 @@ impl ::protobuf::Message for Field {
         if !self.default_value.is_empty() {
             my_size += ::protobuf::rt::string_size(11, &self.default_value);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -918,7 +915,6 @@ impl ::protobuf::Message for Field {
         if !self.default_value.is_empty() {
             os.write_string(11, &self.default_value)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -1476,7 +1472,6 @@ impl ::protobuf::Message for Enum {
         if self.syntax != Syntax::SYNTAX_PROTO2 {
             my_size += ::protobuf::rt::enum_size(5, self.syntax);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -1502,7 +1497,6 @@ impl ::protobuf::Message for Enum {
         if self.syntax != Syntax::SYNTAX_PROTO2 {
             os.write_enum(5, self.syntax.value())?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -1763,7 +1757,6 @@ impl ::protobuf::Message for EnumValue {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -1779,7 +1772,6 @@ impl ::protobuf::Message for EnumValue {
             os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -2002,7 +1994,6 @@ impl ::protobuf::Message for Option {
             let len = v.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -2015,7 +2006,6 @@ impl ::protobuf::Message for Option {
             os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 

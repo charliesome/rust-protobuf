@@ -373,7 +373,6 @@ impl ::protobuf::Message for Api {
         if self.syntax != ::protobuf::well_known_types::Syntax::SYNTAX_PROTO2 {
             my_size += ::protobuf::rt::enum_size(7, self.syntax);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -407,7 +406,6 @@ impl ::protobuf::Message for Api {
         if self.syntax != ::protobuf::well_known_types::Syntax::SYNTAX_PROTO2 {
             os.write_enum(7, self.syntax.value())?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -830,7 +828,6 @@ impl ::protobuf::Message for Method {
         if self.syntax != ::protobuf::well_known_types::Syntax::SYNTAX_PROTO2 {
             my_size += ::protobuf::rt::enum_size(7, self.syntax);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -858,7 +855,6 @@ impl ::protobuf::Message for Method {
         if self.syntax != ::protobuf::well_known_types::Syntax::SYNTAX_PROTO2 {
             os.write_enum(7, self.syntax.value())?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -1092,7 +1088,6 @@ impl ::protobuf::Message for Mixin {
         if !self.root.is_empty() {
             my_size += ::protobuf::rt::string_size(2, &self.root);
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -1103,7 +1098,6 @@ impl ::protobuf::Message for Mixin {
         if !self.root.is_empty() {
             os.write_string(2, &self.root)?;
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 

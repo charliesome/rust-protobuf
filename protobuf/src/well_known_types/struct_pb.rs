@@ -103,13 +103,11 @@ impl ::protobuf::Message for Struct {
     fn compute_size(&self) -> u32 {
         let mut my_size = 0;
         my_size += ::protobuf::rt::compute_map_size::<::protobuf::types::ProtobufTypeString, ::protobuf::types::ProtobufTypeMessage<Value>>(1, &self.fields);
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         os.write_map::<::protobuf::types::ProtobufTypeString, ::protobuf::types::ProtobufTypeMessage<Value>>(1, &self.fields)?;
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -528,7 +526,6 @@ impl ::protobuf::Message for Value {
                 },
             };
         }
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -559,7 +556,6 @@ impl ::protobuf::Message for Value {
                 },
             };
         }
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
@@ -751,7 +747,6 @@ impl ::protobuf::Message for ListValue {
             let len = value.compute_size();
             my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         my_size
     }
 
@@ -761,7 +756,6 @@ impl ::protobuf::Message for ListValue {
             os.write_raw_varint32(v.compute_size())?;
             v.write_to_with_cached_sizes(os)?;
         };
-        os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
 
