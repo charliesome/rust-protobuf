@@ -126,7 +126,6 @@ impl<'a> MessageGen<'a> {
             self.write_match_each_oneof_variant(w, |w, variant, v, v_type| {
                 variant.field.write_write_element(w, "os", v, v_type);
             });
-            w.write_line("os.write_unknown_fields(self.get_unknown_fields())?;");
             w.write_line("::std::result::Result::Ok(())");
         });
     }
@@ -156,9 +155,6 @@ impl<'a> MessageGen<'a> {
             self.write_match_each_oneof_variant(w, |w, variant, v, vtype| {
                 variant.field.write_element_size(w, v, vtype, "my_size");
             });
-            w.write_line(
-                "my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());",
-            );
             w.write_line("my_size");
         });
     }
