@@ -1543,7 +1543,7 @@ impl<'a> FieldGen<'a> {
             }
             FieldKind::Map(MapField { ref key, ref value, .. }) => {
                 w.write_line(&format!(
-                    "::protobuf::rt::write_map_with_cached_sizes::<{}, {}>({}, &{}, os)?;",
+                    "os.write_map::<{}, {}>({}, &{})?;",
                     key.lib_protobuf_type(),
                     value.lib_protobuf_type(),
                     self.proto_field.number(),

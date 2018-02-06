@@ -763,34 +763,6 @@ where
     sum
 }
 
-/// Write map, message sizes must be already known.
-pub fn write_map_with_cached_sizes<K, V>(
-    field_number: u32,
-    map: &HashMap<K::Value, V::Value>,
-    os: &mut CodedOutputStream,
-) -> ProtobufResult<()>
-where
-    K : ProtobufType,
-    V : ProtobufType,
-    K::Value : Eq + Hash,
-{
-    for (k, v) in map {
-
-        let key_tag_size = 1;
-        let value_tag_size = 1;
-
-        let key_len = size_with_length_delimiter::<K>(k);
-        let value_len = size_with_length_delimiter::<V>(v);
-
-        let entry_len = key_tag_size + key_len + value_tag_size + value_len;
-
-        os.write_tag(field_number, WireType::WireTypeLengthDelimited)?;
-        os.write_raw_varint32(entry_len as u32)?;
-        K::write_with_cached_size(1, k, os)?;
-        V::write_with_cached_size(2, v, os)?;
-    }
-    Ok(())
-}
 
 /// Read `map` field.
 pub fn read_map_into<K, V>(
