@@ -113,10 +113,6 @@ impl ::protobuf::Message for Struct {
         ::std::result::Result::Ok(())
     }
 
-    fn get_cached_size(&self) -> u32 {
-        self.compute_size()
-    }
-
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
@@ -567,10 +563,6 @@ impl ::protobuf::Message for Value {
         ::std::result::Result::Ok(())
     }
 
-    fn get_cached_size(&self) -> u32 {
-        self.compute_size()
-    }
-
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
@@ -771,10 +763,6 @@ impl ::protobuf::Message for ListValue {
         };
         os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
-    }
-
-    fn get_cached_size(&self) -> u32 {
-        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {

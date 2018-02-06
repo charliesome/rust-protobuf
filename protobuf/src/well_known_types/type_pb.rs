@@ -359,10 +359,6 @@ impl ::protobuf::Message for Type {
         ::std::result::Result::Ok(())
     }
 
-    fn get_cached_size(&self) -> u32 {
-        self.compute_size()
-    }
-
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
@@ -924,10 +920,6 @@ impl ::protobuf::Message for Field {
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
-    }
-
-    fn get_cached_size(&self) -> u32 {
-        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
@@ -1514,10 +1506,6 @@ impl ::protobuf::Message for Enum {
         ::std::result::Result::Ok(())
     }
 
-    fn get_cached_size(&self) -> u32 {
-        self.compute_size()
-    }
-
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
@@ -1795,10 +1783,6 @@ impl ::protobuf::Message for EnumValue {
         ::std::result::Result::Ok(())
     }
 
-    fn get_cached_size(&self) -> u32 {
-        self.compute_size()
-    }
-
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
@@ -2033,10 +2017,6 @@ impl ::protobuf::Message for Option {
         }
         os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
-    }
-
-    fn get_cached_size(&self) -> u32 {
-        self.compute_size()
     }
 
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {

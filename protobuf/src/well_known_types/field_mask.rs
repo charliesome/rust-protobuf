@@ -117,10 +117,6 @@ impl ::protobuf::Message for FieldMask {
         ::std::result::Result::Ok(())
     }
 
-    fn get_cached_size(&self) -> u32 {
-        self.compute_size()
-    }
-
     fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
         &self.unknown_fields
     }
