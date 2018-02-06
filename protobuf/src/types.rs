@@ -48,7 +48,7 @@ pub trait ProtobufType {
     /// Get previously cached size with length prefix
     #[inline]
     fn get_cached_size_with_length_delimiter(value: &Self::Value) -> u32 {
-        let size = Self::get_cached_size(value);
+        let size = Self::compute_size(value);
         if Self::wire_type() == WireType::WireTypeLengthDelimited {
             rt::compute_raw_varint32_size(size) + size
         } else {
@@ -542,7 +542,7 @@ impl<M : Message + Clone + ProtobufValue> ProtobufType for ProtobufTypeMessage<M
     }
 
     fn get_cached_size(value: &M) -> u32 {
-        value.get_cached_size()
+        value.compute_size()
     }
 
     fn write_with_cached_size(
@@ -551,7 +551,7 @@ impl<M : Message + Clone + ProtobufValue> ProtobufType for ProtobufTypeMessage<M
         os: &mut CodedOutputStream,
     ) -> ProtobufResult<()> {
         os.write_tag(field_number, WireType::WireTypeLengthDelimited)?;
-        os.write_raw_varint32(value.get_cached_size())?;
+        os.write_raw_varint32(value.compute_size())?;
         value.write_to_with_cached_sizes(os)?;
         Ok(())
     }

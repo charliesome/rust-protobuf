@@ -1083,7 +1083,7 @@ impl<'a> FieldGen<'a> {
                     wire_format::WireTypeLengthDelimited
                 ));
                 w.write_line(&format!(
-                    "{}.write_raw_varint32({}.get_cached_size())?;",
+                    "{}.write_raw_varint32({}.compute_size())?;",
                     os,
                     var
                 ));
