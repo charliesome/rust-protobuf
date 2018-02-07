@@ -25,11 +25,11 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 pub struct Api {
     // message fields
     pub name: ::std::string::String,
-    pub methods: ::protobuf::RepeatedField<Method>,
-    pub options: ::protobuf::RepeatedField<::protobuf::well_known_types::Option>,
+    pub methods: ::std::vec::Vec<Method>,
+    pub options: ::std::vec::Vec<::protobuf::well_known_types::Option>,
     pub version: ::std::string::String,
     pub source_context: ::protobuf::SingularPtrField<::protobuf::well_known_types::SourceContext>,
-    pub mixins: ::protobuf::RepeatedField<Mixin>,
+    pub mixins: ::std::vec::Vec<Mixin>,
     pub syntax: ::protobuf::well_known_types::Syntax,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
@@ -86,12 +86,12 @@ impl Api {
     }
 
     // Param is passed by value, moved
-    pub fn set_methods(&mut self, v: ::protobuf::RepeatedField<Method>) {
+    pub fn set_methods(&mut self, v: ::std::vec::Vec<Method>) {
         self.methods = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_methods(&mut self) -> &mut ::protobuf::RepeatedField<Method> {
+    pub fn mut_methods(&mut self) -> &mut ::std::vec::Vec<Method> {
         &mut self.methods
     }
 
@@ -99,11 +99,11 @@ impl Api {
         &self.methods
     }
 
-    fn get_methods_for_reflect(&self) -> &::protobuf::RepeatedField<Method> {
+    fn get_methods_for_reflect(&self) -> &::std::vec::Vec<Method> {
         &self.methods
     }
 
-    fn mut_methods_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<Method> {
+    fn mut_methods_for_reflect(&mut self) -> &mut ::std::vec::Vec<Method> {
         &mut self.methods
     }
 
@@ -114,12 +114,12 @@ impl Api {
     }
 
     // Param is passed by value, moved
-    pub fn set_options(&mut self, v: ::protobuf::RepeatedField<::protobuf::well_known_types::Option>) {
+    pub fn set_options(&mut self, v: ::std::vec::Vec<::protobuf::well_known_types::Option>) {
         self.options = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_options(&mut self) -> &mut ::protobuf::RepeatedField<::protobuf::well_known_types::Option> {
+    pub fn mut_options(&mut self) -> &mut ::std::vec::Vec<::protobuf::well_known_types::Option> {
         &mut self.options
     }
 
@@ -127,11 +127,11 @@ impl Api {
         &self.options
     }
 
-    fn get_options_for_reflect(&self) -> &::protobuf::RepeatedField<::protobuf::well_known_types::Option> {
+    fn get_options_for_reflect(&self) -> &::std::vec::Vec<::protobuf::well_known_types::Option> {
         &self.options
     }
 
-    fn mut_options_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::protobuf::well_known_types::Option> {
+    fn mut_options_for_reflect(&mut self) -> &mut ::std::vec::Vec<::protobuf::well_known_types::Option> {
         &mut self.options
     }
 
@@ -207,12 +207,12 @@ impl Api {
     }
 
     // Param is passed by value, moved
-    pub fn set_mixins(&mut self, v: ::protobuf::RepeatedField<Mixin>) {
+    pub fn set_mixins(&mut self, v: ::std::vec::Vec<Mixin>) {
         self.mixins = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_mixins(&mut self) -> &mut ::protobuf::RepeatedField<Mixin> {
+    pub fn mut_mixins(&mut self) -> &mut ::std::vec::Vec<Mixin> {
         &mut self.mixins
     }
 
@@ -220,11 +220,11 @@ impl Api {
         &self.mixins
     }
 
-    fn get_mixins_for_reflect(&self) -> &::protobuf::RepeatedField<Mixin> {
+    fn get_mixins_for_reflect(&self) -> &::std::vec::Vec<Mixin> {
         &self.mixins
     }
 
-    fn mut_mixins_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<Mixin> {
+    fn mut_mixins_for_reflect(&mut self) -> &mut ::std::vec::Vec<Mixin> {
         &mut self.mixins
     }
 
@@ -491,7 +491,7 @@ pub struct Method {
     pub request_streaming: bool,
     pub response_type_url: ::std::string::String,
     pub response_streaming: bool,
-    pub options: ::protobuf::RepeatedField<::protobuf::well_known_types::Option>,
+    pub options: ::std::vec::Vec<::protobuf::well_known_types::Option>,
     pub syntax: ::protobuf::well_known_types::Syntax,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
@@ -652,12 +652,12 @@ impl Method {
     }
 
     // Param is passed by value, moved
-    pub fn set_options(&mut self, v: ::protobuf::RepeatedField<::protobuf::well_known_types::Option>) {
+    pub fn set_options(&mut self, v: ::std::vec::Vec<::protobuf::well_known_types::Option>) {
         self.options = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_options(&mut self) -> &mut ::protobuf::RepeatedField<::protobuf::well_known_types::Option> {
+    pub fn mut_options(&mut self) -> &mut ::std::vec::Vec<::protobuf::well_known_types::Option> {
         &mut self.options
     }
 
@@ -665,11 +665,11 @@ impl Method {
         &self.options
     }
 
-    fn get_options_for_reflect(&self) -> &::protobuf::RepeatedField<::protobuf::well_known_types::Option> {
+    fn get_options_for_reflect(&self) -> &::std::vec::Vec<::protobuf::well_known_types::Option> {
         &self.options
     }
 
-    fn mut_options_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::protobuf::well_known_types::Option> {
+    fn mut_options_for_reflect(&mut self) -> &mut ::std::vec::Vec<::protobuf::well_known_types::Option> {
         &mut self.options
     }
 

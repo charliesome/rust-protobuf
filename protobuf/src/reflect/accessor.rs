@@ -8,7 +8,6 @@ use core::message_down_cast;
 use reflect::EnumValueDescriptor;
 use types::*;
 
-use repeated::RepeatedField;
 use singular::SingularField;
 use singular::SingularPtrField;
 
@@ -584,9 +583,9 @@ where
 
 pub fn make_repeated_field_accessor<M, V>(
     name: &'static str,
-    get_vec: for<'a> fn(&'a M) -> &'a RepeatedField<V::Value>,
+    get_vec: for<'a> fn(&'a M) -> &'a Vec<V::Value>,
     mut_vec: for<'a> fn(&'a mut M)
-        -> &'a mut RepeatedField<V::Value>,
+        -> &'a mut Vec<V::Value>,
 ) -> Box<FieldAccessor + 'static>
 where
     M : Message + 'static,
@@ -595,7 +594,7 @@ where
     Box::new(FieldAccessorImpl {
         name: name,
         fns: FieldAccessorFunctions::Repeated(
-            Box::new(MessageGetMut::<M, RepeatedField<V::Value>> {
+            Box::new(MessageGetMut::<M, Vec<V::Value>> {
                 get_field: get_vec,
                 mut_field: mut_vec,
             }),

@@ -24,7 +24,7 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 #[derive(PartialEq,Clone,Default)]
 pub struct FieldMask {
     // message fields
-    pub paths: ::protobuf::RepeatedField<::std::string::String>,
+    pub paths: ::std::vec::Vec<::std::string::String>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -51,12 +51,12 @@ impl FieldMask {
     }
 
     // Param is passed by value, moved
-    pub fn set_paths(&mut self, v: ::protobuf::RepeatedField<::std::string::String>) {
+    pub fn set_paths(&mut self, v: ::std::vec::Vec<::std::string::String>) {
         self.paths = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_paths(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_paths(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.paths
     }
 
@@ -64,11 +64,11 @@ impl FieldMask {
         &self.paths
     }
 
-    fn get_paths_for_reflect(&self) -> &::protobuf::RepeatedField<::std::string::String> {
+    fn get_paths_for_reflect(&self) -> &::std::vec::Vec<::std::string::String> {
         &self.paths
     }
 
-    fn mut_paths_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    fn mut_paths_for_reflect(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.paths
     }
 }

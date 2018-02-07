@@ -24,7 +24,7 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 #[derive(PartialEq,Clone,Default)]
 pub struct FileDescriptorSet {
     // message fields
-    pub file: ::protobuf::RepeatedField<FileDescriptorProto>,
+    pub file: ::std::vec::Vec<FileDescriptorProto>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -51,12 +51,12 @@ impl FileDescriptorSet {
     }
 
     // Param is passed by value, moved
-    pub fn set_file(&mut self, v: ::protobuf::RepeatedField<FileDescriptorProto>) {
+    pub fn set_file(&mut self, v: ::std::vec::Vec<FileDescriptorProto>) {
         self.file = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_file(&mut self) -> &mut ::protobuf::RepeatedField<FileDescriptorProto> {
+    pub fn mut_file(&mut self) -> &mut ::std::vec::Vec<FileDescriptorProto> {
         &mut self.file
     }
 
@@ -64,11 +64,11 @@ impl FileDescriptorSet {
         &self.file
     }
 
-    fn get_file_for_reflect(&self) -> &::protobuf::RepeatedField<FileDescriptorProto> {
+    fn get_file_for_reflect(&self) -> &::std::vec::Vec<FileDescriptorProto> {
         &self.file
     }
 
-    fn mut_file_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<FileDescriptorProto> {
+    fn mut_file_for_reflect(&mut self) -> &mut ::std::vec::Vec<FileDescriptorProto> {
         &mut self.file
     }
 }
@@ -191,13 +191,13 @@ pub struct FileDescriptorProto {
     // message fields
     pub name: ::protobuf::SingularField<::std::string::String>,
     pub package: ::protobuf::SingularField<::std::string::String>,
-    pub dependency: ::protobuf::RepeatedField<::std::string::String>,
+    pub dependency: ::std::vec::Vec<::std::string::String>,
     pub public_dependency: ::std::vec::Vec<i32>,
     pub weak_dependency: ::std::vec::Vec<i32>,
-    pub message_type: ::protobuf::RepeatedField<DescriptorProto>,
-    pub enum_type: ::protobuf::RepeatedField<EnumDescriptorProto>,
-    pub service: ::protobuf::RepeatedField<ServiceDescriptorProto>,
-    pub extension: ::protobuf::RepeatedField<FieldDescriptorProto>,
+    pub message_type: ::std::vec::Vec<DescriptorProto>,
+    pub enum_type: ::std::vec::Vec<EnumDescriptorProto>,
+    pub service: ::std::vec::Vec<ServiceDescriptorProto>,
+    pub extension: ::std::vec::Vec<FieldDescriptorProto>,
     pub options: ::protobuf::SingularPtrField<FileOptions>,
     pub source_code_info: ::protobuf::SingularPtrField<SourceCodeInfo>,
     pub syntax: ::protobuf::SingularField<::std::string::String>,
@@ -305,12 +305,12 @@ impl FileDescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_dependency(&mut self, v: ::protobuf::RepeatedField<::std::string::String>) {
+    pub fn set_dependency(&mut self, v: ::std::vec::Vec<::std::string::String>) {
         self.dependency = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_dependency(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_dependency(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.dependency
     }
 
@@ -318,11 +318,11 @@ impl FileDescriptorProto {
         &self.dependency
     }
 
-    fn get_dependency_for_reflect(&self) -> &::protobuf::RepeatedField<::std::string::String> {
+    fn get_dependency_for_reflect(&self) -> &::std::vec::Vec<::std::string::String> {
         &self.dependency
     }
 
-    fn mut_dependency_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    fn mut_dependency_for_reflect(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.dependency
     }
 
@@ -389,12 +389,12 @@ impl FileDescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_message_type(&mut self, v: ::protobuf::RepeatedField<DescriptorProto>) {
+    pub fn set_message_type(&mut self, v: ::std::vec::Vec<DescriptorProto>) {
         self.message_type = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_message_type(&mut self) -> &mut ::protobuf::RepeatedField<DescriptorProto> {
+    pub fn mut_message_type(&mut self) -> &mut ::std::vec::Vec<DescriptorProto> {
         &mut self.message_type
     }
 
@@ -402,11 +402,11 @@ impl FileDescriptorProto {
         &self.message_type
     }
 
-    fn get_message_type_for_reflect(&self) -> &::protobuf::RepeatedField<DescriptorProto> {
+    fn get_message_type_for_reflect(&self) -> &::std::vec::Vec<DescriptorProto> {
         &self.message_type
     }
 
-    fn mut_message_type_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<DescriptorProto> {
+    fn mut_message_type_for_reflect(&mut self) -> &mut ::std::vec::Vec<DescriptorProto> {
         &mut self.message_type
     }
 
@@ -417,12 +417,12 @@ impl FileDescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_enum_type(&mut self, v: ::protobuf::RepeatedField<EnumDescriptorProto>) {
+    pub fn set_enum_type(&mut self, v: ::std::vec::Vec<EnumDescriptorProto>) {
         self.enum_type = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_enum_type(&mut self) -> &mut ::protobuf::RepeatedField<EnumDescriptorProto> {
+    pub fn mut_enum_type(&mut self) -> &mut ::std::vec::Vec<EnumDescriptorProto> {
         &mut self.enum_type
     }
 
@@ -430,11 +430,11 @@ impl FileDescriptorProto {
         &self.enum_type
     }
 
-    fn get_enum_type_for_reflect(&self) -> &::protobuf::RepeatedField<EnumDescriptorProto> {
+    fn get_enum_type_for_reflect(&self) -> &::std::vec::Vec<EnumDescriptorProto> {
         &self.enum_type
     }
 
-    fn mut_enum_type_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<EnumDescriptorProto> {
+    fn mut_enum_type_for_reflect(&mut self) -> &mut ::std::vec::Vec<EnumDescriptorProto> {
         &mut self.enum_type
     }
 
@@ -445,12 +445,12 @@ impl FileDescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_service(&mut self, v: ::protobuf::RepeatedField<ServiceDescriptorProto>) {
+    pub fn set_service(&mut self, v: ::std::vec::Vec<ServiceDescriptorProto>) {
         self.service = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_service(&mut self) -> &mut ::protobuf::RepeatedField<ServiceDescriptorProto> {
+    pub fn mut_service(&mut self) -> &mut ::std::vec::Vec<ServiceDescriptorProto> {
         &mut self.service
     }
 
@@ -458,11 +458,11 @@ impl FileDescriptorProto {
         &self.service
     }
 
-    fn get_service_for_reflect(&self) -> &::protobuf::RepeatedField<ServiceDescriptorProto> {
+    fn get_service_for_reflect(&self) -> &::std::vec::Vec<ServiceDescriptorProto> {
         &self.service
     }
 
-    fn mut_service_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<ServiceDescriptorProto> {
+    fn mut_service_for_reflect(&mut self) -> &mut ::std::vec::Vec<ServiceDescriptorProto> {
         &mut self.service
     }
 
@@ -473,12 +473,12 @@ impl FileDescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_extension(&mut self, v: ::protobuf::RepeatedField<FieldDescriptorProto>) {
+    pub fn set_extension(&mut self, v: ::std::vec::Vec<FieldDescriptorProto>) {
         self.extension = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_extension(&mut self) -> &mut ::protobuf::RepeatedField<FieldDescriptorProto> {
+    pub fn mut_extension(&mut self) -> &mut ::std::vec::Vec<FieldDescriptorProto> {
         &mut self.extension
     }
 
@@ -486,11 +486,11 @@ impl FileDescriptorProto {
         &self.extension
     }
 
-    fn get_extension_for_reflect(&self) -> &::protobuf::RepeatedField<FieldDescriptorProto> {
+    fn get_extension_for_reflect(&self) -> &::std::vec::Vec<FieldDescriptorProto> {
         &self.extension
     }
 
-    fn mut_extension_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<FieldDescriptorProto> {
+    fn mut_extension_for_reflect(&mut self) -> &mut ::std::vec::Vec<FieldDescriptorProto> {
         &mut self.extension
     }
 
@@ -928,15 +928,15 @@ impl ::protobuf::reflect::ProtobufValue for FileDescriptorProto {
 pub struct DescriptorProto {
     // message fields
     pub name: ::protobuf::SingularField<::std::string::String>,
-    pub field: ::protobuf::RepeatedField<FieldDescriptorProto>,
-    pub extension: ::protobuf::RepeatedField<FieldDescriptorProto>,
-    pub nested_type: ::protobuf::RepeatedField<DescriptorProto>,
-    pub enum_type: ::protobuf::RepeatedField<EnumDescriptorProto>,
-    pub extension_range: ::protobuf::RepeatedField<DescriptorProto_ExtensionRange>,
-    pub oneof_decl: ::protobuf::RepeatedField<OneofDescriptorProto>,
+    pub field: ::std::vec::Vec<FieldDescriptorProto>,
+    pub extension: ::std::vec::Vec<FieldDescriptorProto>,
+    pub nested_type: ::std::vec::Vec<DescriptorProto>,
+    pub enum_type: ::std::vec::Vec<EnumDescriptorProto>,
+    pub extension_range: ::std::vec::Vec<DescriptorProto_ExtensionRange>,
+    pub oneof_decl: ::std::vec::Vec<OneofDescriptorProto>,
     pub options: ::protobuf::SingularPtrField<MessageOptions>,
-    pub reserved_range: ::protobuf::RepeatedField<DescriptorProto_ReservedRange>,
-    pub reserved_name: ::protobuf::RepeatedField<::std::string::String>,
+    pub reserved_range: ::std::vec::Vec<DescriptorProto_ReservedRange>,
+    pub reserved_name: ::std::vec::Vec<::std::string::String>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -1002,12 +1002,12 @@ impl DescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_field(&mut self, v: ::protobuf::RepeatedField<FieldDescriptorProto>) {
+    pub fn set_field(&mut self, v: ::std::vec::Vec<FieldDescriptorProto>) {
         self.field = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_field(&mut self) -> &mut ::protobuf::RepeatedField<FieldDescriptorProto> {
+    pub fn mut_field(&mut self) -> &mut ::std::vec::Vec<FieldDescriptorProto> {
         &mut self.field
     }
 
@@ -1015,11 +1015,11 @@ impl DescriptorProto {
         &self.field
     }
 
-    fn get_field_for_reflect(&self) -> &::protobuf::RepeatedField<FieldDescriptorProto> {
+    fn get_field_for_reflect(&self) -> &::std::vec::Vec<FieldDescriptorProto> {
         &self.field
     }
 
-    fn mut_field_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<FieldDescriptorProto> {
+    fn mut_field_for_reflect(&mut self) -> &mut ::std::vec::Vec<FieldDescriptorProto> {
         &mut self.field
     }
 
@@ -1030,12 +1030,12 @@ impl DescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_extension(&mut self, v: ::protobuf::RepeatedField<FieldDescriptorProto>) {
+    pub fn set_extension(&mut self, v: ::std::vec::Vec<FieldDescriptorProto>) {
         self.extension = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_extension(&mut self) -> &mut ::protobuf::RepeatedField<FieldDescriptorProto> {
+    pub fn mut_extension(&mut self) -> &mut ::std::vec::Vec<FieldDescriptorProto> {
         &mut self.extension
     }
 
@@ -1043,11 +1043,11 @@ impl DescriptorProto {
         &self.extension
     }
 
-    fn get_extension_for_reflect(&self) -> &::protobuf::RepeatedField<FieldDescriptorProto> {
+    fn get_extension_for_reflect(&self) -> &::std::vec::Vec<FieldDescriptorProto> {
         &self.extension
     }
 
-    fn mut_extension_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<FieldDescriptorProto> {
+    fn mut_extension_for_reflect(&mut self) -> &mut ::std::vec::Vec<FieldDescriptorProto> {
         &mut self.extension
     }
 
@@ -1058,12 +1058,12 @@ impl DescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_nested_type(&mut self, v: ::protobuf::RepeatedField<DescriptorProto>) {
+    pub fn set_nested_type(&mut self, v: ::std::vec::Vec<DescriptorProto>) {
         self.nested_type = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_nested_type(&mut self) -> &mut ::protobuf::RepeatedField<DescriptorProto> {
+    pub fn mut_nested_type(&mut self) -> &mut ::std::vec::Vec<DescriptorProto> {
         &mut self.nested_type
     }
 
@@ -1071,11 +1071,11 @@ impl DescriptorProto {
         &self.nested_type
     }
 
-    fn get_nested_type_for_reflect(&self) -> &::protobuf::RepeatedField<DescriptorProto> {
+    fn get_nested_type_for_reflect(&self) -> &::std::vec::Vec<DescriptorProto> {
         &self.nested_type
     }
 
-    fn mut_nested_type_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<DescriptorProto> {
+    fn mut_nested_type_for_reflect(&mut self) -> &mut ::std::vec::Vec<DescriptorProto> {
         &mut self.nested_type
     }
 
@@ -1086,12 +1086,12 @@ impl DescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_enum_type(&mut self, v: ::protobuf::RepeatedField<EnumDescriptorProto>) {
+    pub fn set_enum_type(&mut self, v: ::std::vec::Vec<EnumDescriptorProto>) {
         self.enum_type = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_enum_type(&mut self) -> &mut ::protobuf::RepeatedField<EnumDescriptorProto> {
+    pub fn mut_enum_type(&mut self) -> &mut ::std::vec::Vec<EnumDescriptorProto> {
         &mut self.enum_type
     }
 
@@ -1099,11 +1099,11 @@ impl DescriptorProto {
         &self.enum_type
     }
 
-    fn get_enum_type_for_reflect(&self) -> &::protobuf::RepeatedField<EnumDescriptorProto> {
+    fn get_enum_type_for_reflect(&self) -> &::std::vec::Vec<EnumDescriptorProto> {
         &self.enum_type
     }
 
-    fn mut_enum_type_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<EnumDescriptorProto> {
+    fn mut_enum_type_for_reflect(&mut self) -> &mut ::std::vec::Vec<EnumDescriptorProto> {
         &mut self.enum_type
     }
 
@@ -1114,12 +1114,12 @@ impl DescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_extension_range(&mut self, v: ::protobuf::RepeatedField<DescriptorProto_ExtensionRange>) {
+    pub fn set_extension_range(&mut self, v: ::std::vec::Vec<DescriptorProto_ExtensionRange>) {
         self.extension_range = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_extension_range(&mut self) -> &mut ::protobuf::RepeatedField<DescriptorProto_ExtensionRange> {
+    pub fn mut_extension_range(&mut self) -> &mut ::std::vec::Vec<DescriptorProto_ExtensionRange> {
         &mut self.extension_range
     }
 
@@ -1127,11 +1127,11 @@ impl DescriptorProto {
         &self.extension_range
     }
 
-    fn get_extension_range_for_reflect(&self) -> &::protobuf::RepeatedField<DescriptorProto_ExtensionRange> {
+    fn get_extension_range_for_reflect(&self) -> &::std::vec::Vec<DescriptorProto_ExtensionRange> {
         &self.extension_range
     }
 
-    fn mut_extension_range_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<DescriptorProto_ExtensionRange> {
+    fn mut_extension_range_for_reflect(&mut self) -> &mut ::std::vec::Vec<DescriptorProto_ExtensionRange> {
         &mut self.extension_range
     }
 
@@ -1142,12 +1142,12 @@ impl DescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_oneof_decl(&mut self, v: ::protobuf::RepeatedField<OneofDescriptorProto>) {
+    pub fn set_oneof_decl(&mut self, v: ::std::vec::Vec<OneofDescriptorProto>) {
         self.oneof_decl = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_oneof_decl(&mut self) -> &mut ::protobuf::RepeatedField<OneofDescriptorProto> {
+    pub fn mut_oneof_decl(&mut self) -> &mut ::std::vec::Vec<OneofDescriptorProto> {
         &mut self.oneof_decl
     }
 
@@ -1155,11 +1155,11 @@ impl DescriptorProto {
         &self.oneof_decl
     }
 
-    fn get_oneof_decl_for_reflect(&self) -> &::protobuf::RepeatedField<OneofDescriptorProto> {
+    fn get_oneof_decl_for_reflect(&self) -> &::std::vec::Vec<OneofDescriptorProto> {
         &self.oneof_decl
     }
 
-    fn mut_oneof_decl_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<OneofDescriptorProto> {
+    fn mut_oneof_decl_for_reflect(&mut self) -> &mut ::std::vec::Vec<OneofDescriptorProto> {
         &mut self.oneof_decl
     }
 
@@ -1206,12 +1206,12 @@ impl DescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_reserved_range(&mut self, v: ::protobuf::RepeatedField<DescriptorProto_ReservedRange>) {
+    pub fn set_reserved_range(&mut self, v: ::std::vec::Vec<DescriptorProto_ReservedRange>) {
         self.reserved_range = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_reserved_range(&mut self) -> &mut ::protobuf::RepeatedField<DescriptorProto_ReservedRange> {
+    pub fn mut_reserved_range(&mut self) -> &mut ::std::vec::Vec<DescriptorProto_ReservedRange> {
         &mut self.reserved_range
     }
 
@@ -1219,11 +1219,11 @@ impl DescriptorProto {
         &self.reserved_range
     }
 
-    fn get_reserved_range_for_reflect(&self) -> &::protobuf::RepeatedField<DescriptorProto_ReservedRange> {
+    fn get_reserved_range_for_reflect(&self) -> &::std::vec::Vec<DescriptorProto_ReservedRange> {
         &self.reserved_range
     }
 
-    fn mut_reserved_range_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<DescriptorProto_ReservedRange> {
+    fn mut_reserved_range_for_reflect(&mut self) -> &mut ::std::vec::Vec<DescriptorProto_ReservedRange> {
         &mut self.reserved_range
     }
 
@@ -1234,12 +1234,12 @@ impl DescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_reserved_name(&mut self, v: ::protobuf::RepeatedField<::std::string::String>) {
+    pub fn set_reserved_name(&mut self, v: ::std::vec::Vec<::std::string::String>) {
         self.reserved_name = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_reserved_name(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_reserved_name(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.reserved_name
     }
 
@@ -1247,11 +1247,11 @@ impl DescriptorProto {
         &self.reserved_name
     }
 
-    fn get_reserved_name_for_reflect(&self) -> &::protobuf::RepeatedField<::std::string::String> {
+    fn get_reserved_name_for_reflect(&self) -> &::std::vec::Vec<::std::string::String> {
         &self.reserved_name
     }
 
-    fn mut_reserved_name_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    fn mut_reserved_name_for_reflect(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.reserved_name
     }
 }
@@ -2991,7 +2991,7 @@ impl ::protobuf::reflect::ProtobufValue for OneofDescriptorProto {
 pub struct EnumDescriptorProto {
     // message fields
     pub name: ::protobuf::SingularField<::std::string::String>,
-    pub value: ::protobuf::RepeatedField<EnumValueDescriptorProto>,
+    pub value: ::std::vec::Vec<EnumValueDescriptorProto>,
     pub options: ::protobuf::SingularPtrField<EnumOptions>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
@@ -3058,12 +3058,12 @@ impl EnumDescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_value(&mut self, v: ::protobuf::RepeatedField<EnumValueDescriptorProto>) {
+    pub fn set_value(&mut self, v: ::std::vec::Vec<EnumValueDescriptorProto>) {
         self.value = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_value(&mut self) -> &mut ::protobuf::RepeatedField<EnumValueDescriptorProto> {
+    pub fn mut_value(&mut self) -> &mut ::std::vec::Vec<EnumValueDescriptorProto> {
         &mut self.value
     }
 
@@ -3071,11 +3071,11 @@ impl EnumDescriptorProto {
         &self.value
     }
 
-    fn get_value_for_reflect(&self) -> &::protobuf::RepeatedField<EnumValueDescriptorProto> {
+    fn get_value_for_reflect(&self) -> &::std::vec::Vec<EnumValueDescriptorProto> {
         &self.value
     }
 
-    fn mut_value_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<EnumValueDescriptorProto> {
+    fn mut_value_for_reflect(&mut self) -> &mut ::std::vec::Vec<EnumValueDescriptorProto> {
         &mut self.value
     }
 
@@ -3546,7 +3546,7 @@ impl ::protobuf::reflect::ProtobufValue for EnumValueDescriptorProto {
 pub struct ServiceDescriptorProto {
     // message fields
     pub name: ::protobuf::SingularField<::std::string::String>,
-    pub method: ::protobuf::RepeatedField<MethodDescriptorProto>,
+    pub method: ::std::vec::Vec<MethodDescriptorProto>,
     pub options: ::protobuf::SingularPtrField<ServiceOptions>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
@@ -3613,12 +3613,12 @@ impl ServiceDescriptorProto {
     }
 
     // Param is passed by value, moved
-    pub fn set_method(&mut self, v: ::protobuf::RepeatedField<MethodDescriptorProto>) {
+    pub fn set_method(&mut self, v: ::std::vec::Vec<MethodDescriptorProto>) {
         self.method = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_method(&mut self) -> &mut ::protobuf::RepeatedField<MethodDescriptorProto> {
+    pub fn mut_method(&mut self) -> &mut ::std::vec::Vec<MethodDescriptorProto> {
         &mut self.method
     }
 
@@ -3626,11 +3626,11 @@ impl ServiceDescriptorProto {
         &self.method
     }
 
-    fn get_method_for_reflect(&self) -> &::protobuf::RepeatedField<MethodDescriptorProto> {
+    fn get_method_for_reflect(&self) -> &::std::vec::Vec<MethodDescriptorProto> {
         &self.method
     }
 
-    fn mut_method_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<MethodDescriptorProto> {
+    fn mut_method_for_reflect(&mut self) -> &mut ::std::vec::Vec<MethodDescriptorProto> {
         &mut self.method
     }
 
@@ -4271,7 +4271,7 @@ pub struct FileOptions {
     pub cc_enable_arenas: ::std::option::Option<bool>,
     pub objc_class_prefix: ::protobuf::SingularField<::std::string::String>,
     pub csharp_namespace: ::protobuf::SingularField<::std::string::String>,
-    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -4736,12 +4736,12 @@ impl FileOptions {
     }
 
     // Param is passed by value, moved
-    pub fn set_uninterpreted_option(&mut self, v: ::protobuf::RepeatedField<UninterpretedOption>) {
+    pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
         self.uninterpreted_option = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    pub fn mut_uninterpreted_option(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 
@@ -4749,11 +4749,11 @@ impl FileOptions {
         &self.uninterpreted_option
     }
 
-    fn get_uninterpreted_option_for_reflect(&self) -> &::protobuf::RepeatedField<UninterpretedOption> {
+    fn get_uninterpreted_option_for_reflect(&self) -> &::std::vec::Vec<UninterpretedOption> {
         &self.uninterpreted_option
     }
 
-    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 }
@@ -5176,7 +5176,7 @@ pub struct MessageOptions {
     pub no_standard_descriptor_accessor: ::std::option::Option<bool>,
     pub deprecated: ::std::option::Option<bool>,
     pub map_entry: ::std::option::Option<bool>,
-    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -5311,12 +5311,12 @@ impl MessageOptions {
     }
 
     // Param is passed by value, moved
-    pub fn set_uninterpreted_option(&mut self, v: ::protobuf::RepeatedField<UninterpretedOption>) {
+    pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
         self.uninterpreted_option = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    pub fn mut_uninterpreted_option(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 
@@ -5324,11 +5324,11 @@ impl MessageOptions {
         &self.uninterpreted_option
     }
 
-    fn get_uninterpreted_option_for_reflect(&self) -> &::protobuf::RepeatedField<UninterpretedOption> {
+    fn get_uninterpreted_option_for_reflect(&self) -> &::std::vec::Vec<UninterpretedOption> {
         &self.uninterpreted_option
     }
 
-    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 }
@@ -5531,7 +5531,7 @@ pub struct FieldOptions {
     pub lazy: ::std::option::Option<bool>,
     pub deprecated: ::std::option::Option<bool>,
     pub weak: ::std::option::Option<bool>,
-    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -5720,12 +5720,12 @@ impl FieldOptions {
     }
 
     // Param is passed by value, moved
-    pub fn set_uninterpreted_option(&mut self, v: ::protobuf::RepeatedField<UninterpretedOption>) {
+    pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
         self.uninterpreted_option = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    pub fn mut_uninterpreted_option(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 
@@ -5733,11 +5733,11 @@ impl FieldOptions {
         &self.uninterpreted_option
     }
 
-    fn get_uninterpreted_option_for_reflect(&self) -> &::protobuf::RepeatedField<UninterpretedOption> {
+    fn get_uninterpreted_option_for_reflect(&self) -> &::std::vec::Vec<UninterpretedOption> {
         &self.uninterpreted_option
     }
 
-    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 }
@@ -6076,7 +6076,7 @@ impl ::protobuf::reflect::ProtobufValue for FieldOptions_JSType {
 #[derive(PartialEq,Clone,Default)]
 pub struct OneofOptions {
     // message fields
-    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -6103,12 +6103,12 @@ impl OneofOptions {
     }
 
     // Param is passed by value, moved
-    pub fn set_uninterpreted_option(&mut self, v: ::protobuf::RepeatedField<UninterpretedOption>) {
+    pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
         self.uninterpreted_option = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    pub fn mut_uninterpreted_option(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 
@@ -6116,11 +6116,11 @@ impl OneofOptions {
         &self.uninterpreted_option
     }
 
-    fn get_uninterpreted_option_for_reflect(&self) -> &::protobuf::RepeatedField<UninterpretedOption> {
+    fn get_uninterpreted_option_for_reflect(&self) -> &::std::vec::Vec<UninterpretedOption> {
         &self.uninterpreted_option
     }
 
-    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 }
@@ -6243,7 +6243,7 @@ pub struct EnumOptions {
     // message fields
     pub allow_alias: ::std::option::Option<bool>,
     pub deprecated: ::std::option::Option<bool>,
-    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -6324,12 +6324,12 @@ impl EnumOptions {
     }
 
     // Param is passed by value, moved
-    pub fn set_uninterpreted_option(&mut self, v: ::protobuf::RepeatedField<UninterpretedOption>) {
+    pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
         self.uninterpreted_option = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    pub fn mut_uninterpreted_option(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 
@@ -6337,11 +6337,11 @@ impl EnumOptions {
         &self.uninterpreted_option
     }
 
-    fn get_uninterpreted_option_for_reflect(&self) -> &::protobuf::RepeatedField<UninterpretedOption> {
+    fn get_uninterpreted_option_for_reflect(&self) -> &::std::vec::Vec<UninterpretedOption> {
         &self.uninterpreted_option
     }
 
-    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 }
@@ -6501,7 +6501,7 @@ impl ::protobuf::reflect::ProtobufValue for EnumOptions {
 pub struct EnumValueOptions {
     // message fields
     pub deprecated: ::std::option::Option<bool>,
-    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -6555,12 +6555,12 @@ impl EnumValueOptions {
     }
 
     // Param is passed by value, moved
-    pub fn set_uninterpreted_option(&mut self, v: ::protobuf::RepeatedField<UninterpretedOption>) {
+    pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
         self.uninterpreted_option = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    pub fn mut_uninterpreted_option(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 
@@ -6568,11 +6568,11 @@ impl EnumValueOptions {
         &self.uninterpreted_option
     }
 
-    fn get_uninterpreted_option_for_reflect(&self) -> &::protobuf::RepeatedField<UninterpretedOption> {
+    fn get_uninterpreted_option_for_reflect(&self) -> &::std::vec::Vec<UninterpretedOption> {
         &self.uninterpreted_option
     }
 
-    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 }
@@ -6713,7 +6713,7 @@ impl ::protobuf::reflect::ProtobufValue for EnumValueOptions {
 pub struct ServiceOptions {
     // message fields
     pub deprecated: ::std::option::Option<bool>,
-    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -6767,12 +6767,12 @@ impl ServiceOptions {
     }
 
     // Param is passed by value, moved
-    pub fn set_uninterpreted_option(&mut self, v: ::protobuf::RepeatedField<UninterpretedOption>) {
+    pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
         self.uninterpreted_option = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    pub fn mut_uninterpreted_option(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 
@@ -6780,11 +6780,11 @@ impl ServiceOptions {
         &self.uninterpreted_option
     }
 
-    fn get_uninterpreted_option_for_reflect(&self) -> &::protobuf::RepeatedField<UninterpretedOption> {
+    fn get_uninterpreted_option_for_reflect(&self) -> &::std::vec::Vec<UninterpretedOption> {
         &self.uninterpreted_option
     }
 
-    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 }
@@ -6925,7 +6925,7 @@ impl ::protobuf::reflect::ProtobufValue for ServiceOptions {
 pub struct MethodOptions {
     // message fields
     pub deprecated: ::std::option::Option<bool>,
-    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -6979,12 +6979,12 @@ impl MethodOptions {
     }
 
     // Param is passed by value, moved
-    pub fn set_uninterpreted_option(&mut self, v: ::protobuf::RepeatedField<UninterpretedOption>) {
+    pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
         self.uninterpreted_option = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    pub fn mut_uninterpreted_option(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 
@@ -6992,11 +6992,11 @@ impl MethodOptions {
         &self.uninterpreted_option
     }
 
-    fn get_uninterpreted_option_for_reflect(&self) -> &::protobuf::RepeatedField<UninterpretedOption> {
+    fn get_uninterpreted_option_for_reflect(&self) -> &::std::vec::Vec<UninterpretedOption> {
         &self.uninterpreted_option
     }
 
-    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
+    fn mut_uninterpreted_option_for_reflect(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption> {
         &mut self.uninterpreted_option
     }
 }
@@ -7136,7 +7136,7 @@ impl ::protobuf::reflect::ProtobufValue for MethodOptions {
 #[derive(PartialEq,Clone,Default)]
 pub struct UninterpretedOption {
     // message fields
-    pub name: ::protobuf::RepeatedField<UninterpretedOption_NamePart>,
+    pub name: ::std::vec::Vec<UninterpretedOption_NamePart>,
     pub identifier_value: ::protobuf::SingularField<::std::string::String>,
     pub positive_int_value: ::std::option::Option<u64>,
     pub negative_int_value: ::std::option::Option<i64>,
@@ -7169,12 +7169,12 @@ impl UninterpretedOption {
     }
 
     // Param is passed by value, moved
-    pub fn set_name(&mut self, v: ::protobuf::RepeatedField<UninterpretedOption_NamePart>) {
+    pub fn set_name(&mut self, v: ::std::vec::Vec<UninterpretedOption_NamePart>) {
         self.name = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_name(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption_NamePart> {
+    pub fn mut_name(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption_NamePart> {
         &mut self.name
     }
 
@@ -7182,11 +7182,11 @@ impl UninterpretedOption {
         &self.name
     }
 
-    fn get_name_for_reflect(&self) -> &::protobuf::RepeatedField<UninterpretedOption_NamePart> {
+    fn get_name_for_reflect(&self) -> &::std::vec::Vec<UninterpretedOption_NamePart> {
         &self.name
     }
 
-    fn mut_name_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption_NamePart> {
+    fn mut_name_for_reflect(&mut self) -> &mut ::std::vec::Vec<UninterpretedOption_NamePart> {
         &mut self.name
     }
 
@@ -7828,7 +7828,7 @@ impl ::protobuf::reflect::ProtobufValue for UninterpretedOption_NamePart {
 #[derive(PartialEq,Clone,Default)]
 pub struct SourceCodeInfo {
     // message fields
-    pub location: ::protobuf::RepeatedField<SourceCodeInfo_Location>,
+    pub location: ::std::vec::Vec<SourceCodeInfo_Location>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -7855,12 +7855,12 @@ impl SourceCodeInfo {
     }
 
     // Param is passed by value, moved
-    pub fn set_location(&mut self, v: ::protobuf::RepeatedField<SourceCodeInfo_Location>) {
+    pub fn set_location(&mut self, v: ::std::vec::Vec<SourceCodeInfo_Location>) {
         self.location = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_location(&mut self) -> &mut ::protobuf::RepeatedField<SourceCodeInfo_Location> {
+    pub fn mut_location(&mut self) -> &mut ::std::vec::Vec<SourceCodeInfo_Location> {
         &mut self.location
     }
 
@@ -7868,11 +7868,11 @@ impl SourceCodeInfo {
         &self.location
     }
 
-    fn get_location_for_reflect(&self) -> &::protobuf::RepeatedField<SourceCodeInfo_Location> {
+    fn get_location_for_reflect(&self) -> &::std::vec::Vec<SourceCodeInfo_Location> {
         &self.location
     }
 
-    fn mut_location_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<SourceCodeInfo_Location> {
+    fn mut_location_for_reflect(&mut self) -> &mut ::std::vec::Vec<SourceCodeInfo_Location> {
         &mut self.location
     }
 }
@@ -7997,7 +7997,7 @@ pub struct SourceCodeInfo_Location {
     pub span: ::std::vec::Vec<i32>,
     pub leading_comments: ::protobuf::SingularField<::std::string::String>,
     pub trailing_comments: ::protobuf::SingularField<::std::string::String>,
-    pub leading_detached_comments: ::protobuf::RepeatedField<::std::string::String>,
+    pub leading_detached_comments: ::std::vec::Vec<::std::string::String>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -8158,12 +8158,12 @@ impl SourceCodeInfo_Location {
     }
 
     // Param is passed by value, moved
-    pub fn set_leading_detached_comments(&mut self, v: ::protobuf::RepeatedField<::std::string::String>) {
+    pub fn set_leading_detached_comments(&mut self, v: ::std::vec::Vec<::std::string::String>) {
         self.leading_detached_comments = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_leading_detached_comments(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_leading_detached_comments(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.leading_detached_comments
     }
 
@@ -8171,11 +8171,11 @@ impl SourceCodeInfo_Location {
         &self.leading_detached_comments
     }
 
-    fn get_leading_detached_comments_for_reflect(&self) -> &::protobuf::RepeatedField<::std::string::String> {
+    fn get_leading_detached_comments_for_reflect(&self) -> &::std::vec::Vec<::std::string::String> {
         &self.leading_detached_comments
     }
 
-    fn mut_leading_detached_comments_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    fn mut_leading_detached_comments_for_reflect(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.leading_detached_comments
     }
 }
@@ -8358,7 +8358,7 @@ impl ::protobuf::reflect::ProtobufValue for SourceCodeInfo_Location {
 #[derive(PartialEq,Clone,Default)]
 pub struct GeneratedCodeInfo {
     // message fields
-    pub annotation: ::protobuf::RepeatedField<GeneratedCodeInfo_Annotation>,
+    pub annotation: ::std::vec::Vec<GeneratedCodeInfo_Annotation>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -8385,12 +8385,12 @@ impl GeneratedCodeInfo {
     }
 
     // Param is passed by value, moved
-    pub fn set_annotation(&mut self, v: ::protobuf::RepeatedField<GeneratedCodeInfo_Annotation>) {
+    pub fn set_annotation(&mut self, v: ::std::vec::Vec<GeneratedCodeInfo_Annotation>) {
         self.annotation = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_annotation(&mut self) -> &mut ::protobuf::RepeatedField<GeneratedCodeInfo_Annotation> {
+    pub fn mut_annotation(&mut self) -> &mut ::std::vec::Vec<GeneratedCodeInfo_Annotation> {
         &mut self.annotation
     }
 
@@ -8398,11 +8398,11 @@ impl GeneratedCodeInfo {
         &self.annotation
     }
 
-    fn get_annotation_for_reflect(&self) -> &::protobuf::RepeatedField<GeneratedCodeInfo_Annotation> {
+    fn get_annotation_for_reflect(&self) -> &::std::vec::Vec<GeneratedCodeInfo_Annotation> {
         &self.annotation
     }
 
-    fn mut_annotation_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<GeneratedCodeInfo_Annotation> {
+    fn mut_annotation_for_reflect(&mut self) -> &mut ::std::vec::Vec<GeneratedCodeInfo_Annotation> {
         &mut self.annotation
     }
 }

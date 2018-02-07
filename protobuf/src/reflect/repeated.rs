@@ -3,8 +3,6 @@ use std::slice;
 use super::value::ProtobufValue;
 use super::value::ProtobufValueRef;
 
-use repeated::RepeatedField;
-
 pub trait ReflectRepeated: 'static {
     fn reflect_iter(&self) -> ReflectRepeatedIter;
     fn len(&self) -> usize;

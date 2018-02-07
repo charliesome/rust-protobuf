@@ -24,9 +24,9 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 #[derive(PartialEq,Clone,Default)]
 pub struct CodeGeneratorRequest {
     // message fields
-    pub file_to_generate: ::protobuf::RepeatedField<::std::string::String>,
+    pub file_to_generate: ::std::vec::Vec<::std::string::String>,
     pub parameter: ::protobuf::SingularField<::std::string::String>,
-    pub proto_file: ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto>,
+    pub proto_file: ::std::vec::Vec<::protobuf::descriptor::FileDescriptorProto>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -53,12 +53,12 @@ impl CodeGeneratorRequest {
     }
 
     // Param is passed by value, moved
-    pub fn set_file_to_generate(&mut self, v: ::protobuf::RepeatedField<::std::string::String>) {
+    pub fn set_file_to_generate(&mut self, v: ::std::vec::Vec<::std::string::String>) {
         self.file_to_generate = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_file_to_generate(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    pub fn mut_file_to_generate(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.file_to_generate
     }
 
@@ -66,11 +66,11 @@ impl CodeGeneratorRequest {
         &self.file_to_generate
     }
 
-    fn get_file_to_generate_for_reflect(&self) -> &::protobuf::RepeatedField<::std::string::String> {
+    fn get_file_to_generate_for_reflect(&self) -> &::std::vec::Vec<::std::string::String> {
         &self.file_to_generate
     }
 
-    fn mut_file_to_generate_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
+    fn mut_file_to_generate_for_reflect(&mut self) -> &mut ::std::vec::Vec<::std::string::String> {
         &mut self.file_to_generate
     }
 
@@ -120,12 +120,12 @@ impl CodeGeneratorRequest {
     }
 
     // Param is passed by value, moved
-    pub fn set_proto_file(&mut self, v: ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto>) {
+    pub fn set_proto_file(&mut self, v: ::std::vec::Vec<::protobuf::descriptor::FileDescriptorProto>) {
         self.proto_file = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_proto_file(&mut self) -> &mut ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto> {
+    pub fn mut_proto_file(&mut self) -> &mut ::std::vec::Vec<::protobuf::descriptor::FileDescriptorProto> {
         &mut self.proto_file
     }
 
@@ -133,11 +133,11 @@ impl CodeGeneratorRequest {
         &self.proto_file
     }
 
-    fn get_proto_file_for_reflect(&self) -> &::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto> {
+    fn get_proto_file_for_reflect(&self) -> &::std::vec::Vec<::protobuf::descriptor::FileDescriptorProto> {
         &self.proto_file
     }
 
-    fn mut_proto_file_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto> {
+    fn mut_proto_file_for_reflect(&mut self) -> &mut ::std::vec::Vec<::protobuf::descriptor::FileDescriptorProto> {
         &mut self.proto_file
     }
 }
@@ -289,7 +289,7 @@ impl ::protobuf::reflect::ProtobufValue for CodeGeneratorRequest {
 pub struct CodeGeneratorResponse {
     // message fields
     pub error: ::protobuf::SingularField<::std::string::String>,
-    pub file: ::protobuf::RepeatedField<CodeGeneratorResponse_File>,
+    pub file: ::std::vec::Vec<CodeGeneratorResponse_File>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -355,12 +355,12 @@ impl CodeGeneratorResponse {
     }
 
     // Param is passed by value, moved
-    pub fn set_file(&mut self, v: ::protobuf::RepeatedField<CodeGeneratorResponse_File>) {
+    pub fn set_file(&mut self, v: ::std::vec::Vec<CodeGeneratorResponse_File>) {
         self.file = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_file(&mut self) -> &mut ::protobuf::RepeatedField<CodeGeneratorResponse_File> {
+    pub fn mut_file(&mut self) -> &mut ::std::vec::Vec<CodeGeneratorResponse_File> {
         &mut self.file
     }
 
@@ -368,11 +368,11 @@ impl CodeGeneratorResponse {
         &self.file
     }
 
-    fn get_file_for_reflect(&self) -> &::protobuf::RepeatedField<CodeGeneratorResponse_File> {
+    fn get_file_for_reflect(&self) -> &::std::vec::Vec<CodeGeneratorResponse_File> {
         &self.file
     }
 
-    fn mut_file_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<CodeGeneratorResponse_File> {
+    fn mut_file_for_reflect(&mut self) -> &mut ::std::vec::Vec<CodeGeneratorResponse_File> {
         &mut self.file
     }
 }

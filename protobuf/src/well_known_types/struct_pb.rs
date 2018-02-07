@@ -619,7 +619,7 @@ impl ::protobuf::reflect::ProtobufValue for Value {
 #[derive(PartialEq,Clone,Default)]
 pub struct ListValue {
     // message fields
-    pub values: ::protobuf::RepeatedField<Value>,
+    pub values: ::std::vec::Vec<Value>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -646,12 +646,12 @@ impl ListValue {
     }
 
     // Param is passed by value, moved
-    pub fn set_values(&mut self, v: ::protobuf::RepeatedField<Value>) {
+    pub fn set_values(&mut self, v: ::std::vec::Vec<Value>) {
         self.values = v;
     }
 
     // Mutable pointer to the field.
-    pub fn mut_values(&mut self) -> &mut ::protobuf::RepeatedField<Value> {
+    pub fn mut_values(&mut self) -> &mut ::std::vec::Vec<Value> {
         &mut self.values
     }
 
@@ -659,11 +659,11 @@ impl ListValue {
         &self.values
     }
 
-    fn get_values_for_reflect(&self) -> &::protobuf::RepeatedField<Value> {
+    fn get_values_for_reflect(&self) -> &::std::vec::Vec<Value> {
         &self.values
     }
 
-    fn mut_values_for_reflect(&mut self) -> &mut ::protobuf::RepeatedField<Value> {
+    fn mut_values_for_reflect(&mut self) -> &mut ::std::vec::Vec<Value> {
         &mut self.values
     }
 }

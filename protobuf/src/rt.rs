@@ -23,7 +23,6 @@ use error::ProtobufResult;
 use error::WireError;
 use singular::SingularField;
 use singular::SingularPtrField;
-use repeated::RepeatedField;
 use stream::CodedInputStream;
 use types::*;
 
@@ -490,7 +489,7 @@ pub fn read_repeated_enum_into<E : ProtobufEnum>(
 pub fn read_repeated_string_into(
     wire_type: WireType,
     is: &mut CodedInputStream,
-    target: &mut RepeatedField<String>,
+    target: &mut Vec<String>,
 ) -> ProtobufResult<()> {
     match wire_type {
         WireTypeLengthDelimited => {
@@ -580,7 +579,7 @@ pub fn read_singular_proto3_carllerche_string_into(
 pub fn read_repeated_bytes_into(
     wire_type: WireType,
     is: &mut CodedInputStream,
-    target: &mut RepeatedField<Vec<u8>>,
+    target: &mut Vec<Vec<u8>>,
 ) -> ProtobufResult<()> {
     match wire_type {
         WireTypeLengthDelimited => {
@@ -670,7 +669,7 @@ pub fn read_singular_proto3_carllerche_bytes_into(
 pub fn read_repeated_message_into<M : Message + Default>(
     wire_type: WireType,
     is: &mut CodedInputStream,
-    target: &mut RepeatedField<M>,
+    target: &mut Vec<M>,
 ) -> ProtobufResult<()> {
     match wire_type {
         WireTypeLengthDelimited => {
