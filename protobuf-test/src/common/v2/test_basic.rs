@@ -157,12 +157,12 @@ fn test_types_repeated() {
     message.set_sfixed32_field([29i32, -30].to_vec());
     message.set_sfixed64_field([30i64].to_vec());
     message.set_bool_field([true, true].to_vec());
-    message.set_string_field(RepeatedField::from_slice(
-        &["thirty two".to_string(), "thirty three".to_string()],
-    ));
-    message.set_bytes_field(RepeatedField::from_slice(
-        &[[33u8, 34].to_vec(), [35u8].to_vec()],
-    ));
+    message.set_string_field(
+        vec!["thirty two".to_string(), "thirty three".to_string()]
+    );
+    message.set_bytes_field(
+        vec![[33u8, 34].to_vec(), [35u8].to_vec()]
+    );
     message.set_enum_field(
         [TestEnumDescriptor::BLUE, TestEnumDescriptor::GREEN].to_vec(),
     );
@@ -185,12 +185,12 @@ fn test_types_repeated_packed() {
     message.set_sfixed32_field([29i32, -30].to_vec());
     message.set_sfixed64_field([30i64].to_vec());
     message.set_bool_field([true, true].to_vec());
-    message.set_string_field(RepeatedField::from_slice(
-        &["thirty two".to_string(), "thirty three".to_string()],
-    ));
-    message.set_bytes_field(RepeatedField::from_slice(
-        &[[33u8, 34].to_vec(), [35u8].to_vec()],
-    ));
+    message.set_string_field(
+        vec!["thirty two".to_string(), "thirty three".to_string()]
+    );
+    message.set_bytes_field(
+        vec![[33u8, 34].to_vec(), [35u8].to_vec()]
+    );
     message.set_enum_field(
         [TestEnumDescriptor::BLUE, TestEnumDescriptor::GREEN].to_vec(),
     );
