@@ -1491,30 +1491,30 @@ impl<'a> FieldGen<'a> {
         match self.kind {
             FieldKind::Singular(..) => {
                 self.write_if_let_self_field_is_some(w, |v, v_type, w| {
-                    self.write_write_element(w, "os", v, v_type);
+                    self.write_write_element(w, "_os", v, v_type);
                 });
             }
             FieldKind::Repeated(RepeatedField { packed: false, .. }) => {
                 self.write_for_self_field(w, "v", |w, v_type| {
-                    self.write_write_element(w, "os", "v", v_type);
+                    self.write_write_element(w, "_os", "v", v_type);
                 });
             }
             FieldKind::Repeated(RepeatedField { packed: true, .. }) => {
                 self.write_if_self_field_is_not_empty(w, |w| {
                     let number = self.proto_field.number();
                     w.write_line(&format!(
-                        "os.write_tag({}, ::protobuf::wire_format::{:?})?;",
+                        "_os.write_tag({}, ::protobuf::wire_format::{:?})?;",
                         number,
                         wire_format::WireTypeLengthDelimited
                     ));
                     w.comment("TODO: Data size is computed again, it should be cached");
                     let data_size_expr = self.self_field_vec_packed_data_size();
-                    w.write_line(&format!("os.write_raw_varint32({})?;", data_size_expr));
+                    w.write_line(&format!("_os.write_raw_varint32({})?;", data_size_expr));
                     self.write_for_self_field(w, "v", |w, v_type| {
                         let param_type = self.os_write_fn_param_type();
                         let os_write_fn_suffix = self.os_write_fn_suffix();
                         w.write_line(&format!(
-                            "os.write_{}_no_tag({})?;",
+                            "_os.write_{}_no_tag({})?;",
                             os_write_fn_suffix,
                             v_type.into_target(&param_type, "v")
                         ));
@@ -1523,7 +1523,7 @@ impl<'a> FieldGen<'a> {
             }
             FieldKind::Map(MapField { ref key, ref value, .. }) => {
                 w.write_line(&format!(
-                    "os.write_map::<{}, {}>({}, &{})?;",
+                    "_os.write_map::<{}, {}>({}, &{})?;",
                     key.lib_protobuf_type(),
                     value.lib_protobuf_type(),
                     self.proto_field.number(),

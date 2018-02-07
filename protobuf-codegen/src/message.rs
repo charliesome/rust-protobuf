@@ -110,13 +110,13 @@ impl<'a> MessageGen<'a> {
     }
 
     fn write_write_to_with_cached_sizes(&self, w: &mut CodeWriter) {
-        w.def_fn("write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()>", |w| {
+        w.def_fn("write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()>", |w| {
             // To have access to its methods but not polute the name space.
             for f in self.fields_except_oneof_and_group() {
                 f.write_message_write_field(w);
             }
             self.write_match_each_oneof_variant(w, |w, variant, v, v_type| {
-                variant.field.write_write_element(w, "os", v, v_type);
+                variant.field.write_write_element(w, "_os", v, v_type);
             });
             w.write_line("::std::result::Result::Ok(())");
         });
