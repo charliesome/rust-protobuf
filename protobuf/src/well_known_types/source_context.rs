@@ -61,11 +61,6 @@ impl SourceContext {
         &mut self.file_name
     }
 
-    // Take field
-    pub fn take_file_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.file_name, ::std::string::String::new())
-    }
-
     pub fn get_file_name(&self) -> &str {
         &self.file_name
     }

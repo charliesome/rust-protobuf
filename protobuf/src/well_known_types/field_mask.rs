@@ -60,11 +60,6 @@ impl FieldMask {
         &mut self.paths
     }
 
-    // Take field
-    pub fn take_paths(&mut self) -> ::protobuf::RepeatedField<::std::string::String> {
-        ::std::mem::replace(&mut self.paths, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_paths(&self) -> &[::std::string::String] {
         &self.paths
     }

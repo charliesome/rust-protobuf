@@ -66,11 +66,6 @@ impl Type {
         &mut self.name
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.name, ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         &self.name
     }
@@ -97,11 +92,6 @@ impl Type {
     // Mutable pointer to the field.
     pub fn mut_fields(&mut self) -> &mut ::protobuf::RepeatedField<Field> {
         &mut self.fields
-    }
-
-    // Take field
-    pub fn take_fields(&mut self) -> ::protobuf::RepeatedField<Field> {
-        ::std::mem::replace(&mut self.fields, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_fields(&self) -> &[Field] {
@@ -132,11 +122,6 @@ impl Type {
         &mut self.oneofs
     }
 
-    // Take field
-    pub fn take_oneofs(&mut self) -> ::protobuf::RepeatedField<::std::string::String> {
-        ::std::mem::replace(&mut self.oneofs, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_oneofs(&self) -> &[::std::string::String] {
         &self.oneofs
     }
@@ -163,11 +148,6 @@ impl Type {
     // Mutable pointer to the field.
     pub fn mut_options(&mut self) -> &mut ::protobuf::RepeatedField<Option> {
         &mut self.options
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> ::protobuf::RepeatedField<Option> {
-        ::std::mem::replace(&mut self.options, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_options(&self) -> &[Option] {
@@ -204,11 +184,6 @@ impl Type {
             self.source_context.set_default();
         }
         self.source_context.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_source_context(&mut self) -> ::protobuf::well_known_types::SourceContext {
-        self.source_context.take().unwrap_or_else(|| ::protobuf::well_known_types::SourceContext::new())
     }
 
     pub fn get_source_context(&self) -> &::protobuf::well_known_types::SourceContext {
@@ -573,11 +548,6 @@ impl Field {
         &mut self.name
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.name, ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         &self.name
     }
@@ -605,11 +575,6 @@ impl Field {
     // If field is not initialized, it is initialized with default value first.
     pub fn mut_type_url(&mut self) -> &mut ::std::string::String {
         &mut self.type_url
-    }
-
-    // Take field
-    pub fn take_type_url(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.type_url, ::std::string::String::new())
     }
 
     pub fn get_type_url(&self) -> &str {
@@ -686,11 +651,6 @@ impl Field {
         &mut self.options
     }
 
-    // Take field
-    pub fn take_options(&mut self) -> ::protobuf::RepeatedField<Option> {
-        ::std::mem::replace(&mut self.options, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_options(&self) -> &[Option] {
         &self.options
     }
@@ -720,11 +680,6 @@ impl Field {
         &mut self.json_name
     }
 
-    // Take field
-    pub fn take_json_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.json_name, ::std::string::String::new())
-    }
-
     pub fn get_json_name(&self) -> &str {
         &self.json_name
     }
@@ -752,11 +707,6 @@ impl Field {
     // If field is not initialized, it is initialized with default value first.
     pub fn mut_default_value(&mut self) -> &mut ::std::string::String {
         &mut self.default_value
-    }
-
-    // Take field
-    pub fn take_default_value(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.default_value, ::std::string::String::new())
     }
 
     pub fn get_default_value(&self) -> &str {
@@ -1251,11 +1201,6 @@ impl Enum {
         &mut self.name
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.name, ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         &self.name
     }
@@ -1284,11 +1229,6 @@ impl Enum {
         &mut self.enumvalue
     }
 
-    // Take field
-    pub fn take_enumvalue(&mut self) -> ::protobuf::RepeatedField<EnumValue> {
-        ::std::mem::replace(&mut self.enumvalue, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_enumvalue(&self) -> &[EnumValue] {
         &self.enumvalue
     }
@@ -1315,11 +1255,6 @@ impl Enum {
     // Mutable pointer to the field.
     pub fn mut_options(&mut self) -> &mut ::protobuf::RepeatedField<Option> {
         &mut self.options
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> ::protobuf::RepeatedField<Option> {
-        ::std::mem::replace(&mut self.options, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_options(&self) -> &[Option] {
@@ -1356,11 +1291,6 @@ impl Enum {
             self.source_context.set_default();
         }
         self.source_context.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_source_context(&mut self) -> ::protobuf::well_known_types::SourceContext {
-        self.source_context.take().unwrap_or_else(|| ::protobuf::well_known_types::SourceContext::new())
     }
 
     pub fn get_source_context(&self) -> &::protobuf::well_known_types::SourceContext {
@@ -1634,11 +1564,6 @@ impl EnumValue {
         &mut self.name
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.name, ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         &self.name
     }
@@ -1688,11 +1613,6 @@ impl EnumValue {
     // Mutable pointer to the field.
     pub fn mut_options(&mut self) -> &mut ::protobuf::RepeatedField<Option> {
         &mut self.options
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> ::protobuf::RepeatedField<Option> {
-        ::std::mem::replace(&mut self.options, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_options(&self) -> &[Option] {
@@ -1896,11 +1816,6 @@ impl Option {
         &mut self.name
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.name, ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         &self.name
     }
@@ -1935,11 +1850,6 @@ impl Option {
             self.value.set_default();
         }
         self.value.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_value(&mut self) -> ::protobuf::well_known_types::Any {
-        self.value.take().unwrap_or_else(|| ::protobuf::well_known_types::Any::new())
     }
 
     pub fn get_value(&self) -> &::protobuf::well_known_types::Any {

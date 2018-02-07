@@ -67,11 +67,6 @@ impl Api {
         &mut self.name
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.name, ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         &self.name
     }
@@ -98,11 +93,6 @@ impl Api {
     // Mutable pointer to the field.
     pub fn mut_methods(&mut self) -> &mut ::protobuf::RepeatedField<Method> {
         &mut self.methods
-    }
-
-    // Take field
-    pub fn take_methods(&mut self) -> ::protobuf::RepeatedField<Method> {
-        ::std::mem::replace(&mut self.methods, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_methods(&self) -> &[Method] {
@@ -133,11 +123,6 @@ impl Api {
         &mut self.options
     }
 
-    // Take field
-    pub fn take_options(&mut self) -> ::protobuf::RepeatedField<::protobuf::well_known_types::Option> {
-        ::std::mem::replace(&mut self.options, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_options(&self) -> &[::protobuf::well_known_types::Option] {
         &self.options
     }
@@ -165,11 +150,6 @@ impl Api {
     // If field is not initialized, it is initialized with default value first.
     pub fn mut_version(&mut self) -> &mut ::std::string::String {
         &mut self.version
-    }
-
-    // Take field
-    pub fn take_version(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.version, ::std::string::String::new())
     }
 
     pub fn get_version(&self) -> &str {
@@ -208,11 +188,6 @@ impl Api {
         self.source_context.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_source_context(&mut self) -> ::protobuf::well_known_types::SourceContext {
-        self.source_context.take().unwrap_or_else(|| ::protobuf::well_known_types::SourceContext::new())
-    }
-
     pub fn get_source_context(&self) -> &::protobuf::well_known_types::SourceContext {
         self.source_context.as_ref().unwrap_or_else(|| ::protobuf::well_known_types::SourceContext::default_instance())
     }
@@ -239,11 +214,6 @@ impl Api {
     // Mutable pointer to the field.
     pub fn mut_mixins(&mut self) -> &mut ::protobuf::RepeatedField<Mixin> {
         &mut self.mixins
-    }
-
-    // Take field
-    pub fn take_mixins(&mut self) -> ::protobuf::RepeatedField<Mixin> {
-        ::std::mem::replace(&mut self.mixins, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_mixins(&self) -> &[Mixin] {
@@ -559,11 +529,6 @@ impl Method {
         &mut self.name
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.name, ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         &self.name
     }
@@ -591,11 +556,6 @@ impl Method {
     // If field is not initialized, it is initialized with default value first.
     pub fn mut_request_type_url(&mut self) -> &mut ::std::string::String {
         &mut self.request_type_url
-    }
-
-    // Take field
-    pub fn take_request_type_url(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.request_type_url, ::std::string::String::new())
     }
 
     pub fn get_request_type_url(&self) -> &str {
@@ -650,11 +610,6 @@ impl Method {
         &mut self.response_type_url
     }
 
-    // Take field
-    pub fn take_response_type_url(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.response_type_url, ::std::string::String::new())
-    }
-
     pub fn get_response_type_url(&self) -> &str {
         &self.response_type_url
     }
@@ -704,11 +659,6 @@ impl Method {
     // Mutable pointer to the field.
     pub fn mut_options(&mut self) -> &mut ::protobuf::RepeatedField<::protobuf::well_known_types::Option> {
         &mut self.options
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> ::protobuf::RepeatedField<::protobuf::well_known_types::Option> {
-        ::std::mem::replace(&mut self.options, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_options(&self) -> &[::protobuf::well_known_types::Option] {
@@ -1003,11 +953,6 @@ impl Mixin {
         &mut self.name
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.name, ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         &self.name
     }
@@ -1035,11 +980,6 @@ impl Mixin {
     // If field is not initialized, it is initialized with default value first.
     pub fn mut_root(&mut self) -> &mut ::std::string::String {
         &mut self.root
-    }
-
-    // Take field
-    pub fn take_root(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.root, ::std::string::String::new())
     }
 
     pub fn get_root(&self) -> &str {

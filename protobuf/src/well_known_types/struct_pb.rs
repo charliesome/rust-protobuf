@@ -60,11 +60,6 @@ impl Struct {
         &mut self.fields
     }
 
-    // Take field
-    pub fn take_fields(&mut self) -> ::std::collections::HashMap<::std::string::String, Value> {
-        ::std::mem::replace(&mut self.fields, ::std::collections::HashMap::new())
-    }
-
     pub fn get_fields(&self) -> &::std::collections::HashMap<::std::string::String, Value> {
         &self.fields
     }
@@ -292,18 +287,6 @@ impl Value {
         }
     }
 
-    // Take field
-    pub fn take_string_value(&mut self) -> ::std::string::String {
-        if self.has_string_value() {
-            match self.kind.take() {
-                ::std::option::Option::Some(Value_oneof_kind::string_value(v)) => v,
-                _ => panic!(),
-            }
-        } else {
-            ::std::string::String::new()
-        }
-    }
-
     pub fn get_string_value(&self) -> &str {
         match self.kind {
             ::std::option::Option::Some(Value_oneof_kind::string_value(ref v)) => v,
@@ -366,18 +349,6 @@ impl Value {
         }
     }
 
-    // Take field
-    pub fn take_struct_value(&mut self) -> Struct {
-        if self.has_struct_value() {
-            match self.kind.take() {
-                ::std::option::Option::Some(Value_oneof_kind::struct_value(v)) => v,
-                _ => panic!(),
-            }
-        } else {
-            Struct::new()
-        }
-    }
-
     pub fn get_struct_value(&self) -> &Struct {
         match self.kind {
             ::std::option::Option::Some(Value_oneof_kind::struct_value(ref v)) => v,
@@ -412,18 +383,6 @@ impl Value {
         match self.kind {
             ::std::option::Option::Some(Value_oneof_kind::list_value(ref mut v)) => v,
             _ => panic!(),
-        }
-    }
-
-    // Take field
-    pub fn take_list_value(&mut self) -> ListValue {
-        if self.has_list_value() {
-            match self.kind.take() {
-                ::std::option::Option::Some(Value_oneof_kind::list_value(v)) => v,
-                _ => panic!(),
-            }
-        } else {
-            ListValue::new()
         }
     }
 
@@ -694,11 +653,6 @@ impl ListValue {
     // Mutable pointer to the field.
     pub fn mut_values(&mut self) -> &mut ::protobuf::RepeatedField<Value> {
         &mut self.values
-    }
-
-    // Take field
-    pub fn take_values(&mut self) -> ::protobuf::RepeatedField<Value> {
-        ::std::mem::replace(&mut self.values, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_values(&self) -> &[Value] {

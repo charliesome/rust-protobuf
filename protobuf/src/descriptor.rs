@@ -60,11 +60,6 @@ impl FileDescriptorSet {
         &mut self.file
     }
 
-    // Take field
-    pub fn take_file(&mut self) -> ::protobuf::RepeatedField<FileDescriptorProto> {
-        ::std::mem::replace(&mut self.file, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_file(&self) -> &[FileDescriptorProto] {
         &self.file
     }
@@ -249,11 +244,6 @@ impl FileDescriptorProto {
         self.name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
@@ -293,11 +283,6 @@ impl FileDescriptorProto {
         self.package.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_package(&mut self) -> ::std::string::String {
-        self.package.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_package(&self) -> &str {
         match self.package.as_ref() {
             Some(v) => &v,
@@ -329,11 +314,6 @@ impl FileDescriptorProto {
         &mut self.dependency
     }
 
-    // Take field
-    pub fn take_dependency(&mut self) -> ::protobuf::RepeatedField<::std::string::String> {
-        ::std::mem::replace(&mut self.dependency, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_dependency(&self) -> &[::std::string::String] {
         &self.dependency
     }
@@ -360,11 +340,6 @@ impl FileDescriptorProto {
     // Mutable pointer to the field.
     pub fn mut_public_dependency(&mut self) -> &mut ::std::vec::Vec<i32> {
         &mut self.public_dependency
-    }
-
-    // Take field
-    pub fn take_public_dependency(&mut self) -> ::std::vec::Vec<i32> {
-        ::std::mem::replace(&mut self.public_dependency, ::std::vec::Vec::new())
     }
 
     pub fn get_public_dependency(&self) -> &[i32] {
@@ -395,11 +370,6 @@ impl FileDescriptorProto {
         &mut self.weak_dependency
     }
 
-    // Take field
-    pub fn take_weak_dependency(&mut self) -> ::std::vec::Vec<i32> {
-        ::std::mem::replace(&mut self.weak_dependency, ::std::vec::Vec::new())
-    }
-
     pub fn get_weak_dependency(&self) -> &[i32] {
         &self.weak_dependency
     }
@@ -426,11 +396,6 @@ impl FileDescriptorProto {
     // Mutable pointer to the field.
     pub fn mut_message_type(&mut self) -> &mut ::protobuf::RepeatedField<DescriptorProto> {
         &mut self.message_type
-    }
-
-    // Take field
-    pub fn take_message_type(&mut self) -> ::protobuf::RepeatedField<DescriptorProto> {
-        ::std::mem::replace(&mut self.message_type, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_message_type(&self) -> &[DescriptorProto] {
@@ -461,11 +426,6 @@ impl FileDescriptorProto {
         &mut self.enum_type
     }
 
-    // Take field
-    pub fn take_enum_type(&mut self) -> ::protobuf::RepeatedField<EnumDescriptorProto> {
-        ::std::mem::replace(&mut self.enum_type, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_enum_type(&self) -> &[EnumDescriptorProto] {
         &self.enum_type
     }
@@ -494,11 +454,6 @@ impl FileDescriptorProto {
         &mut self.service
     }
 
-    // Take field
-    pub fn take_service(&mut self) -> ::protobuf::RepeatedField<ServiceDescriptorProto> {
-        ::std::mem::replace(&mut self.service, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_service(&self) -> &[ServiceDescriptorProto] {
         &self.service
     }
@@ -525,11 +480,6 @@ impl FileDescriptorProto {
     // Mutable pointer to the field.
     pub fn mut_extension(&mut self) -> &mut ::protobuf::RepeatedField<FieldDescriptorProto> {
         &mut self.extension
-    }
-
-    // Take field
-    pub fn take_extension(&mut self) -> ::protobuf::RepeatedField<FieldDescriptorProto> {
-        ::std::mem::replace(&mut self.extension, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_extension(&self) -> &[FieldDescriptorProto] {
@@ -568,11 +518,6 @@ impl FileDescriptorProto {
         self.options.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_options(&mut self) -> FileOptions {
-        self.options.take().unwrap_or_else(|| FileOptions::new())
-    }
-
     pub fn get_options(&self) -> &FileOptions {
         self.options.as_ref().unwrap_or_else(|| FileOptions::default_instance())
     }
@@ -609,11 +554,6 @@ impl FileDescriptorProto {
         self.source_code_info.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_source_code_info(&mut self) -> SourceCodeInfo {
-        self.source_code_info.take().unwrap_or_else(|| SourceCodeInfo::new())
-    }
-
     pub fn get_source_code_info(&self) -> &SourceCodeInfo {
         self.source_code_info.as_ref().unwrap_or_else(|| SourceCodeInfo::default_instance())
     }
@@ -648,11 +588,6 @@ impl FileDescriptorProto {
             self.syntax.set_default();
         }
         self.syntax.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_syntax(&mut self) -> ::std::string::String {
-        self.syntax.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_syntax(&self) -> &str {
@@ -1045,11 +980,6 @@ impl DescriptorProto {
         self.name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
@@ -1081,11 +1011,6 @@ impl DescriptorProto {
         &mut self.field
     }
 
-    // Take field
-    pub fn take_field(&mut self) -> ::protobuf::RepeatedField<FieldDescriptorProto> {
-        ::std::mem::replace(&mut self.field, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_field(&self) -> &[FieldDescriptorProto] {
         &self.field
     }
@@ -1112,11 +1037,6 @@ impl DescriptorProto {
     // Mutable pointer to the field.
     pub fn mut_extension(&mut self) -> &mut ::protobuf::RepeatedField<FieldDescriptorProto> {
         &mut self.extension
-    }
-
-    // Take field
-    pub fn take_extension(&mut self) -> ::protobuf::RepeatedField<FieldDescriptorProto> {
-        ::std::mem::replace(&mut self.extension, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_extension(&self) -> &[FieldDescriptorProto] {
@@ -1147,11 +1067,6 @@ impl DescriptorProto {
         &mut self.nested_type
     }
 
-    // Take field
-    pub fn take_nested_type(&mut self) -> ::protobuf::RepeatedField<DescriptorProto> {
-        ::std::mem::replace(&mut self.nested_type, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_nested_type(&self) -> &[DescriptorProto] {
         &self.nested_type
     }
@@ -1178,11 +1093,6 @@ impl DescriptorProto {
     // Mutable pointer to the field.
     pub fn mut_enum_type(&mut self) -> &mut ::protobuf::RepeatedField<EnumDescriptorProto> {
         &mut self.enum_type
-    }
-
-    // Take field
-    pub fn take_enum_type(&mut self) -> ::protobuf::RepeatedField<EnumDescriptorProto> {
-        ::std::mem::replace(&mut self.enum_type, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_enum_type(&self) -> &[EnumDescriptorProto] {
@@ -1213,11 +1123,6 @@ impl DescriptorProto {
         &mut self.extension_range
     }
 
-    // Take field
-    pub fn take_extension_range(&mut self) -> ::protobuf::RepeatedField<DescriptorProto_ExtensionRange> {
-        ::std::mem::replace(&mut self.extension_range, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_extension_range(&self) -> &[DescriptorProto_ExtensionRange] {
         &self.extension_range
     }
@@ -1244,11 +1149,6 @@ impl DescriptorProto {
     // Mutable pointer to the field.
     pub fn mut_oneof_decl(&mut self) -> &mut ::protobuf::RepeatedField<OneofDescriptorProto> {
         &mut self.oneof_decl
-    }
-
-    // Take field
-    pub fn take_oneof_decl(&mut self) -> ::protobuf::RepeatedField<OneofDescriptorProto> {
-        ::std::mem::replace(&mut self.oneof_decl, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_oneof_decl(&self) -> &[OneofDescriptorProto] {
@@ -1287,11 +1187,6 @@ impl DescriptorProto {
         self.options.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_options(&mut self) -> MessageOptions {
-        self.options.take().unwrap_or_else(|| MessageOptions::new())
-    }
-
     pub fn get_options(&self) -> &MessageOptions {
         self.options.as_ref().unwrap_or_else(|| MessageOptions::default_instance())
     }
@@ -1320,11 +1215,6 @@ impl DescriptorProto {
         &mut self.reserved_range
     }
 
-    // Take field
-    pub fn take_reserved_range(&mut self) -> ::protobuf::RepeatedField<DescriptorProto_ReservedRange> {
-        ::std::mem::replace(&mut self.reserved_range, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_reserved_range(&self) -> &[DescriptorProto_ReservedRange] {
         &self.reserved_range
     }
@@ -1351,11 +1241,6 @@ impl DescriptorProto {
     // Mutable pointer to the field.
     pub fn mut_reserved_name(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
         &mut self.reserved_name
-    }
-
-    // Take field
-    pub fn take_reserved_name(&mut self) -> ::protobuf::RepeatedField<::std::string::String> {
-        ::std::mem::replace(&mut self.reserved_name, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_reserved_name(&self) -> &[::std::string::String] {
@@ -2145,11 +2030,6 @@ impl FieldDescriptorProto {
         self.name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
@@ -2270,11 +2150,6 @@ impl FieldDescriptorProto {
         self.type_name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_type_name(&mut self) -> ::std::string::String {
-        self.type_name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_type_name(&self) -> &str {
         match self.type_name.as_ref() {
             Some(v) => &v,
@@ -2314,11 +2189,6 @@ impl FieldDescriptorProto {
         self.extendee.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_extendee(&mut self) -> ::std::string::String {
-        self.extendee.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_extendee(&self) -> &str {
         match self.extendee.as_ref() {
             Some(v) => &v,
@@ -2356,11 +2226,6 @@ impl FieldDescriptorProto {
             self.default_value.set_default();
         }
         self.default_value.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_default_value(&mut self) -> ::std::string::String {
-        self.default_value.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_default_value(&self) -> &str {
@@ -2429,11 +2294,6 @@ impl FieldDescriptorProto {
         self.json_name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_json_name(&mut self) -> ::std::string::String {
-        self.json_name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_json_name(&self) -> &str {
         match self.json_name.as_ref() {
             Some(v) => &v,
@@ -2471,11 +2331,6 @@ impl FieldDescriptorProto {
             self.options.set_default();
         }
         self.options.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> FieldOptions {
-        self.options.take().unwrap_or_else(|| FieldOptions::new())
     }
 
     pub fn get_options(&self) -> &FieldOptions {
@@ -2952,11 +2807,6 @@ impl OneofDescriptorProto {
         self.name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
@@ -2994,11 +2844,6 @@ impl OneofDescriptorProto {
             self.options.set_default();
         }
         self.options.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> OneofOptions {
-        self.options.take().unwrap_or_else(|| OneofOptions::new())
     }
 
     pub fn get_options(&self) -> &OneofOptions {
@@ -3191,11 +3036,6 @@ impl EnumDescriptorProto {
         self.name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
@@ -3225,11 +3065,6 @@ impl EnumDescriptorProto {
     // Mutable pointer to the field.
     pub fn mut_value(&mut self) -> &mut ::protobuf::RepeatedField<EnumValueDescriptorProto> {
         &mut self.value
-    }
-
-    // Take field
-    pub fn take_value(&mut self) -> ::protobuf::RepeatedField<EnumValueDescriptorProto> {
-        ::std::mem::replace(&mut self.value, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_value(&self) -> &[EnumValueDescriptorProto] {
@@ -3266,11 +3101,6 @@ impl EnumDescriptorProto {
             self.options.set_default();
         }
         self.options.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> EnumOptions {
-        self.options.take().unwrap_or_else(|| EnumOptions::new())
     }
 
     pub fn get_options(&self) -> &EnumOptions {
@@ -3486,11 +3316,6 @@ impl EnumValueDescriptorProto {
         self.name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
@@ -3555,11 +3380,6 @@ impl EnumValueDescriptorProto {
             self.options.set_default();
         }
         self.options.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> EnumValueOptions {
-        self.options.take().unwrap_or_else(|| EnumValueOptions::new())
     }
 
     pub fn get_options(&self) -> &EnumValueOptions {
@@ -3771,11 +3591,6 @@ impl ServiceDescriptorProto {
         self.name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
@@ -3805,11 +3620,6 @@ impl ServiceDescriptorProto {
     // Mutable pointer to the field.
     pub fn mut_method(&mut self) -> &mut ::protobuf::RepeatedField<MethodDescriptorProto> {
         &mut self.method
-    }
-
-    // Take field
-    pub fn take_method(&mut self) -> ::protobuf::RepeatedField<MethodDescriptorProto> {
-        ::std::mem::replace(&mut self.method, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_method(&self) -> &[MethodDescriptorProto] {
@@ -3846,11 +3656,6 @@ impl ServiceDescriptorProto {
             self.options.set_default();
         }
         self.options.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> ServiceOptions {
-        self.options.take().unwrap_or_else(|| ServiceOptions::new())
     }
 
     pub fn get_options(&self) -> &ServiceOptions {
@@ -4069,11 +3874,6 @@ impl MethodDescriptorProto {
         self.name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
@@ -4111,11 +3911,6 @@ impl MethodDescriptorProto {
             self.input_type.set_default();
         }
         self.input_type.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_input_type(&mut self) -> ::std::string::String {
-        self.input_type.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_input_type(&self) -> &str {
@@ -4157,11 +3952,6 @@ impl MethodDescriptorProto {
         self.output_type.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_output_type(&mut self) -> ::std::string::String {
-        self.output_type.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_output_type(&self) -> &str {
         match self.output_type.as_ref() {
             Some(v) => &v,
@@ -4199,11 +3989,6 @@ impl MethodDescriptorProto {
             self.options.set_default();
         }
         self.options.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_options(&mut self) -> MethodOptions {
-        self.options.take().unwrap_or_else(|| MethodOptions::new())
     }
 
     pub fn get_options(&self) -> &MethodOptions {
@@ -4530,11 +4315,6 @@ impl FileOptions {
         self.java_package.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_java_package(&mut self) -> ::std::string::String {
-        self.java_package.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_java_package(&self) -> &str {
         match self.java_package.as_ref() {
             Some(v) => &v,
@@ -4572,11 +4352,6 @@ impl FileOptions {
             self.java_outer_classname.set_default();
         }
         self.java_outer_classname.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_java_outer_classname(&mut self) -> ::std::string::String {
-        self.java_outer_classname.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_java_outer_classname(&self) -> &str {
@@ -4724,11 +4499,6 @@ impl FileOptions {
             self.go_package.set_default();
         }
         self.go_package.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_go_package(&mut self) -> ::std::string::String {
-        self.go_package.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_go_package(&self) -> &str {
@@ -4905,11 +4675,6 @@ impl FileOptions {
         self.objc_class_prefix.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_objc_class_prefix(&mut self) -> ::std::string::String {
-        self.objc_class_prefix.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_objc_class_prefix(&self) -> &str {
         match self.objc_class_prefix.as_ref() {
             Some(v) => &v,
@@ -4949,11 +4714,6 @@ impl FileOptions {
         self.csharp_namespace.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_csharp_namespace(&mut self) -> ::std::string::String {
-        self.csharp_namespace.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_csharp_namespace(&self) -> &str {
         match self.csharp_namespace.as_ref() {
             Some(v) => &v,
@@ -4983,11 +4743,6 @@ impl FileOptions {
     // Mutable pointer to the field.
     pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
         &mut self.uninterpreted_option
-    }
-
-    // Take field
-    pub fn take_uninterpreted_option(&mut self) -> ::protobuf::RepeatedField<UninterpretedOption> {
-        ::std::mem::replace(&mut self.uninterpreted_option, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_uninterpreted_option(&self) -> &[UninterpretedOption] {
@@ -5565,11 +5320,6 @@ impl MessageOptions {
         &mut self.uninterpreted_option
     }
 
-    // Take field
-    pub fn take_uninterpreted_option(&mut self) -> ::protobuf::RepeatedField<UninterpretedOption> {
-        ::std::mem::replace(&mut self.uninterpreted_option, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_uninterpreted_option(&self) -> &[UninterpretedOption] {
         &self.uninterpreted_option
     }
@@ -5979,11 +5729,6 @@ impl FieldOptions {
         &mut self.uninterpreted_option
     }
 
-    // Take field
-    pub fn take_uninterpreted_option(&mut self) -> ::protobuf::RepeatedField<UninterpretedOption> {
-        ::std::mem::replace(&mut self.uninterpreted_option, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_uninterpreted_option(&self) -> &[UninterpretedOption] {
         &self.uninterpreted_option
     }
@@ -6367,11 +6112,6 @@ impl OneofOptions {
         &mut self.uninterpreted_option
     }
 
-    // Take field
-    pub fn take_uninterpreted_option(&mut self) -> ::protobuf::RepeatedField<UninterpretedOption> {
-        ::std::mem::replace(&mut self.uninterpreted_option, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_uninterpreted_option(&self) -> &[UninterpretedOption] {
         &self.uninterpreted_option
     }
@@ -6591,11 +6331,6 @@ impl EnumOptions {
     // Mutable pointer to the field.
     pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
         &mut self.uninterpreted_option
-    }
-
-    // Take field
-    pub fn take_uninterpreted_option(&mut self) -> ::protobuf::RepeatedField<UninterpretedOption> {
-        ::std::mem::replace(&mut self.uninterpreted_option, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_uninterpreted_option(&self) -> &[UninterpretedOption] {
@@ -6829,11 +6564,6 @@ impl EnumValueOptions {
         &mut self.uninterpreted_option
     }
 
-    // Take field
-    pub fn take_uninterpreted_option(&mut self) -> ::protobuf::RepeatedField<UninterpretedOption> {
-        ::std::mem::replace(&mut self.uninterpreted_option, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_uninterpreted_option(&self) -> &[UninterpretedOption] {
         &self.uninterpreted_option
     }
@@ -7044,11 +6774,6 @@ impl ServiceOptions {
     // Mutable pointer to the field.
     pub fn mut_uninterpreted_option(&mut self) -> &mut ::protobuf::RepeatedField<UninterpretedOption> {
         &mut self.uninterpreted_option
-    }
-
-    // Take field
-    pub fn take_uninterpreted_option(&mut self) -> ::protobuf::RepeatedField<UninterpretedOption> {
-        ::std::mem::replace(&mut self.uninterpreted_option, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_uninterpreted_option(&self) -> &[UninterpretedOption] {
@@ -7263,11 +6988,6 @@ impl MethodOptions {
         &mut self.uninterpreted_option
     }
 
-    // Take field
-    pub fn take_uninterpreted_option(&mut self) -> ::protobuf::RepeatedField<UninterpretedOption> {
-        ::std::mem::replace(&mut self.uninterpreted_option, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_uninterpreted_option(&self) -> &[UninterpretedOption] {
         &self.uninterpreted_option
     }
@@ -7458,11 +7178,6 @@ impl UninterpretedOption {
         &mut self.name
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::protobuf::RepeatedField<UninterpretedOption_NamePart> {
-        ::std::mem::replace(&mut self.name, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_name(&self) -> &[UninterpretedOption_NamePart] {
         &self.name
     }
@@ -7497,11 +7212,6 @@ impl UninterpretedOption {
             self.identifier_value.set_default();
         }
         self.identifier_value.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_identifier_value(&mut self) -> ::std::string::String {
-        self.identifier_value.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_identifier_value(&self) -> &str {
@@ -7624,11 +7334,6 @@ impl UninterpretedOption {
         self.string_value.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_string_value(&mut self) -> ::std::vec::Vec<u8> {
-        self.string_value.take().unwrap_or_else(|| ::std::vec::Vec::new())
-    }
-
     pub fn get_string_value(&self) -> &[u8] {
         match self.string_value.as_ref() {
             Some(v) => &v,
@@ -7666,11 +7371,6 @@ impl UninterpretedOption {
             self.aggregate_value.set_default();
         }
         self.aggregate_value.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_aggregate_value(&mut self) -> ::std::string::String {
-        self.aggregate_value.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_aggregate_value(&self) -> &str {
@@ -7952,11 +7652,6 @@ impl UninterpretedOption_NamePart {
         self.name_part.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name_part(&mut self) -> ::std::string::String {
-        self.name_part.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name_part(&self) -> &str {
         match self.name_part.as_ref() {
             Some(v) => &v,
@@ -8169,11 +7864,6 @@ impl SourceCodeInfo {
         &mut self.location
     }
 
-    // Take field
-    pub fn take_location(&mut self) -> ::protobuf::RepeatedField<SourceCodeInfo_Location> {
-        ::std::mem::replace(&mut self.location, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_location(&self) -> &[SourceCodeInfo_Location] {
         &self.location
     }
@@ -8343,11 +8033,6 @@ impl SourceCodeInfo_Location {
         &mut self.path
     }
 
-    // Take field
-    pub fn take_path(&mut self) -> ::std::vec::Vec<i32> {
-        ::std::mem::replace(&mut self.path, ::std::vec::Vec::new())
-    }
-
     pub fn get_path(&self) -> &[i32] {
         &self.path
     }
@@ -8374,11 +8059,6 @@ impl SourceCodeInfo_Location {
     // Mutable pointer to the field.
     pub fn mut_span(&mut self) -> &mut ::std::vec::Vec<i32> {
         &mut self.span
-    }
-
-    // Take field
-    pub fn take_span(&mut self) -> ::std::vec::Vec<i32> {
-        ::std::mem::replace(&mut self.span, ::std::vec::Vec::new())
     }
 
     pub fn get_span(&self) -> &[i32] {
@@ -8415,11 +8095,6 @@ impl SourceCodeInfo_Location {
             self.leading_comments.set_default();
         }
         self.leading_comments.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_leading_comments(&mut self) -> ::std::string::String {
-        self.leading_comments.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_leading_comments(&self) -> &str {
@@ -8461,11 +8136,6 @@ impl SourceCodeInfo_Location {
         self.trailing_comments.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_trailing_comments(&mut self) -> ::std::string::String {
-        self.trailing_comments.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_trailing_comments(&self) -> &str {
         match self.trailing_comments.as_ref() {
             Some(v) => &v,
@@ -8495,11 +8165,6 @@ impl SourceCodeInfo_Location {
     // Mutable pointer to the field.
     pub fn mut_leading_detached_comments(&mut self) -> &mut ::protobuf::RepeatedField<::std::string::String> {
         &mut self.leading_detached_comments
-    }
-
-    // Take field
-    pub fn take_leading_detached_comments(&mut self) -> ::protobuf::RepeatedField<::std::string::String> {
-        ::std::mem::replace(&mut self.leading_detached_comments, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_leading_detached_comments(&self) -> &[::std::string::String] {
@@ -8729,11 +8394,6 @@ impl GeneratedCodeInfo {
         &mut self.annotation
     }
 
-    // Take field
-    pub fn take_annotation(&mut self) -> ::protobuf::RepeatedField<GeneratedCodeInfo_Annotation> {
-        ::std::mem::replace(&mut self.annotation, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_annotation(&self) -> &[GeneratedCodeInfo_Annotation] {
         &self.annotation
     }
@@ -8902,11 +8562,6 @@ impl GeneratedCodeInfo_Annotation {
         &mut self.path
     }
 
-    // Take field
-    pub fn take_path(&mut self) -> ::std::vec::Vec<i32> {
-        ::std::mem::replace(&mut self.path, ::std::vec::Vec::new())
-    }
-
     pub fn get_path(&self) -> &[i32] {
         &self.path
     }
@@ -8941,11 +8596,6 @@ impl GeneratedCodeInfo_Annotation {
             self.source_file.set_default();
         }
         self.source_file.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_source_file(&mut self) -> ::std::string::String {
-        self.source_file.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_source_file(&self) -> &str {

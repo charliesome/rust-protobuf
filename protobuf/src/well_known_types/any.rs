@@ -62,11 +62,6 @@ impl Any {
         &mut self.type_url
     }
 
-    // Take field
-    pub fn take_type_url(&mut self) -> ::std::string::String {
-        ::std::mem::replace(&mut self.type_url, ::std::string::String::new())
-    }
-
     pub fn get_type_url(&self) -> &str {
         &self.type_url
     }
@@ -94,11 +89,6 @@ impl Any {
     // If field is not initialized, it is initialized with default value first.
     pub fn mut_value(&mut self) -> &mut ::std::vec::Vec<u8> {
         &mut self.value
-    }
-
-    // Take field
-    pub fn take_value(&mut self) -> ::std::vec::Vec<u8> {
-        ::std::mem::replace(&mut self.value, ::std::vec::Vec::new())
     }
 
     pub fn get_value(&self) -> &[u8] {

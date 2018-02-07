@@ -62,11 +62,6 @@ impl CodeGeneratorRequest {
         &mut self.file_to_generate
     }
 
-    // Take field
-    pub fn take_file_to_generate(&mut self) -> ::protobuf::RepeatedField<::std::string::String> {
-        ::std::mem::replace(&mut self.file_to_generate, ::protobuf::RepeatedField::new())
-    }
-
     pub fn get_file_to_generate(&self) -> &[::std::string::String] {
         &self.file_to_generate
     }
@@ -103,11 +98,6 @@ impl CodeGeneratorRequest {
         self.parameter.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_parameter(&mut self) -> ::std::string::String {
-        self.parameter.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_parameter(&self) -> &str {
         match self.parameter.as_ref() {
             Some(v) => &v,
@@ -137,11 +127,6 @@ impl CodeGeneratorRequest {
     // Mutable pointer to the field.
     pub fn mut_proto_file(&mut self) -> &mut ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto> {
         &mut self.proto_file
-    }
-
-    // Take field
-    pub fn take_proto_file(&mut self) -> ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto> {
-        ::std::mem::replace(&mut self.proto_file, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_proto_file(&self) -> &[::protobuf::descriptor::FileDescriptorProto] {
@@ -348,11 +333,6 @@ impl CodeGeneratorResponse {
         self.error.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_error(&mut self) -> ::std::string::String {
-        self.error.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_error(&self) -> &str {
         match self.error.as_ref() {
             Some(v) => &v,
@@ -382,11 +362,6 @@ impl CodeGeneratorResponse {
     // Mutable pointer to the field.
     pub fn mut_file(&mut self) -> &mut ::protobuf::RepeatedField<CodeGeneratorResponse_File> {
         &mut self.file
-    }
-
-    // Take field
-    pub fn take_file(&mut self) -> ::protobuf::RepeatedField<CodeGeneratorResponse_File> {
-        ::std::mem::replace(&mut self.file, ::protobuf::RepeatedField::new())
     }
 
     pub fn get_file(&self) -> &[CodeGeneratorResponse_File] {
@@ -579,11 +554,6 @@ impl CodeGeneratorResponse_File {
         self.name.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_name(&mut self) -> ::std::string::String {
-        self.name.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_name(&self) -> &str {
         match self.name.as_ref() {
             Some(v) => &v,
@@ -623,11 +593,6 @@ impl CodeGeneratorResponse_File {
         self.insertion_point.as_mut().unwrap()
     }
 
-    // Take field
-    pub fn take_insertion_point(&mut self) -> ::std::string::String {
-        self.insertion_point.take().unwrap_or_else(|| ::std::string::String::new())
-    }
-
     pub fn get_insertion_point(&self) -> &str {
         match self.insertion_point.as_ref() {
             Some(v) => &v,
@@ -665,11 +630,6 @@ impl CodeGeneratorResponse_File {
             self.content.set_default();
         }
         self.content.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_content(&mut self) -> ::std::string::String {
-        self.content.take().unwrap_or_else(|| ::std::string::String::new())
     }
 
     pub fn get_content(&self) -> &str {
