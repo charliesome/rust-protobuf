@@ -44,22 +44,6 @@ impl<V : ProtobufValue + 'static> ReflectRepeated for [V] {
     }
 }
 
-impl<V : ProtobufValue + 'static> ReflectRepeated for RepeatedField<V> {
-    fn reflect_iter<'a>(&'a self) -> ReflectRepeatedIter<'a> {
-        ReflectRepeatedIter {
-            imp: Box::new(ReflectRepeatedIterImplSlice::<'a, V> { iter: self.iter() }),
-        }
-    }
-
-    fn len(&self) -> usize {
-        RepeatedField::len(self)
-    }
-
-    fn get(&self, index: usize) -> &ProtobufValue {
-        &self[index]
-    }
-}
-
 trait ReflectRepeatedIterTrait<'a> {
     fn next(&mut self) -> Option<&'a ProtobufValue>;
 }

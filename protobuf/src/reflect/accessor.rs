@@ -582,21 +582,6 @@ where
 }
 
 
-impl<M, V> FieldAccessor2<M, ReflectRepeated> for MessageGetMut<M, RepeatedField<V>>
-where
-    M : Message + 'static,
-    V : ProtobufValue + 'static,
-{
-    fn get_field<'a>(&self, m: &'a M) -> &'a ReflectRepeated {
-        (self.get_field)(m) as &ReflectRepeated
-    }
-
-    fn mut_field<'a>(&self, m: &'a mut M) -> &'a mut ReflectRepeated {
-        (self.mut_field)(m) as &mut ReflectRepeated
-    }
-}
-
-
 pub fn make_repeated_field_accessor<M, V>(
     name: &'static str,
     get_vec: for<'a> fn(&'a M) -> &'a RepeatedField<V::Value>,
