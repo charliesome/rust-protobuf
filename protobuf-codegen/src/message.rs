@@ -325,19 +325,6 @@ impl<'a> MessageGen<'a> {
         });
     }
 
-    fn write_impl_clear(&self, w: &mut CodeWriter) {
-        w.impl_for_block("::protobuf::Clear", &self.type_name, |w| {
-            w.def_fn("clear(&mut self)", |w| {
-                // TODO: no need to clear oneof fields in loop
-                for f in self.fields_except_group() {
-                    let clear_field_func = f.clear_field_func();
-                    w.write_line(&format!("self.{}();", clear_field_func));
-                }
-                w.write_line("self.unknown_fields.clear();");
-            });
-        });
-    }
-
     fn write_struct(&self, w: &mut CodeWriter) {
         let mut derive = vec!["PartialEq", "Clone", "Default"];
         if self.lite_runtime {
@@ -382,8 +369,6 @@ impl<'a> MessageGen<'a> {
         self.write_impl_self(w);
         w.write_line("");
         self.write_impl_message(w);
-        w.write_line("");
-        self.write_impl_clear(w);
         if !self.lite_runtime {
             w.write_line("");
             self.write_impl_show(w);
