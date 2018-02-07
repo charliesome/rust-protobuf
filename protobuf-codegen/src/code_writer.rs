@@ -6,12 +6,6 @@ use std::io::Write;
 // TODO: should not use wire_format here
 use protobuf::wire_format;
 
-/// Field visibility.
-pub enum Visibility {
-    Public,
-    Default,
-}
-
 pub struct CodeWriter<'a> {
     writer: &'a mut (Write + 'a),
     indent: String,
@@ -228,13 +222,6 @@ impl<'a> CodeWriter<'a> {
 
     pub fn pub_field_decl(&mut self, name: &str, field_type: &str) {
         self.write_line(&format!("pub {}: {},", name, field_type));
-    }
-
-    pub fn field_decl_vis(&mut self, vis: Visibility, name: &str, field_type: &str) {
-        match vis {
-            Visibility::Public => self.pub_field_decl(name, field_type),
-            Visibility::Default => self.field_decl(name, field_type),
-        }
     }
 
     pub fn derive(&mut self, derive: &[&str]) {

@@ -1,6 +1,5 @@
 use protobuf::descriptor::*;
 use protobuf::descriptorx::*;
-use protobuf::rustproto;
 
 use super::enums::*;
 use super::rust_types_values::*;
@@ -35,13 +34,6 @@ impl<'a> MessageGen<'a> {
                 .get_optimize_for() ==
                 FileOptions_OptimizeMode::LITE_RUNTIME,
         }
-    }
-
-    fn expose_oneof(&self) -> bool {
-        let options = self.message.get_scope().get_file_descriptor().get_options();
-        rustproto::exts::expose_oneof_all
-            .get(options)
-            .unwrap_or(false)
     }
 
     fn oneofs(&'a self) -> Vec<OneofGen<'a>> {
@@ -359,23 +351,7 @@ impl<'a> MessageGen<'a> {
                     if field.proto_type == FieldDescriptorProto_Type::TYPE_GROUP {
                         w.comment(&format!("{}: <group>", &field.rust_name));
                     } else {
-                        let vis = if field.expose_field {
-                            Visibility::Public
-                        } else {
-                            match field.kind {
-                                FieldKind::Repeated(..) => Visibility::Default,
-                                FieldKind::Singular(SingularField { ref flag, .. }) => {
-                                    match *flag {
-                                        SingularFieldFlag::WithFlag { .. } => Visibility::Default,
-                                        SingularFieldFlag::WithoutFlag => Visibility::Public,
-                                    }
-                                }
-                                FieldKind::Map(..) => Visibility::Public,
-                                FieldKind::Oneof(..) => unreachable!(),
-                            }
-                        };
-                        w.field_decl_vis(
-                            vis,
+                        w.pub_field_decl(
                             &field.rust_name,
                             &field.full_storage_type().to_string(),
                         );
@@ -385,11 +361,7 @@ impl<'a> MessageGen<'a> {
             if !self.oneofs().is_empty() {
                 w.comment("message oneof groups");
                 for oneof in self.oneofs() {
-                    let vis = match self.expose_oneof() {
-                        true => Visibility::Public,
-                        false => Visibility::Default,
-                    };
-                    w.field_decl_vis(vis, oneof.name(), &oneof.full_storage_type().to_string());
+                    w.pub_field_decl(oneof.name(), &oneof.full_storage_type().to_string());
                 }
             }
             w.comment("special fields");

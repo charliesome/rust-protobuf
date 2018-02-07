@@ -495,22 +495,12 @@ pub struct FieldGen<'a> {
     wire_type: wire_format::WireType,
     enum_default_value: Option<EnumValueGen>,
     pub kind: FieldKind,
-    pub expose_field: bool,
     pub generate_accessors: bool,
 }
 
 impl<'a> FieldGen<'a> {
     pub fn parse(field: FieldWithContext<'a>, root_scope: &'a RootScope<'a>) -> FieldGen<'a> {
         let (elem, enum_default_value) = field_elem(&field, root_scope, true);
-
-        let default_expose_field = field.message.scope.file_scope.syntax() == Syntax::PROTO3;
-
-        let expose_field = join_field_ext(
-            &field,
-            rustproto::exts::expose_fields_field,
-            rustproto::exts::expose_fields,
-            rustproto::exts::expose_fields_all,
-        ).unwrap_or(default_expose_field);
 
         let generate_accessors = join_field_ext(
             &field,
@@ -560,7 +550,6 @@ impl<'a> FieldGen<'a> {
             enum_default_value: enum_default_value,
             proto_field: field,
             kind: kind,
-            expose_field: expose_field,
             generate_accessors: generate_accessors,
         }
     }
