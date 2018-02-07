@@ -140,14 +140,14 @@ impl<'a> MessageGen<'a> {
         w.allow(&["unused_variables"]);
         w.def_fn("compute_size(&self) -> u32", |w| {
             // To have access to its methods but not polute the name space.
-            w.write_line("let mut my_size = 0;");
+            w.write_line("let mut _size = 0;");
             for field in self.fields_except_oneof_and_group() {
-                field.write_message_compute_field_size("my_size", w);
+                field.write_message_compute_field_size("_size", w);
             }
             self.write_match_each_oneof_variant(w, |w, variant, v, vtype| {
-                variant.field.write_element_size(w, v, vtype, "my_size");
+                variant.field.write_element_size(w, v, vtype, "_size");
             });
-            w.write_line("my_size");
+            w.write_line("_size");
         });
     }
 
