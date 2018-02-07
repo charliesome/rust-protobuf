@@ -25,7 +25,7 @@ fn test_set_clear_field() {
     assert!(!test_message.has_int32_field());
     assert_eq!(0, test_message.get_int32_field());
 
-    test_message.clear_int32_field();
+    test_message.one = None;
     assert!(!test_message.has_int32_field());
     assert!(!test_message.has_bool_field());
     assert_eq!(false, test_message.get_bool_field());

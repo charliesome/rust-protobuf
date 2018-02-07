@@ -972,18 +972,6 @@ impl<'a> FieldGen<'a> {
         }
     }
 
-    fn write_clear(&self, w: &mut CodeWriter) {
-        if self.is_oneof() {
-            w.write_line(&format!(
-                "self.{} = ::std::option::Option::None;",
-                self.oneof().oneof_name
-            ));
-        } else {
-            let clear_expr = self.full_storage_type().clear(&self.self_field());
-            w.write_line(&format!("{};", clear_expr));
-        }
-    }
-
     // expression that returns size of data is variable
     fn element_size(&self, var: &str, var_type: &RustType) -> String {
         assert!(!self.is_repeated_packed());
@@ -1347,11 +1335,6 @@ impl<'a> FieldGen<'a> {
     fn self_field_oneof(&self) -> String {
         format!("self.{}", self.oneof().oneof_name)
     }
-
-    pub fn clear_field_func(&self) -> String {
-        format!("clear_{}", self.rust_name)
-    }
-
 
     fn write_merge_from_field_message_string_bytes(&self, w: &mut CodeWriter) {
         let singular_or_repeated = match self.kind {
@@ -1814,11 +1797,6 @@ impl<'a> FieldGen<'a> {
     }
 
     pub fn write_message_single_field_accessors(&self, w: &mut CodeWriter) {
-        let clear_field_func = self.clear_field_func();
-        w.pub_fn(&format!("{}(&mut self)", clear_field_func), |w| {
-            self.write_clear(w);
-        });
-
         if self.has_has() {
             w.write_line("");
             self.write_message_field_has(w);

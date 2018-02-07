@@ -191,26 +191,6 @@ impl RustType {
         }
     }
 
-    /// Emit a code to clear a variable `v`
-    pub fn clear(&self, v: &str) -> String {
-        match *self {
-            RustType::Option(..) => format!("{} = ::std::option::Option::None", v),
-            RustType::Vec(..) |
-            RustType::Bytes |
-            RustType::String |
-            RustType::RepeatedField(..) |
-            RustType::SingularField(..) |
-            RustType::SingularPtrField(..) |
-            RustType::HashMap(..) => format!("{}.clear()", v),
-            RustType::Chars => format!("::protobuf::Clear::clear(&mut {})", v),
-            RustType::Bool |
-            RustType::Float(..) |
-            RustType::Int(..) |
-            RustType::Enum(..) => format!("{} = {}", v, self.default_value()),
-            ref ty => panic!("cannot clear type: {:?}", ty),
-        }
-    }
-
     // wrap value in storage type
     pub fn wrap_value(&self, value: &str) -> String {
         match *self {
