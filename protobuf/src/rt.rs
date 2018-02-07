@@ -494,8 +494,8 @@ pub fn read_repeated_string_into(
 ) -> ProtobufResult<()> {
     match wire_type {
         WireTypeLengthDelimited => {
-            let tmp = target.push_default();
-            is.read_string_into(tmp)
+            target.push(is.read_string()?);
+            Ok(())
         }
         _ => Err(unexpected_wire_type(wire_type)),
     }
@@ -584,8 +584,8 @@ pub fn read_repeated_bytes_into(
 ) -> ProtobufResult<()> {
     match wire_type {
         WireTypeLengthDelimited => {
-            let tmp = target.push_default();
-            is.read_bytes_into(tmp)
+            target.push(is.read_bytes()?);
+            Ok(())
         }
         _ => Err(unexpected_wire_type(wire_type)),
     }
@@ -675,10 +675,11 @@ pub fn read_repeated_message_into<M : Message + Default>(
     match wire_type {
         WireTypeLengthDelimited => {
             is.incr_recursion()?;
-            let tmp = target.push_default();
-            let res = is.merge_message(tmp);
+            let mut msg = Default::default();
+            is.merge_message(&mut msg)?;
+            target.push(msg);
             is.decr_recursion();
-            res
+            Ok(())
         }
         _ => Err(unexpected_wire_type(wire_type)),
     }
