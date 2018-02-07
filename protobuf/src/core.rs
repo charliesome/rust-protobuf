@@ -30,6 +30,9 @@ pub trait Message: fmt::Debug + Any + Send + Sync {
     /// Always returns `true` for protobuf 3.
     fn is_initialized(&self) -> bool;
 
+    fn read_from(_is: &mut CodedInputStream) -> ProtobufResult<Self>
+        where Self : Sized;
+
     /// Update this message object with fields read from given stream.
     fn merge_from(&mut self, is: &mut CodedInputStream) -> ProtobufResult<()>;
 

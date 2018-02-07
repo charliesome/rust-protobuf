@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 use protobuf::descriptor::*;
 use protobuf::descriptorx::*;
 
@@ -184,6 +186,83 @@ impl<'a> MessageGen<'a> {
         });
     }
 
+    fn write_read_from(&self, w: &mut CodeWriter) {
+        w.def_fn(&format!("read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized"), |w| {
+            for f in self.fields_except_oneof_and_group() {
+                match f.kind {
+                    FieldKind::Repeated(..) => {
+                        w.write_line(&format!("let mut _field_{}: {} = ::std::vec::Vec::new();",
+                            f.rust_name, f.full_storage_type().to_string()));
+                    }
+                    FieldKind::Map(..) => {
+                        w.write_line(&format!("let mut _field_{}: {} = ::std::collections::HashMap::new();",
+                            f.rust_name, f.full_storage_type().to_string()));
+                    }
+                    _ => {
+                        w.write_line(&format!("let mut _field_{}: ::std::option::Option<{}> = None;",
+                            f.rust_name, f.full_storage_type().to_string()));
+                    }
+                }
+            }
+
+            for oneof in self.oneofs() {
+                w.write_line(&format!("let mut _field_{}: ::std::option::Option<{}> = None;",
+                    oneof.name(), oneof.full_storage_type().to_string()));
+            }
+
+            w.write_line("");
+
+            w.while_block("!_is.eof()?", |w| {
+                w.write_line(&format!("let (field_number, wire_type) = _is.read_tag_unpack()?;"));
+
+                w.match_block("field_number", |w| {
+                    for f in &self.fields_except_group() {
+                        let number = f.proto_field.number();
+
+                        w.case_block(number.to_string(), |w| {
+                            f.write_read_from_field(w, "_is");
+                        });
+                    }
+                    w.case_block("_", |w| {
+                        w.write_line("panic!(\"TODO unknown field!\")");
+                    });
+                });
+            });
+
+            w.write_line("");
+
+            w.write_line(&format!("::std::result::Result::Ok({} {{", self.type_name));
+            w.indented(|w| {
+                let mut seen_oneofs = HashSet::new();
+
+                for field in self.fields_except_group() {
+                    match field.kind {
+                        FieldKind::Repeated(..) |
+                        FieldKind::Map(..) => {
+                            w.write_line(format!("{rust_name}: _field_{rust_name},",
+                                rust_name = field.rust_name));
+                        }
+                        FieldKind::Oneof(ref oneof) => {
+                            if seen_oneofs.insert(&oneof.oneof_name) {
+                                w.write_line(format!("{rust_name}: _field_{rust_name}.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized(\"missing required field: {type_name}::{rust_name}\"))?,",
+                                    rust_name = oneof.oneof_name,
+                                    type_name = self.type_name));
+                            }
+                        }
+                        _ => {
+                            w.write_line(format!("{rust_name}: _field_{rust_name}.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized(\"missing required field: {type_name}::{rust_name}\"))?,",
+                                rust_name = field.rust_name,
+                                type_name = self.type_name));
+                        }
+                    }
+                }
+
+                w.write_line("unknown_fields: Default::default(),");
+            });
+            w.write_line("})");
+        })
+    }
+
     fn write_merge_from(&self, w: &mut CodeWriter) {
         w.def_fn(&format!("merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()>"), |w| {
             w.while_block("!is.eof()?", |w| {
@@ -275,6 +354,8 @@ impl<'a> MessageGen<'a> {
     fn write_impl_message(&self, w: &mut CodeWriter) {
         w.impl_for_block("::protobuf::Message", &self.type_name, |w| {
             self.write_is_initialized(w);
+            w.write_line("");
+            self.write_read_from(w);
             w.write_line("");
             self.write_merge_from(w);
             w.write_line("");

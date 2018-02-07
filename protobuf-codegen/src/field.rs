@@ -1,3 +1,5 @@
+use std::borrow::Cow;
+
 use protobuf::descriptor::*;
 use protobuf::descriptorx::*;
 use protobuf::rustproto; // TODO: should probably live here
@@ -229,7 +231,7 @@ impl SingularField {
 #[derive(Clone)]
 pub struct OneofField {
     elem: GenProtobufType,
-    oneof_name: String,
+    pub oneof_name: String,
     oneof_type_name: RustType,
     boxed: bool,
 }
@@ -614,7 +616,7 @@ impl<'a> FieldGen<'a> {
         }
     }
 
-    fn variant_path(&self) -> String {
+    pub fn variant_path(&self) -> String {
         // TODO: should reuse code from OneofVariantGen
         format!("{}::{}", self.oneof().oneof_type_name, self.rust_name)
     }
@@ -1212,21 +1214,25 @@ impl<'a> FieldGen<'a> {
         }
     }
 
+    fn singular_field_expr<'v>(&self, value: &'v str) -> Cow<'v, str> {
+        let full_storage_type = self.full_storage_type();
+        match self.singular() {
+            &SingularField { flag: SingularFieldFlag::WithFlag { .. }, .. } => {
+                Cow::Owned(full_storage_type.wrap_value(value))
+            }
+            &SingularField { flag: SingularFieldFlag::WithoutFlag, .. } => {
+                Cow::Borrowed(value)
+            }
+        }
+    }
+
     fn write_self_field_assign(&self, w: &mut CodeWriter, value: &str) {
         let self_field = self.self_field();
         w.write_line(&format!("{} = {};", self_field, value));
     }
 
     fn write_self_field_assign_some(&self, w: &mut CodeWriter, value: &str) {
-        let full_storage_type = self.full_storage_type();
-        match self.singular() {
-            &SingularField { flag: SingularFieldFlag::WithFlag { .. }, .. } => {
-                self.write_self_field_assign(w, &full_storage_type.wrap_value(value));
-            }
-            &SingularField { flag: SingularFieldFlag::WithoutFlag, .. } => {
-                self.write_self_field_assign(w, value);
-            }
-        }
+        self.write_self_field_assign(w, &self.singular_field_expr(value));
     }
 
     fn write_self_field_assign_value(&self, w: &mut CodeWriter, value: &str, ty: &RustType) {
@@ -1416,6 +1422,47 @@ impl<'a> FieldGen<'a> {
                         _ => unreachable!(),
                     }
                 }
+            }
+        }
+    }
+
+    pub fn write_read_from_field(&self, w: &mut CodeWriter, is: &str) {
+        match self.kind {
+            FieldKind::Oneof(ref oneof) => {
+                let read_proc = self.proto_type.read(is) + "?";
+
+                let read_proc = if oneof.boxed {
+                    format!("::std::boxed::Box::new({})", read_proc)
+                } else {
+                    read_proc
+                };
+
+                w.write_line(&format!("_field_{oneof_name} = ::std::option::Option::Some(::std::option::Option::Some({variant}({read})));",
+                    oneof_name = oneof.oneof_name,
+                    variant = self.variant_path(),
+                    read = read_proc));
+            }
+            FieldKind::Singular(..) => {
+                let wire_type = field_type_wire_type(self.proto_type);
+                let read_proc = format!("{}.read_{}()?", is, protobuf_name(self.proto_type));
+
+                w.assert_wire_type(wire_type);
+                w.write_line(&format!("_field_{rust_name} = ::std::option::Option::Some({read_proc});",
+                    rust_name = self.rust_name,
+                    read_proc = self.singular_field_expr(&read_proc)));
+            }
+            FieldKind::Repeated(..) => {
+                w.write_line(&format!("::protobuf::rt::read_repeated_{proto_type}_into(wire_type, {is}, &mut _field_{rust_name})?;",
+                    proto_type = protobuf_name(self.proto_type),
+                    is = is,
+                    rust_name = self.rust_name));
+            }
+            FieldKind::Map(ref map) => {
+                w.write_line(&format!("::protobuf::rt::read_map_into::<{k}, {v}>(wire_type, {is}, &mut _field_{rust_name})?;",
+                    k = map.key.lib_protobuf_type(),
+                    v = map.value.lib_protobuf_type(),
+                    is = is,
+                    rust_name = self.rust_name));
             }
         }
     }
