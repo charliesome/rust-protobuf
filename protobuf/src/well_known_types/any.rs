@@ -204,14 +204,6 @@ impl ::protobuf::Message for Any {
     }
 }
 
-impl ::protobuf::Clear for Any {
-    fn clear(&mut self) {
-        self.clear_type_url();
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Any {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)

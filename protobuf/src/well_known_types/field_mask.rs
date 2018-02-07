@@ -159,13 +159,6 @@ impl ::protobuf::Message for FieldMask {
     }
 }
 
-impl ::protobuf::Clear for FieldMask {
-    fn clear(&mut self) {
-        self.clear_paths();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for FieldMask {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)

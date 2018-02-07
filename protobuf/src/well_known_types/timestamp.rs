@@ -200,14 +200,6 @@ impl ::protobuf::Message for Timestamp {
     }
 }
 
-impl ::protobuf::Clear for Timestamp {
-    fn clear(&mut self) {
-        self.clear_seconds();
-        self.clear_nanos();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Timestamp {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)

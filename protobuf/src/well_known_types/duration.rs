@@ -200,14 +200,6 @@ impl ::protobuf::Message for Duration {
     }
 }
 
-impl ::protobuf::Clear for Duration {
-    fn clear(&mut self) {
-        self.clear_seconds();
-        self.clear_nanos();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Duration {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)

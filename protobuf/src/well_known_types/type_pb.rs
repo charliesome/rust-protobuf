@@ -406,18 +406,6 @@ impl ::protobuf::Message for Type {
     }
 }
 
-impl ::protobuf::Clear for Type {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_fields();
-        self.clear_oneofs();
-        self.clear_options();
-        self.clear_source_context();
-        self.clear_syntax();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Type {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -962,22 +950,6 @@ impl ::protobuf::Message for Field {
     }
 }
 
-impl ::protobuf::Clear for Field {
-    fn clear(&mut self) {
-        self.clear_kind();
-        self.clear_cardinality();
-        self.clear_number();
-        self.clear_name();
-        self.clear_type_url();
-        self.clear_oneof_index();
-        self.clear_packed();
-        self.clear_options();
-        self.clear_json_name();
-        self.clear_default_value();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Field {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -1499,17 +1471,6 @@ impl ::protobuf::Message for Enum {
     }
 }
 
-impl ::protobuf::Clear for Enum {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_enumvalue();
-        self.clear_options();
-        self.clear_source_context();
-        self.clear_syntax();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Enum {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -1754,15 +1715,6 @@ impl ::protobuf::Message for EnumValue {
     }
 }
 
-impl ::protobuf::Clear for EnumValue {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_number();
-        self.clear_options();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for EnumValue {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -1970,14 +1922,6 @@ impl ::protobuf::Message for Option {
                 )
             })
         }
-    }
-}
-
-impl ::protobuf::Clear for Option {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_value();
-        self.unknown_fields.clear();
     }
 }
 

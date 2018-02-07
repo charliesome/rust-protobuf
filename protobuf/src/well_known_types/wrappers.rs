@@ -158,13 +158,6 @@ impl ::protobuf::Message for DoubleValue {
     }
 }
 
-impl ::protobuf::Clear for DoubleValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for DoubleValue {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -311,13 +304,6 @@ impl ::protobuf::Message for FloatValue {
                 )
             })
         }
-    }
-}
-
-impl ::protobuf::Clear for FloatValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
     }
 }
 
@@ -470,13 +456,6 @@ impl ::protobuf::Message for Int64Value {
     }
 }
 
-impl ::protobuf::Clear for Int64Value {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Int64Value {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -623,13 +602,6 @@ impl ::protobuf::Message for UInt64Value {
                 )
             })
         }
-    }
-}
-
-impl ::protobuf::Clear for UInt64Value {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
     }
 }
 
@@ -782,13 +754,6 @@ impl ::protobuf::Message for Int32Value {
     }
 }
 
-impl ::protobuf::Clear for Int32Value {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Int32Value {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -938,13 +903,6 @@ impl ::protobuf::Message for UInt32Value {
     }
 }
 
-impl ::protobuf::Clear for UInt32Value {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for UInt32Value {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -1091,13 +1049,6 @@ impl ::protobuf::Message for BoolValue {
                 )
             })
         }
-    }
-}
-
-impl ::protobuf::Clear for BoolValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
     }
 }
 
@@ -1252,13 +1203,6 @@ impl ::protobuf::Message for StringValue {
     }
 }
 
-impl ::protobuf::Clear for StringValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for StringValue {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -1407,13 +1351,6 @@ impl ::protobuf::Message for BytesValue {
                 )
             })
         }
-    }
-}
-
-impl ::protobuf::Clear for BytesValue {
-    fn clear(&mut self) {
-        self.clear_value();
-        self.unknown_fields.clear();
     }
 }
 

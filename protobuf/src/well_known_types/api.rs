@@ -458,19 +458,6 @@ impl ::protobuf::Message for Api {
     }
 }
 
-impl ::protobuf::Clear for Api {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_methods();
-        self.clear_options();
-        self.clear_version();
-        self.clear_source_context();
-        self.clear_mixins();
-        self.clear_syntax();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Api {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -887,19 +874,6 @@ impl ::protobuf::Message for Method {
     }
 }
 
-impl ::protobuf::Clear for Method {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_request_type_url();
-        self.clear_request_streaming();
-        self.clear_response_type_url();
-        self.clear_response_streaming();
-        self.clear_options();
-        self.clear_syntax();
-        self.unknown_fields.clear();
-    }
-}
-
 impl ::std::fmt::Debug for Method {
     fn fmt(&self, f: &mut ::std::fmt::Formatter) -> ::std::fmt::Result {
         ::protobuf::text_format::fmt(self, f)
@@ -1092,14 +1066,6 @@ impl ::protobuf::Message for Mixin {
                 )
             })
         }
-    }
-}
-
-impl ::protobuf::Clear for Mixin {
-    fn clear(&mut self) {
-        self.clear_name();
-        self.clear_root();
-        self.unknown_fields.clear();
     }
 }
 
