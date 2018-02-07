@@ -66,7 +66,7 @@ impl fmt::Display for RustType {
                 write!(f, "::protobuf::SingularPtrField<{}>", **param)
             }
             RustType::RepeatedField(ref param) => {
-                write!(f, "::protobuf::RepeatedField<{}>", **param)
+                write!(f, "::std::vec::Vec<{}>", **param)
             }
             RustType::Uniq(ref param) => write!(f, "::std::boxed::Box<{}>", **param),
             RustType::Ref(ref param) => write!(f, "&{}", **param),
@@ -170,7 +170,7 @@ impl RustType {
             RustType::Option(..) => "::std::option::Option::None".to_string(),
             RustType::SingularField(..) => "::protobuf::SingularField::none()".to_string(),
             RustType::SingularPtrField(..) => "::protobuf::SingularPtrField::none()".to_string(),
-            RustType::RepeatedField(..) => "::protobuf::RepeatedField::new()".to_string(),
+            RustType::RepeatedField(..) => "::std::vec::Vec::new()".to_string(),
             RustType::Message(ref name) => format!("{}::new()", name),
             RustType::Ref(ref m) if m.is_message() => {
                 match **m {
