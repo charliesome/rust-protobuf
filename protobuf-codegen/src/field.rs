@@ -495,19 +495,11 @@ pub struct FieldGen<'a> {
     wire_type: wire_format::WireType,
     enum_default_value: Option<EnumValueGen>,
     pub kind: FieldKind,
-    pub generate_accessors: bool,
 }
 
 impl<'a> FieldGen<'a> {
     pub fn parse(field: FieldWithContext<'a>, root_scope: &'a RootScope<'a>) -> FieldGen<'a> {
         let (elem, enum_default_value) = field_elem(&field, root_scope, true);
-
-        let generate_accessors = join_field_ext(
-            &field,
-            rustproto::exts::generate_accessors_field,
-            rustproto::exts::generate_accessors,
-            rustproto::exts::generate_accessors_all,
-        ).unwrap_or(true);
 
         let kind = if field.field.get_label() == FieldDescriptorProto_Label::LABEL_REPEATED {
             match (elem, true) {
@@ -550,7 +542,6 @@ impl<'a> FieldGen<'a> {
             enum_default_value: enum_default_value,
             proto_field: field,
             kind: kind,
-            generate_accessors: generate_accessors,
         }
     }
 
