@@ -140,14 +140,14 @@ impl ::protobuf::Message for Any {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if !self.type_url.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.type_url);
+            _size += ::protobuf::rt::string_size(1, &self.type_url);
         }
         if !self.value.is_empty() {
-            my_size += ::protobuf::rt::bytes_size(2, &self.value);
+            _size += ::protobuf::rt::bytes_size(2, &self.value);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {

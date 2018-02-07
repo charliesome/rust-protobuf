@@ -101,11 +101,11 @@ impl ::protobuf::Message for FieldMask {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         for value in &self.paths {
-            my_size += ::protobuf::rt::string_size(1, &value);
+            _size += ::protobuf::rt::string_size(1, &value);
         };
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {

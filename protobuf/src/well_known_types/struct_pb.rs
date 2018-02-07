@@ -101,9 +101,9 @@ impl ::protobuf::Message for Struct {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
-        my_size += ::protobuf::rt::compute_map_size::<::protobuf::types::ProtobufTypeString, ::protobuf::types::ProtobufTypeMessage<Value>>(1, &self.fields);
-        my_size
+        let mut _size = 0;
+        _size += ::protobuf::rt::compute_map_size::<::protobuf::types::ProtobufTypeString, ::protobuf::types::ProtobufTypeMessage<Value>>(1, &self.fields);
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -501,32 +501,32 @@ impl ::protobuf::Message for Value {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if let ::std::option::Option::Some(ref v) = self.kind {
             match v {
                 &Value_oneof_kind::null_value(v) => {
-                    my_size += ::protobuf::rt::enum_size(1, v);
+                    _size += ::protobuf::rt::enum_size(1, v);
                 },
                 &Value_oneof_kind::number_value(v) => {
-                    my_size += 9;
+                    _size += 9;
                 },
                 &Value_oneof_kind::string_value(ref v) => {
-                    my_size += ::protobuf::rt::string_size(3, &v);
+                    _size += ::protobuf::rt::string_size(3, &v);
                 },
                 &Value_oneof_kind::bool_value(v) => {
-                    my_size += 2;
+                    _size += 2;
                 },
                 &Value_oneof_kind::struct_value(ref v) => {
                     let len = v.compute_size();
-                    my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+                    _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
                 },
                 &Value_oneof_kind::list_value(ref v) => {
                     let len = v.compute_size();
-                    my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+                    _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
                 },
             };
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -742,12 +742,12 @@ impl ::protobuf::Message for ListValue {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         for value in &self.values {
             let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {

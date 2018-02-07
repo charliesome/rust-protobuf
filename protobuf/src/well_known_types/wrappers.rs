@@ -95,11 +95,11 @@ impl ::protobuf::Message for DoubleValue {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if self.value != 0. {
-            my_size += 9;
+            _size += 9;
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -251,11 +251,11 @@ impl ::protobuf::Message for FloatValue {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if self.value != 0. {
-            my_size += 5;
+            _size += 5;
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -407,11 +407,11 @@ impl ::protobuf::Message for Int64Value {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if self.value != 0 {
-            my_size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
+            _size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -563,11 +563,11 @@ impl ::protobuf::Message for UInt64Value {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if self.value != 0 {
-            my_size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
+            _size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -719,11 +719,11 @@ impl ::protobuf::Message for Int32Value {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if self.value != 0 {
-            my_size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
+            _size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -875,11 +875,11 @@ impl ::protobuf::Message for UInt32Value {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if self.value != 0 {
-            my_size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
+            _size += ::protobuf::rt::value_size(1, self.value, ::protobuf::wire_format::WireTypeVarint);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -1031,11 +1031,11 @@ impl ::protobuf::Message for BoolValue {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if self.value != false {
-            my_size += 2;
+            _size += 2;
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -1194,11 +1194,11 @@ impl ::protobuf::Message for StringValue {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if !self.value.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.value);
+            _size += ::protobuf::rt::string_size(1, &self.value);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -1357,11 +1357,11 @@ impl ::protobuf::Message for BytesValue {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if !self.value.is_empty() {
-            my_size += ::protobuf::rt::bytes_size(1, &self.value);
+            _size += ::protobuf::rt::bytes_size(1, &self.value);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {

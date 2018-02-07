@@ -102,11 +102,11 @@ impl ::protobuf::Message for SourceContext {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if !self.file_name.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.file_name);
+            _size += ::protobuf::rt::string_size(1, &self.file_name);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {

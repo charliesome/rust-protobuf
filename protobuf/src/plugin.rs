@@ -191,18 +191,18 @@ impl ::protobuf::Message for CodeGeneratorRequest {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         for value in &self.file_to_generate {
-            my_size += ::protobuf::rt::string_size(1, &value);
+            _size += ::protobuf::rt::string_size(1, &value);
         };
         if let Some(ref v) = self.parameter.as_ref() {
-            my_size += ::protobuf::rt::string_size(2, &v);
+            _size += ::protobuf::rt::string_size(2, &v);
         }
         for value in &self.proto_file {
             let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -433,15 +433,15 @@ impl ::protobuf::Message for CodeGeneratorResponse {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if let Some(ref v) = self.error.as_ref() {
-            my_size += ::protobuf::rt::string_size(1, &v);
+            _size += ::protobuf::rt::string_size(1, &v);
         }
         for value in &self.file {
             let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -717,17 +717,17 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if let Some(ref v) = self.name.as_ref() {
-            my_size += ::protobuf::rt::string_size(1, &v);
+            _size += ::protobuf::rt::string_size(1, &v);
         }
         if let Some(ref v) = self.insertion_point.as_ref() {
-            my_size += ::protobuf::rt::string_size(2, &v);
+            _size += ::protobuf::rt::string_size(2, &v);
         }
         if let Some(ref v) = self.content.as_ref() {
-            my_size += ::protobuf::rt::string_size(15, &v);
+            _size += ::protobuf::rt::string_size(15, &v);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {

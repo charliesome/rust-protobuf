@@ -304,29 +304,29 @@ impl ::protobuf::Message for Type {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if !self.name.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.name);
+            _size += ::protobuf::rt::string_size(1, &self.name);
         }
         for value in &self.fields {
             let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
         for value in &self.oneofs {
-            my_size += ::protobuf::rt::string_size(3, &value);
+            _size += ::protobuf::rt::string_size(3, &value);
         };
         for value in &self.options {
             let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
         if let Some(ref v) = self.source_context.as_ref() {
             let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         }
         if self.syntax != Syntax::SYNTAX_PROTO2 {
-            my_size += ::protobuf::rt::enum_size(6, self.syntax);
+            _size += ::protobuf::rt::enum_size(6, self.syntax);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -847,39 +847,39 @@ impl ::protobuf::Message for Field {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if self.kind != Field_Kind::TYPE_UNKNOWN {
-            my_size += ::protobuf::rt::enum_size(1, self.kind);
+            _size += ::protobuf::rt::enum_size(1, self.kind);
         }
         if self.cardinality != Field_Cardinality::CARDINALITY_UNKNOWN {
-            my_size += ::protobuf::rt::enum_size(2, self.cardinality);
+            _size += ::protobuf::rt::enum_size(2, self.cardinality);
         }
         if self.number != 0 {
-            my_size += ::protobuf::rt::value_size(3, self.number, ::protobuf::wire_format::WireTypeVarint);
+            _size += ::protobuf::rt::value_size(3, self.number, ::protobuf::wire_format::WireTypeVarint);
         }
         if !self.name.is_empty() {
-            my_size += ::protobuf::rt::string_size(4, &self.name);
+            _size += ::protobuf::rt::string_size(4, &self.name);
         }
         if !self.type_url.is_empty() {
-            my_size += ::protobuf::rt::string_size(6, &self.type_url);
+            _size += ::protobuf::rt::string_size(6, &self.type_url);
         }
         if self.oneof_index != 0 {
-            my_size += ::protobuf::rt::value_size(7, self.oneof_index, ::protobuf::wire_format::WireTypeVarint);
+            _size += ::protobuf::rt::value_size(7, self.oneof_index, ::protobuf::wire_format::WireTypeVarint);
         }
         if self.packed != false {
-            my_size += 2;
+            _size += 2;
         }
         for value in &self.options {
             let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
         if !self.json_name.is_empty() {
-            my_size += ::protobuf::rt::string_size(10, &self.json_name);
+            _size += ::protobuf::rt::string_size(10, &self.json_name);
         }
         if !self.default_value.is_empty() {
-            my_size += ::protobuf::rt::string_size(11, &self.default_value);
+            _size += ::protobuf::rt::string_size(11, &self.default_value);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -1453,26 +1453,26 @@ impl ::protobuf::Message for Enum {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if !self.name.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.name);
+            _size += ::protobuf::rt::string_size(1, &self.name);
         }
         for value in &self.enumvalue {
             let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
         for value in &self.options {
             let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
         if let Some(ref v) = self.source_context.as_ref() {
             let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         }
         if self.syntax != Syntax::SYNTAX_PROTO2 {
-            my_size += ::protobuf::rt::enum_size(5, self.syntax);
+            _size += ::protobuf::rt::enum_size(5, self.syntax);
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -1746,18 +1746,18 @@ impl ::protobuf::Message for EnumValue {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if !self.name.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.name);
+            _size += ::protobuf::rt::string_size(1, &self.name);
         }
         if self.number != 0 {
-            my_size += ::protobuf::rt::value_size(2, self.number, ::protobuf::wire_format::WireTypeVarint);
+            _size += ::protobuf::rt::value_size(2, self.number, ::protobuf::wire_format::WireTypeVarint);
         }
         for value in &self.options {
             let len = value.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         };
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
@@ -1986,15 +1986,15 @@ impl ::protobuf::Message for Option {
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
-        let mut my_size = 0;
+        let mut _size = 0;
         if !self.name.is_empty() {
-            my_size += ::protobuf::rt::string_size(1, &self.name);
+            _size += ::protobuf::rt::string_size(1, &self.name);
         }
         if let Some(ref v) = self.value.as_ref() {
             let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
+            _size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
         }
-        my_size
+        _size
     }
 
     fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
