@@ -46,9 +46,6 @@ impl FieldMask {
 
     // repeated string paths = 1;
 
-    pub fn clear_paths(&mut self) {
-        self.paths.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_paths(&mut self, v: ::std::vec::Vec<::std::string::String>) {

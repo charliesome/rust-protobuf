@@ -47,9 +47,6 @@ impl Any {
 
     // string type_url = 1;
 
-    pub fn clear_type_url(&mut self) {
-        self.type_url.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_type_url(&mut self, v: ::std::string::String) {
@@ -76,9 +73,6 @@ impl Any {
 
     // bytes value = 2;
 
-    pub fn clear_value(&mut self) {
-        self.value.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: ::std::vec::Vec<u8>) {

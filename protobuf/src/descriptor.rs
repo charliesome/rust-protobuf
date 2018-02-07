@@ -46,9 +46,6 @@ impl FileDescriptorSet {
 
     // repeated .google.protobuf.FileDescriptorProto file = 1;
 
-    pub fn clear_file(&mut self) {
-        self.file.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_file(&mut self, v: ::std::vec::Vec<FileDescriptorProto>) {
@@ -215,9 +212,6 @@ impl FileDescriptorProto {
 
     // optional string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     pub fn has_name(&self) -> bool {
         self.name.is_some()
@@ -254,9 +248,6 @@ impl FileDescriptorProto {
 
     // optional string package = 2;
 
-    pub fn clear_package(&mut self) {
-        self.package.clear();
-    }
 
     pub fn has_package(&self) -> bool {
         self.package.is_some()
@@ -293,9 +284,6 @@ impl FileDescriptorProto {
 
     // repeated string dependency = 3;
 
-    pub fn clear_dependency(&mut self) {
-        self.dependency.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_dependency(&mut self, v: ::std::vec::Vec<::std::string::String>) {
@@ -321,9 +309,6 @@ impl FileDescriptorProto {
 
     // repeated int32 public_dependency = 10;
 
-    pub fn clear_public_dependency(&mut self) {
-        self.public_dependency.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_public_dependency(&mut self, v: ::std::vec::Vec<i32>) {
@@ -349,9 +334,6 @@ impl FileDescriptorProto {
 
     // repeated int32 weak_dependency = 11;
 
-    pub fn clear_weak_dependency(&mut self) {
-        self.weak_dependency.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_weak_dependency(&mut self, v: ::std::vec::Vec<i32>) {
@@ -377,9 +359,6 @@ impl FileDescriptorProto {
 
     // repeated .google.protobuf.DescriptorProto message_type = 4;
 
-    pub fn clear_message_type(&mut self) {
-        self.message_type.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_message_type(&mut self, v: ::std::vec::Vec<DescriptorProto>) {
@@ -405,9 +384,6 @@ impl FileDescriptorProto {
 
     // repeated .google.protobuf.EnumDescriptorProto enum_type = 5;
 
-    pub fn clear_enum_type(&mut self) {
-        self.enum_type.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_enum_type(&mut self, v: ::std::vec::Vec<EnumDescriptorProto>) {
@@ -433,9 +409,6 @@ impl FileDescriptorProto {
 
     // repeated .google.protobuf.ServiceDescriptorProto service = 6;
 
-    pub fn clear_service(&mut self) {
-        self.service.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_service(&mut self, v: ::std::vec::Vec<ServiceDescriptorProto>) {
@@ -461,9 +434,6 @@ impl FileDescriptorProto {
 
     // repeated .google.protobuf.FieldDescriptorProto extension = 7;
 
-    pub fn clear_extension(&mut self) {
-        self.extension.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_extension(&mut self, v: ::std::vec::Vec<FieldDescriptorProto>) {
@@ -489,9 +459,6 @@ impl FileDescriptorProto {
 
     // optional .google.protobuf.FileOptions options = 8;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     pub fn has_options(&self) -> bool {
         self.options.is_some()
@@ -525,9 +492,6 @@ impl FileDescriptorProto {
 
     // optional .google.protobuf.SourceCodeInfo source_code_info = 9;
 
-    pub fn clear_source_code_info(&mut self) {
-        self.source_code_info.clear();
-    }
 
     pub fn has_source_code_info(&self) -> bool {
         self.source_code_info.is_some()
@@ -561,9 +525,6 @@ impl FileDescriptorProto {
 
     // optional string syntax = 12;
 
-    pub fn clear_syntax(&mut self) {
-        self.syntax.clear();
-    }
 
     pub fn has_syntax(&self) -> bool {
         self.syntax.is_some()
@@ -933,9 +894,6 @@ impl DescriptorProto {
 
     // optional string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     pub fn has_name(&self) -> bool {
         self.name.is_some()
@@ -972,9 +930,6 @@ impl DescriptorProto {
 
     // repeated .google.protobuf.FieldDescriptorProto field = 2;
 
-    pub fn clear_field(&mut self) {
-        self.field.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_field(&mut self, v: ::std::vec::Vec<FieldDescriptorProto>) {
@@ -1000,9 +955,6 @@ impl DescriptorProto {
 
     // repeated .google.protobuf.FieldDescriptorProto extension = 6;
 
-    pub fn clear_extension(&mut self) {
-        self.extension.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_extension(&mut self, v: ::std::vec::Vec<FieldDescriptorProto>) {
@@ -1028,9 +980,6 @@ impl DescriptorProto {
 
     // repeated .google.protobuf.DescriptorProto nested_type = 3;
 
-    pub fn clear_nested_type(&mut self) {
-        self.nested_type.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_nested_type(&mut self, v: ::std::vec::Vec<DescriptorProto>) {
@@ -1056,9 +1005,6 @@ impl DescriptorProto {
 
     // repeated .google.protobuf.EnumDescriptorProto enum_type = 4;
 
-    pub fn clear_enum_type(&mut self) {
-        self.enum_type.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_enum_type(&mut self, v: ::std::vec::Vec<EnumDescriptorProto>) {
@@ -1084,9 +1030,6 @@ impl DescriptorProto {
 
     // repeated .google.protobuf.DescriptorProto.ExtensionRange extension_range = 5;
 
-    pub fn clear_extension_range(&mut self) {
-        self.extension_range.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_extension_range(&mut self, v: ::std::vec::Vec<DescriptorProto_ExtensionRange>) {
@@ -1112,9 +1055,6 @@ impl DescriptorProto {
 
     // repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;
 
-    pub fn clear_oneof_decl(&mut self) {
-        self.oneof_decl.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_oneof_decl(&mut self, v: ::std::vec::Vec<OneofDescriptorProto>) {
@@ -1140,9 +1080,6 @@ impl DescriptorProto {
 
     // optional .google.protobuf.MessageOptions options = 7;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     pub fn has_options(&self) -> bool {
         self.options.is_some()
@@ -1176,9 +1113,6 @@ impl DescriptorProto {
 
     // repeated .google.protobuf.DescriptorProto.ReservedRange reserved_range = 9;
 
-    pub fn clear_reserved_range(&mut self) {
-        self.reserved_range.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_reserved_range(&mut self, v: ::std::vec::Vec<DescriptorProto_ReservedRange>) {
@@ -1204,9 +1138,6 @@ impl DescriptorProto {
 
     // repeated string reserved_name = 10;
 
-    pub fn clear_reserved_name(&mut self) {
-        self.reserved_name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_reserved_name(&mut self, v: ::std::vec::Vec<::std::string::String>) {
@@ -1545,9 +1476,6 @@ impl DescriptorProto_ExtensionRange {
 
     // optional int32 start = 1;
 
-    pub fn clear_start(&mut self) {
-        self.start = ::std::option::Option::None;
-    }
 
     pub fn has_start(&self) -> bool {
         self.start.is_some()
@@ -1572,9 +1500,6 @@ impl DescriptorProto_ExtensionRange {
 
     // optional int32 end = 2;
 
-    pub fn clear_end(&mut self) {
-        self.end = ::std::option::Option::None;
-    }
 
     pub fn has_end(&self) -> bool {
         self.end.is_some()
@@ -1744,9 +1669,6 @@ impl DescriptorProto_ReservedRange {
 
     // optional int32 start = 1;
 
-    pub fn clear_start(&mut self) {
-        self.start = ::std::option::Option::None;
-    }
 
     pub fn has_start(&self) -> bool {
         self.start.is_some()
@@ -1771,9 +1693,6 @@ impl DescriptorProto_ReservedRange {
 
     // optional int32 end = 2;
 
-    pub fn clear_end(&mut self) {
-        self.end = ::std::option::Option::None;
-    }
 
     pub fn has_end(&self) -> bool {
         self.end.is_some()
@@ -1951,9 +1870,6 @@ impl FieldDescriptorProto {
 
     // optional string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     pub fn has_name(&self) -> bool {
         self.name.is_some()
@@ -1990,9 +1906,6 @@ impl FieldDescriptorProto {
 
     // optional int32 number = 3;
 
-    pub fn clear_number(&mut self) {
-        self.number = ::std::option::Option::None;
-    }
 
     pub fn has_number(&self) -> bool {
         self.number.is_some()
@@ -2017,9 +1930,6 @@ impl FieldDescriptorProto {
 
     // optional .google.protobuf.FieldDescriptorProto.Label label = 4;
 
-    pub fn clear_label(&mut self) {
-        self.label = ::std::option::Option::None;
-    }
 
     pub fn has_label(&self) -> bool {
         self.label.is_some()
@@ -2044,9 +1954,6 @@ impl FieldDescriptorProto {
 
     // optional .google.protobuf.FieldDescriptorProto.Type type = 5;
 
-    pub fn clear_field_type(&mut self) {
-        self.field_type = ::std::option::Option::None;
-    }
 
     pub fn has_field_type(&self) -> bool {
         self.field_type.is_some()
@@ -2071,9 +1978,6 @@ impl FieldDescriptorProto {
 
     // optional string type_name = 6;
 
-    pub fn clear_type_name(&mut self) {
-        self.type_name.clear();
-    }
 
     pub fn has_type_name(&self) -> bool {
         self.type_name.is_some()
@@ -2110,9 +2014,6 @@ impl FieldDescriptorProto {
 
     // optional string extendee = 2;
 
-    pub fn clear_extendee(&mut self) {
-        self.extendee.clear();
-    }
 
     pub fn has_extendee(&self) -> bool {
         self.extendee.is_some()
@@ -2149,9 +2050,6 @@ impl FieldDescriptorProto {
 
     // optional string default_value = 7;
 
-    pub fn clear_default_value(&mut self) {
-        self.default_value.clear();
-    }
 
     pub fn has_default_value(&self) -> bool {
         self.default_value.is_some()
@@ -2188,9 +2086,6 @@ impl FieldDescriptorProto {
 
     // optional int32 oneof_index = 9;
 
-    pub fn clear_oneof_index(&mut self) {
-        self.oneof_index = ::std::option::Option::None;
-    }
 
     pub fn has_oneof_index(&self) -> bool {
         self.oneof_index.is_some()
@@ -2215,9 +2110,6 @@ impl FieldDescriptorProto {
 
     // optional string json_name = 10;
 
-    pub fn clear_json_name(&mut self) {
-        self.json_name.clear();
-    }
 
     pub fn has_json_name(&self) -> bool {
         self.json_name.is_some()
@@ -2254,9 +2146,6 @@ impl FieldDescriptorProto {
 
     // optional .google.protobuf.FieldOptions options = 8;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     pub fn has_options(&self) -> bool {
         self.options.is_some()
@@ -2712,9 +2601,6 @@ impl OneofDescriptorProto {
 
     // optional string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     pub fn has_name(&self) -> bool {
         self.name.is_some()
@@ -2751,9 +2637,6 @@ impl OneofDescriptorProto {
 
     // optional .google.protobuf.OneofOptions options = 2;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     pub fn has_options(&self) -> bool {
         self.options.is_some()
@@ -2933,9 +2816,6 @@ impl EnumDescriptorProto {
 
     // optional string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     pub fn has_name(&self) -> bool {
         self.name.is_some()
@@ -2972,9 +2852,6 @@ impl EnumDescriptorProto {
 
     // repeated .google.protobuf.EnumValueDescriptorProto value = 2;
 
-    pub fn clear_value(&mut self) {
-        self.value.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: ::std::vec::Vec<EnumValueDescriptorProto>) {
@@ -3000,9 +2877,6 @@ impl EnumDescriptorProto {
 
     // optional .google.protobuf.EnumOptions options = 3;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     pub fn has_options(&self) -> bool {
         self.options.is_some()
@@ -3204,9 +3078,6 @@ impl EnumValueDescriptorProto {
 
     // optional string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     pub fn has_name(&self) -> bool {
         self.name.is_some()
@@ -3243,9 +3114,6 @@ impl EnumValueDescriptorProto {
 
     // optional int32 number = 2;
 
-    pub fn clear_number(&mut self) {
-        self.number = ::std::option::Option::None;
-    }
 
     pub fn has_number(&self) -> bool {
         self.number.is_some()
@@ -3270,9 +3138,6 @@ impl EnumValueDescriptorProto {
 
     // optional .google.protobuf.EnumValueOptions options = 3;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     pub fn has_options(&self) -> bool {
         self.options.is_some()
@@ -3470,9 +3335,6 @@ impl ServiceDescriptorProto {
 
     // optional string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     pub fn has_name(&self) -> bool {
         self.name.is_some()
@@ -3509,9 +3371,6 @@ impl ServiceDescriptorProto {
 
     // repeated .google.protobuf.MethodDescriptorProto method = 2;
 
-    pub fn clear_method(&mut self) {
-        self.method.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_method(&mut self, v: ::std::vec::Vec<MethodDescriptorProto>) {
@@ -3537,9 +3396,6 @@ impl ServiceDescriptorProto {
 
     // optional .google.protobuf.ServiceOptions options = 3;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     pub fn has_options(&self) -> bool {
         self.options.is_some()
@@ -3744,9 +3600,6 @@ impl MethodDescriptorProto {
 
     // optional string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     pub fn has_name(&self) -> bool {
         self.name.is_some()
@@ -3783,9 +3636,6 @@ impl MethodDescriptorProto {
 
     // optional string input_type = 2;
 
-    pub fn clear_input_type(&mut self) {
-        self.input_type.clear();
-    }
 
     pub fn has_input_type(&self) -> bool {
         self.input_type.is_some()
@@ -3822,9 +3672,6 @@ impl MethodDescriptorProto {
 
     // optional string output_type = 3;
 
-    pub fn clear_output_type(&mut self) {
-        self.output_type.clear();
-    }
 
     pub fn has_output_type(&self) -> bool {
         self.output_type.is_some()
@@ -3861,9 +3708,6 @@ impl MethodDescriptorProto {
 
     // optional .google.protobuf.MethodOptions options = 4;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     pub fn has_options(&self) -> bool {
         self.options.is_some()
@@ -3897,9 +3741,6 @@ impl MethodDescriptorProto {
 
     // optional bool client_streaming = 5;
 
-    pub fn clear_client_streaming(&mut self) {
-        self.client_streaming = ::std::option::Option::None;
-    }
 
     pub fn has_client_streaming(&self) -> bool {
         self.client_streaming.is_some()
@@ -3924,9 +3765,6 @@ impl MethodDescriptorProto {
 
     // optional bool server_streaming = 6;
 
-    pub fn clear_server_streaming(&mut self) {
-        self.server_streaming = ::std::option::Option::None;
-    }
 
     pub fn has_server_streaming(&self) -> bool {
         self.server_streaming.is_some()
@@ -4173,9 +4011,6 @@ impl FileOptions {
 
     // optional string java_package = 1;
 
-    pub fn clear_java_package(&mut self) {
-        self.java_package.clear();
-    }
 
     pub fn has_java_package(&self) -> bool {
         self.java_package.is_some()
@@ -4212,9 +4047,6 @@ impl FileOptions {
 
     // optional string java_outer_classname = 8;
 
-    pub fn clear_java_outer_classname(&mut self) {
-        self.java_outer_classname.clear();
-    }
 
     pub fn has_java_outer_classname(&self) -> bool {
         self.java_outer_classname.is_some()
@@ -4251,9 +4083,6 @@ impl FileOptions {
 
     // optional bool java_multiple_files = 10;
 
-    pub fn clear_java_multiple_files(&mut self) {
-        self.java_multiple_files = ::std::option::Option::None;
-    }
 
     pub fn has_java_multiple_files(&self) -> bool {
         self.java_multiple_files.is_some()
@@ -4278,9 +4107,6 @@ impl FileOptions {
 
     // optional bool java_generate_equals_and_hash = 20;
 
-    pub fn clear_java_generate_equals_and_hash(&mut self) {
-        self.java_generate_equals_and_hash = ::std::option::Option::None;
-    }
 
     pub fn has_java_generate_equals_and_hash(&self) -> bool {
         self.java_generate_equals_and_hash.is_some()
@@ -4305,9 +4131,6 @@ impl FileOptions {
 
     // optional bool java_string_check_utf8 = 27;
 
-    pub fn clear_java_string_check_utf8(&mut self) {
-        self.java_string_check_utf8 = ::std::option::Option::None;
-    }
 
     pub fn has_java_string_check_utf8(&self) -> bool {
         self.java_string_check_utf8.is_some()
@@ -4332,9 +4155,6 @@ impl FileOptions {
 
     // optional .google.protobuf.FileOptions.OptimizeMode optimize_for = 9;
 
-    pub fn clear_optimize_for(&mut self) {
-        self.optimize_for = ::std::option::Option::None;
-    }
 
     pub fn has_optimize_for(&self) -> bool {
         self.optimize_for.is_some()
@@ -4359,9 +4179,6 @@ impl FileOptions {
 
     // optional string go_package = 11;
 
-    pub fn clear_go_package(&mut self) {
-        self.go_package.clear();
-    }
 
     pub fn has_go_package(&self) -> bool {
         self.go_package.is_some()
@@ -4398,9 +4215,6 @@ impl FileOptions {
 
     // optional bool cc_generic_services = 16;
 
-    pub fn clear_cc_generic_services(&mut self) {
-        self.cc_generic_services = ::std::option::Option::None;
-    }
 
     pub fn has_cc_generic_services(&self) -> bool {
         self.cc_generic_services.is_some()
@@ -4425,9 +4239,6 @@ impl FileOptions {
 
     // optional bool java_generic_services = 17;
 
-    pub fn clear_java_generic_services(&mut self) {
-        self.java_generic_services = ::std::option::Option::None;
-    }
 
     pub fn has_java_generic_services(&self) -> bool {
         self.java_generic_services.is_some()
@@ -4452,9 +4263,6 @@ impl FileOptions {
 
     // optional bool py_generic_services = 18;
 
-    pub fn clear_py_generic_services(&mut self) {
-        self.py_generic_services = ::std::option::Option::None;
-    }
 
     pub fn has_py_generic_services(&self) -> bool {
         self.py_generic_services.is_some()
@@ -4479,9 +4287,6 @@ impl FileOptions {
 
     // optional bool deprecated = 23;
 
-    pub fn clear_deprecated(&mut self) {
-        self.deprecated = ::std::option::Option::None;
-    }
 
     pub fn has_deprecated(&self) -> bool {
         self.deprecated.is_some()
@@ -4506,9 +4311,6 @@ impl FileOptions {
 
     // optional bool cc_enable_arenas = 31;
 
-    pub fn clear_cc_enable_arenas(&mut self) {
-        self.cc_enable_arenas = ::std::option::Option::None;
-    }
 
     pub fn has_cc_enable_arenas(&self) -> bool {
         self.cc_enable_arenas.is_some()
@@ -4533,9 +4335,6 @@ impl FileOptions {
 
     // optional string objc_class_prefix = 36;
 
-    pub fn clear_objc_class_prefix(&mut self) {
-        self.objc_class_prefix.clear();
-    }
 
     pub fn has_objc_class_prefix(&self) -> bool {
         self.objc_class_prefix.is_some()
@@ -4572,9 +4371,6 @@ impl FileOptions {
 
     // optional string csharp_namespace = 37;
 
-    pub fn clear_csharp_namespace(&mut self) {
-        self.csharp_namespace.clear();
-    }
 
     pub fn has_csharp_namespace(&self) -> bool {
         self.csharp_namespace.is_some()
@@ -4611,9 +4407,6 @@ impl FileOptions {
 
     // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
 
-    pub fn clear_uninterpreted_option(&mut self) {
-        self.uninterpreted_option.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
@@ -5057,9 +4850,6 @@ impl MessageOptions {
 
     // optional bool message_set_wire_format = 1;
 
-    pub fn clear_message_set_wire_format(&mut self) {
-        self.message_set_wire_format = ::std::option::Option::None;
-    }
 
     pub fn has_message_set_wire_format(&self) -> bool {
         self.message_set_wire_format.is_some()
@@ -5084,9 +4874,6 @@ impl MessageOptions {
 
     // optional bool no_standard_descriptor_accessor = 2;
 
-    pub fn clear_no_standard_descriptor_accessor(&mut self) {
-        self.no_standard_descriptor_accessor = ::std::option::Option::None;
-    }
 
     pub fn has_no_standard_descriptor_accessor(&self) -> bool {
         self.no_standard_descriptor_accessor.is_some()
@@ -5111,9 +4898,6 @@ impl MessageOptions {
 
     // optional bool deprecated = 3;
 
-    pub fn clear_deprecated(&mut self) {
-        self.deprecated = ::std::option::Option::None;
-    }
 
     pub fn has_deprecated(&self) -> bool {
         self.deprecated.is_some()
@@ -5138,9 +4922,6 @@ impl MessageOptions {
 
     // optional bool map_entry = 7;
 
-    pub fn clear_map_entry(&mut self) {
-        self.map_entry = ::std::option::Option::None;
-    }
 
     pub fn has_map_entry(&self) -> bool {
         self.map_entry.is_some()
@@ -5165,9 +4946,6 @@ impl MessageOptions {
 
     // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
 
-    pub fn clear_uninterpreted_option(&mut self) {
-        self.uninterpreted_option.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
@@ -5401,9 +5179,6 @@ impl FieldOptions {
 
     // optional .google.protobuf.FieldOptions.CType ctype = 1;
 
-    pub fn clear_ctype(&mut self) {
-        self.ctype = ::std::option::Option::None;
-    }
 
     pub fn has_ctype(&self) -> bool {
         self.ctype.is_some()
@@ -5428,9 +5203,6 @@ impl FieldOptions {
 
     // optional bool packed = 2;
 
-    pub fn clear_packed(&mut self) {
-        self.packed = ::std::option::Option::None;
-    }
 
     pub fn has_packed(&self) -> bool {
         self.packed.is_some()
@@ -5455,9 +5227,6 @@ impl FieldOptions {
 
     // optional .google.protobuf.FieldOptions.JSType jstype = 6;
 
-    pub fn clear_jstype(&mut self) {
-        self.jstype = ::std::option::Option::None;
-    }
 
     pub fn has_jstype(&self) -> bool {
         self.jstype.is_some()
@@ -5482,9 +5251,6 @@ impl FieldOptions {
 
     // optional bool lazy = 5;
 
-    pub fn clear_lazy(&mut self) {
-        self.lazy = ::std::option::Option::None;
-    }
 
     pub fn has_lazy(&self) -> bool {
         self.lazy.is_some()
@@ -5509,9 +5275,6 @@ impl FieldOptions {
 
     // optional bool deprecated = 3;
 
-    pub fn clear_deprecated(&mut self) {
-        self.deprecated = ::std::option::Option::None;
-    }
 
     pub fn has_deprecated(&self) -> bool {
         self.deprecated.is_some()
@@ -5536,9 +5299,6 @@ impl FieldOptions {
 
     // optional bool weak = 10;
 
-    pub fn clear_weak(&mut self) {
-        self.weak = ::std::option::Option::None;
-    }
 
     pub fn has_weak(&self) -> bool {
         self.weak.is_some()
@@ -5563,9 +5323,6 @@ impl FieldOptions {
 
     // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
 
-    pub fn clear_uninterpreted_option(&mut self) {
-        self.uninterpreted_option.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
@@ -5933,9 +5690,6 @@ impl OneofOptions {
 
     // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
 
-    pub fn clear_uninterpreted_option(&mut self) {
-        self.uninterpreted_option.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
@@ -6093,9 +5847,6 @@ impl EnumOptions {
 
     // optional bool allow_alias = 2;
 
-    pub fn clear_allow_alias(&mut self) {
-        self.allow_alias = ::std::option::Option::None;
-    }
 
     pub fn has_allow_alias(&self) -> bool {
         self.allow_alias.is_some()
@@ -6120,9 +5871,6 @@ impl EnumOptions {
 
     // optional bool deprecated = 3;
 
-    pub fn clear_deprecated(&mut self) {
-        self.deprecated = ::std::option::Option::None;
-    }
 
     pub fn has_deprecated(&self) -> bool {
         self.deprecated.is_some()
@@ -6147,9 +5895,6 @@ impl EnumOptions {
 
     // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
 
-    pub fn clear_uninterpreted_option(&mut self) {
-        self.uninterpreted_option.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
@@ -6342,9 +6087,6 @@ impl EnumValueOptions {
 
     // optional bool deprecated = 1;
 
-    pub fn clear_deprecated(&mut self) {
-        self.deprecated = ::std::option::Option::None;
-    }
 
     pub fn has_deprecated(&self) -> bool {
         self.deprecated.is_some()
@@ -6369,9 +6111,6 @@ impl EnumValueOptions {
 
     // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
 
-    pub fn clear_uninterpreted_option(&mut self) {
-        self.uninterpreted_option.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
@@ -6546,9 +6285,6 @@ impl ServiceOptions {
 
     // optional bool deprecated = 33;
 
-    pub fn clear_deprecated(&mut self) {
-        self.deprecated = ::std::option::Option::None;
-    }
 
     pub fn has_deprecated(&self) -> bool {
         self.deprecated.is_some()
@@ -6573,9 +6309,6 @@ impl ServiceOptions {
 
     // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
 
-    pub fn clear_uninterpreted_option(&mut self) {
-        self.uninterpreted_option.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
@@ -6750,9 +6483,6 @@ impl MethodOptions {
 
     // optional bool deprecated = 33;
 
-    pub fn clear_deprecated(&mut self) {
-        self.deprecated = ::std::option::Option::None;
-    }
 
     pub fn has_deprecated(&self) -> bool {
         self.deprecated.is_some()
@@ -6777,9 +6507,6 @@ impl MethodOptions {
 
     // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
 
-    pub fn clear_uninterpreted_option(&mut self) {
-        self.uninterpreted_option.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_uninterpreted_option(&mut self, v: ::std::vec::Vec<UninterpretedOption>) {
@@ -6959,9 +6686,6 @@ impl UninterpretedOption {
 
     // repeated .google.protobuf.UninterpretedOption.NamePart name = 2;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::vec::Vec<UninterpretedOption_NamePart>) {
@@ -6987,9 +6711,6 @@ impl UninterpretedOption {
 
     // optional string identifier_value = 3;
 
-    pub fn clear_identifier_value(&mut self) {
-        self.identifier_value.clear();
-    }
 
     pub fn has_identifier_value(&self) -> bool {
         self.identifier_value.is_some()
@@ -7026,9 +6747,6 @@ impl UninterpretedOption {
 
     // optional uint64 positive_int_value = 4;
 
-    pub fn clear_positive_int_value(&mut self) {
-        self.positive_int_value = ::std::option::Option::None;
-    }
 
     pub fn has_positive_int_value(&self) -> bool {
         self.positive_int_value.is_some()
@@ -7053,9 +6771,6 @@ impl UninterpretedOption {
 
     // optional int64 negative_int_value = 5;
 
-    pub fn clear_negative_int_value(&mut self) {
-        self.negative_int_value = ::std::option::Option::None;
-    }
 
     pub fn has_negative_int_value(&self) -> bool {
         self.negative_int_value.is_some()
@@ -7080,9 +6795,6 @@ impl UninterpretedOption {
 
     // optional double double_value = 6;
 
-    pub fn clear_double_value(&mut self) {
-        self.double_value = ::std::option::Option::None;
-    }
 
     pub fn has_double_value(&self) -> bool {
         self.double_value.is_some()
@@ -7107,9 +6819,6 @@ impl UninterpretedOption {
 
     // optional bytes string_value = 7;
 
-    pub fn clear_string_value(&mut self) {
-        self.string_value.clear();
-    }
 
     pub fn has_string_value(&self) -> bool {
         self.string_value.is_some()
@@ -7146,9 +6855,6 @@ impl UninterpretedOption {
 
     // optional string aggregate_value = 8;
 
-    pub fn clear_aggregate_value(&mut self) {
-        self.aggregate_value.clear();
-    }
 
     pub fn has_aggregate_value(&self) -> bool {
         self.aggregate_value.is_some()
@@ -7412,9 +7118,6 @@ impl UninterpretedOption_NamePart {
 
     // required string name_part = 1;
 
-    pub fn clear_name_part(&mut self) {
-        self.name_part.clear();
-    }
 
     pub fn has_name_part(&self) -> bool {
         self.name_part.is_some()
@@ -7451,9 +7154,6 @@ impl UninterpretedOption_NamePart {
 
     // required bool is_extension = 2;
 
-    pub fn clear_is_extension(&mut self) {
-        self.is_extension = ::std::option::Option::None;
-    }
 
     pub fn has_is_extension(&self) -> bool {
         self.is_extension.is_some()
@@ -7624,9 +7324,6 @@ impl SourceCodeInfo {
 
     // repeated .google.protobuf.SourceCodeInfo.Location location = 1;
 
-    pub fn clear_location(&mut self) {
-        self.location.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_location(&mut self, v: ::std::vec::Vec<SourceCodeInfo_Location>) {
@@ -7786,9 +7483,6 @@ impl SourceCodeInfo_Location {
 
     // repeated int32 path = 1;
 
-    pub fn clear_path(&mut self) {
-        self.path.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_path(&mut self, v: ::std::vec::Vec<i32>) {
@@ -7814,9 +7508,6 @@ impl SourceCodeInfo_Location {
 
     // repeated int32 span = 2;
 
-    pub fn clear_span(&mut self) {
-        self.span.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_span(&mut self, v: ::std::vec::Vec<i32>) {
@@ -7842,9 +7533,6 @@ impl SourceCodeInfo_Location {
 
     // optional string leading_comments = 3;
 
-    pub fn clear_leading_comments(&mut self) {
-        self.leading_comments.clear();
-    }
 
     pub fn has_leading_comments(&self) -> bool {
         self.leading_comments.is_some()
@@ -7881,9 +7569,6 @@ impl SourceCodeInfo_Location {
 
     // optional string trailing_comments = 4;
 
-    pub fn clear_trailing_comments(&mut self) {
-        self.trailing_comments.clear();
-    }
 
     pub fn has_trailing_comments(&self) -> bool {
         self.trailing_comments.is_some()
@@ -7920,9 +7605,6 @@ impl SourceCodeInfo_Location {
 
     // repeated string leading_detached_comments = 6;
 
-    pub fn clear_leading_detached_comments(&mut self) {
-        self.leading_detached_comments.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_leading_detached_comments(&mut self, v: ::std::vec::Vec<::std::string::String>) {
@@ -8136,9 +7818,6 @@ impl GeneratedCodeInfo {
 
     // repeated .google.protobuf.GeneratedCodeInfo.Annotation annotation = 1;
 
-    pub fn clear_annotation(&mut self) {
-        self.annotation.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_annotation(&mut self, v: ::std::vec::Vec<GeneratedCodeInfo_Annotation>) {
@@ -8297,9 +7976,6 @@ impl GeneratedCodeInfo_Annotation {
 
     // repeated int32 path = 1;
 
-    pub fn clear_path(&mut self) {
-        self.path.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_path(&mut self, v: ::std::vec::Vec<i32>) {
@@ -8325,9 +8001,6 @@ impl GeneratedCodeInfo_Annotation {
 
     // optional string source_file = 2;
 
-    pub fn clear_source_file(&mut self) {
-        self.source_file.clear();
-    }
 
     pub fn has_source_file(&self) -> bool {
         self.source_file.is_some()
@@ -8364,9 +8037,6 @@ impl GeneratedCodeInfo_Annotation {
 
     // optional int32 begin = 3;
 
-    pub fn clear_begin(&mut self) {
-        self.begin = ::std::option::Option::None;
-    }
 
     pub fn has_begin(&self) -> bool {
         self.begin.is_some()
@@ -8391,9 +8061,6 @@ impl GeneratedCodeInfo_Annotation {
 
     // optional int32 end = 4;
 
-    pub fn clear_end(&mut self) {
-        self.end = ::std::option::Option::None;
-    }
 
     pub fn has_end(&self) -> bool {
         self.end.is_some()

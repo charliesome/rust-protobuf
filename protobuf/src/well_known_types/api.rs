@@ -52,9 +52,6 @@ impl Api {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -81,9 +78,6 @@ impl Api {
 
     // repeated .google.protobuf.Method methods = 2;
 
-    pub fn clear_methods(&mut self) {
-        self.methods.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_methods(&mut self, v: ::std::vec::Vec<Method>) {
@@ -109,9 +103,6 @@ impl Api {
 
     // repeated .google.protobuf.Option options = 3;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::std::vec::Vec<::protobuf::well_known_types::Option>) {
@@ -137,9 +128,6 @@ impl Api {
 
     // string version = 4;
 
-    pub fn clear_version(&mut self) {
-        self.version.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_version(&mut self, v: ::std::string::String) {
@@ -166,9 +154,6 @@ impl Api {
 
     // .google.protobuf.SourceContext source_context = 5;
 
-    pub fn clear_source_context(&mut self) {
-        self.source_context.clear();
-    }
 
     pub fn has_source_context(&self) -> bool {
         self.source_context.is_some()
@@ -202,9 +187,6 @@ impl Api {
 
     // repeated .google.protobuf.Mixin mixins = 6;
 
-    pub fn clear_mixins(&mut self) {
-        self.mixins.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_mixins(&mut self, v: ::std::vec::Vec<Mixin>) {
@@ -230,9 +212,6 @@ impl Api {
 
     // .google.protobuf.Syntax syntax = 7;
 
-    pub fn clear_syntax(&mut self) {
-        self.syntax = ::protobuf::well_known_types::Syntax::SYNTAX_PROTO2;
-    }
 
     // Param is passed by value, moved
     pub fn set_syntax(&mut self, v: ::protobuf::well_known_types::Syntax) {
@@ -501,9 +480,6 @@ impl Method {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -530,9 +506,6 @@ impl Method {
 
     // string request_type_url = 2;
 
-    pub fn clear_request_type_url(&mut self) {
-        self.request_type_url.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_request_type_url(&mut self, v: ::std::string::String) {
@@ -559,9 +532,6 @@ impl Method {
 
     // bool request_streaming = 3;
 
-    pub fn clear_request_streaming(&mut self) {
-        self.request_streaming = false;
-    }
 
     // Param is passed by value, moved
     pub fn set_request_streaming(&mut self, v: bool) {
@@ -582,9 +552,6 @@ impl Method {
 
     // string response_type_url = 4;
 
-    pub fn clear_response_type_url(&mut self) {
-        self.response_type_url.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_response_type_url(&mut self, v: ::std::string::String) {
@@ -611,9 +578,6 @@ impl Method {
 
     // bool response_streaming = 5;
 
-    pub fn clear_response_streaming(&mut self) {
-        self.response_streaming = false;
-    }
 
     // Param is passed by value, moved
     pub fn set_response_streaming(&mut self, v: bool) {
@@ -634,9 +598,6 @@ impl Method {
 
     // repeated .google.protobuf.Option options = 6;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::std::vec::Vec<::protobuf::well_known_types::Option>) {
@@ -662,9 +623,6 @@ impl Method {
 
     // .google.protobuf.Syntax syntax = 7;
 
-    pub fn clear_syntax(&mut self) {
-        self.syntax = ::protobuf::well_known_types::Syntax::SYNTAX_PROTO2;
-    }
 
     // Param is passed by value, moved
     pub fn set_syntax(&mut self, v: ::protobuf::well_known_types::Syntax) {
@@ -912,9 +870,6 @@ impl Mixin {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -941,9 +896,6 @@ impl Mixin {
 
     // string root = 2;
 
-    pub fn clear_root(&mut self) {
-        self.root.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_root(&mut self, v: ::std::string::String) {

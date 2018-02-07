@@ -46,9 +46,6 @@ impl SourceContext {
 
     // string file_name = 1;
 
-    pub fn clear_file_name(&mut self) {
-        self.file_name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_file_name(&mut self, v: ::std::string::String) {

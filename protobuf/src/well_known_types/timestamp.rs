@@ -47,9 +47,6 @@ impl Timestamp {
 
     // int64 seconds = 1;
 
-    pub fn clear_seconds(&mut self) {
-        self.seconds = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_seconds(&mut self, v: i64) {
@@ -70,9 +67,6 @@ impl Timestamp {
 
     // int32 nanos = 2;
 
-    pub fn clear_nanos(&mut self) {
-        self.nanos = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_nanos(&mut self, v: i32) {

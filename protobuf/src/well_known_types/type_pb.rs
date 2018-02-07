@@ -51,9 +51,6 @@ impl Type {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -80,9 +77,6 @@ impl Type {
 
     // repeated .google.protobuf.Field fields = 2;
 
-    pub fn clear_fields(&mut self) {
-        self.fields.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_fields(&mut self, v: ::std::vec::Vec<Field>) {
@@ -108,9 +102,6 @@ impl Type {
 
     // repeated string oneofs = 3;
 
-    pub fn clear_oneofs(&mut self) {
-        self.oneofs.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_oneofs(&mut self, v: ::std::vec::Vec<::std::string::String>) {
@@ -136,9 +127,6 @@ impl Type {
 
     // repeated .google.protobuf.Option options = 4;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::std::vec::Vec<Option>) {
@@ -164,9 +152,6 @@ impl Type {
 
     // .google.protobuf.SourceContext source_context = 5;
 
-    pub fn clear_source_context(&mut self) {
-        self.source_context.clear();
-    }
 
     pub fn has_source_context(&self) -> bool {
         self.source_context.is_some()
@@ -200,9 +185,6 @@ impl Type {
 
     // .google.protobuf.Syntax syntax = 6;
 
-    pub fn clear_syntax(&mut self) {
-        self.syntax = Syntax::SYNTAX_PROTO2;
-    }
 
     // Param is passed by value, moved
     pub fn set_syntax(&mut self, v: Syntax) {
@@ -452,9 +434,6 @@ impl Field {
 
     // .google.protobuf.Field.Kind kind = 1;
 
-    pub fn clear_kind(&mut self) {
-        self.kind = Field_Kind::TYPE_UNKNOWN;
-    }
 
     // Param is passed by value, moved
     pub fn set_kind(&mut self, v: Field_Kind) {
@@ -475,9 +454,6 @@ impl Field {
 
     // .google.protobuf.Field.Cardinality cardinality = 2;
 
-    pub fn clear_cardinality(&mut self) {
-        self.cardinality = Field_Cardinality::CARDINALITY_UNKNOWN;
-    }
 
     // Param is passed by value, moved
     pub fn set_cardinality(&mut self, v: Field_Cardinality) {
@@ -498,9 +474,6 @@ impl Field {
 
     // int32 number = 3;
 
-    pub fn clear_number(&mut self) {
-        self.number = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_number(&mut self, v: i32) {
@@ -521,9 +494,6 @@ impl Field {
 
     // string name = 4;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -550,9 +520,6 @@ impl Field {
 
     // string type_url = 6;
 
-    pub fn clear_type_url(&mut self) {
-        self.type_url.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_type_url(&mut self, v: ::std::string::String) {
@@ -579,9 +546,6 @@ impl Field {
 
     // int32 oneof_index = 7;
 
-    pub fn clear_oneof_index(&mut self) {
-        self.oneof_index = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_oneof_index(&mut self, v: i32) {
@@ -602,9 +566,6 @@ impl Field {
 
     // bool packed = 8;
 
-    pub fn clear_packed(&mut self) {
-        self.packed = false;
-    }
 
     // Param is passed by value, moved
     pub fn set_packed(&mut self, v: bool) {
@@ -625,9 +586,6 @@ impl Field {
 
     // repeated .google.protobuf.Option options = 9;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::std::vec::Vec<Option>) {
@@ -653,9 +611,6 @@ impl Field {
 
     // string json_name = 10;
 
-    pub fn clear_json_name(&mut self) {
-        self.json_name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_json_name(&mut self, v: ::std::string::String) {
@@ -682,9 +637,6 @@ impl Field {
 
     // string default_value = 11;
 
-    pub fn clear_default_value(&mut self) {
-        self.default_value.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_default_value(&mut self, v: ::std::string::String) {
@@ -1158,9 +1110,6 @@ impl Enum {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -1187,9 +1136,6 @@ impl Enum {
 
     // repeated .google.protobuf.EnumValue enumvalue = 2;
 
-    pub fn clear_enumvalue(&mut self) {
-        self.enumvalue.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_enumvalue(&mut self, v: ::std::vec::Vec<EnumValue>) {
@@ -1215,9 +1161,6 @@ impl Enum {
 
     // repeated .google.protobuf.Option options = 3;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::std::vec::Vec<Option>) {
@@ -1243,9 +1186,6 @@ impl Enum {
 
     // .google.protobuf.SourceContext source_context = 4;
 
-    pub fn clear_source_context(&mut self) {
-        self.source_context.clear();
-    }
 
     pub fn has_source_context(&self) -> bool {
         self.source_context.is_some()
@@ -1279,9 +1219,6 @@ impl Enum {
 
     // .google.protobuf.Syntax syntax = 5;
 
-    pub fn clear_syntax(&mut self) {
-        self.syntax = Syntax::SYNTAX_PROTO2;
-    }
 
     // Param is passed by value, moved
     pub fn set_syntax(&mut self, v: Syntax) {
@@ -1510,9 +1447,6 @@ impl EnumValue {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -1539,9 +1473,6 @@ impl EnumValue {
 
     // int32 number = 2;
 
-    pub fn clear_number(&mut self) {
-        self.number = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_number(&mut self, v: i32) {
@@ -1562,9 +1493,6 @@ impl EnumValue {
 
     // repeated .google.protobuf.Option options = 3;
 
-    pub fn clear_options(&mut self) {
-        self.options.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_options(&mut self, v: ::std::vec::Vec<Option>) {
@@ -1753,9 +1681,6 @@ impl Option {
 
     // string name = 1;
 
-    pub fn clear_name(&mut self) {
-        self.name.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_name(&mut self, v: ::std::string::String) {
@@ -1782,9 +1707,6 @@ impl Option {
 
     // .google.protobuf.Any value = 2;
 
-    pub fn clear_value(&mut self) {
-        self.value.clear();
-    }
 
     pub fn has_value(&self) -> bool {
         self.value.is_some()

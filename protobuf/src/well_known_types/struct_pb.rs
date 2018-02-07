@@ -46,9 +46,6 @@ impl Struct {
 
     // repeated .google.protobuf.Struct.FieldsEntry fields = 1;
 
-    pub fn clear_fields(&mut self) {
-        self.fields.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_fields(&mut self, v: ::std::collections::HashMap<::std::string::String, Value>) {
@@ -202,9 +199,6 @@ impl Value {
 
     // .google.protobuf.NullValue null_value = 1;
 
-    pub fn clear_null_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_null_value(&self) -> bool {
         match self.kind {
@@ -227,9 +221,6 @@ impl Value {
 
     // double number_value = 2;
 
-    pub fn clear_number_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_number_value(&self) -> bool {
         match self.kind {
@@ -252,9 +243,6 @@ impl Value {
 
     // string string_value = 3;
 
-    pub fn clear_string_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_string_value(&self) -> bool {
         match self.kind {
@@ -289,9 +277,6 @@ impl Value {
 
     // bool bool_value = 4;
 
-    pub fn clear_bool_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_bool_value(&self) -> bool {
         match self.kind {
@@ -314,9 +299,6 @@ impl Value {
 
     // .google.protobuf.Struct struct_value = 5;
 
-    pub fn clear_struct_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_struct_value(&self) -> bool {
         match self.kind {
@@ -351,9 +333,6 @@ impl Value {
 
     // .google.protobuf.ListValue list_value = 6;
 
-    pub fn clear_list_value(&mut self) {
-        self.kind = ::std::option::Option::None;
-    }
 
     pub fn has_list_value(&self) -> bool {
         match self.kind {
@@ -622,9 +601,6 @@ impl ListValue {
 
     // repeated .google.protobuf.Value values = 1;
 
-    pub fn clear_values(&mut self) {
-        self.values.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_values(&mut self, v: ::std::vec::Vec<Value>) {

@@ -46,9 +46,6 @@ impl DoubleValue {
 
     // double value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0.;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: f64) {
@@ -195,9 +192,6 @@ impl FloatValue {
 
     // float value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0.;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: f32) {
@@ -344,9 +338,6 @@ impl Int64Value {
 
     // int64 value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: i64) {
@@ -493,9 +484,6 @@ impl UInt64Value {
 
     // uint64 value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: u64) {
@@ -642,9 +630,6 @@ impl Int32Value {
 
     // int32 value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: i32) {
@@ -791,9 +776,6 @@ impl UInt32Value {
 
     // uint32 value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = 0;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: u32) {
@@ -940,9 +922,6 @@ impl BoolValue {
 
     // bool value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value = false;
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: bool) {
@@ -1089,9 +1068,6 @@ impl StringValue {
 
     // string value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: ::std::string::String) {
@@ -1240,9 +1216,6 @@ impl BytesValue {
 
     // bytes value = 1;
 
-    pub fn clear_value(&mut self) {
-        self.value.clear();
-    }
 
     // Param is passed by value, moved
     pub fn set_value(&mut self, v: ::std::vec::Vec<u8>) {
