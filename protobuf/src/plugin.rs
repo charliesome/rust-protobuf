@@ -205,17 +205,17 @@ impl ::protobuf::Message for CodeGeneratorRequest {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.file_to_generate {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         };
         if let Some(ref v) = self.parameter.as_ref() {
-            os.write_string(2, &v)?;
+            _os.write_string(2, &v)?;
         }
         for v in &self.proto_file {
-            os.write_tag(15, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(15, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -444,14 +444,14 @@ impl ::protobuf::Message for CodeGeneratorResponse {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.error.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         for v in &self.file {
-            os.write_tag(15, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(15, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -730,15 +730,15 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         if let Some(ref v) = self.insertion_point.as_ref() {
-            os.write_string(2, &v)?;
+            _os.write_string(2, &v)?;
         }
         if let Some(ref v) = self.content.as_ref() {
-            os.write_string(15, &v)?;
+            _os.write_string(15, &v)?;
         }
         ::std::result::Result::Ok(())
     }

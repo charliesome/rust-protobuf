@@ -102,9 +102,9 @@ impl ::protobuf::Message for DoubleValue {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if self.value != 0. {
-            os.write_double(1, self.value)?;
+            _os.write_double(1, self.value)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -258,9 +258,9 @@ impl ::protobuf::Message for FloatValue {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if self.value != 0. {
-            os.write_float(1, self.value)?;
+            _os.write_float(1, self.value)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -414,9 +414,9 @@ impl ::protobuf::Message for Int64Value {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if self.value != 0 {
-            os.write_int64(1, self.value)?;
+            _os.write_int64(1, self.value)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -570,9 +570,9 @@ impl ::protobuf::Message for UInt64Value {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if self.value != 0 {
-            os.write_uint64(1, self.value)?;
+            _os.write_uint64(1, self.value)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -726,9 +726,9 @@ impl ::protobuf::Message for Int32Value {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if self.value != 0 {
-            os.write_int32(1, self.value)?;
+            _os.write_int32(1, self.value)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -882,9 +882,9 @@ impl ::protobuf::Message for UInt32Value {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if self.value != 0 {
-            os.write_uint32(1, self.value)?;
+            _os.write_uint32(1, self.value)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -1038,9 +1038,9 @@ impl ::protobuf::Message for BoolValue {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if self.value != false {
-            os.write_bool(1, self.value)?;
+            _os.write_bool(1, self.value)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -1201,9 +1201,9 @@ impl ::protobuf::Message for StringValue {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.value.is_empty() {
-            os.write_string(1, &self.value)?;
+            _os.write_string(1, &self.value)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -1364,9 +1364,9 @@ impl ::protobuf::Message for BytesValue {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.value.is_empty() {
-            os.write_bytes(1, &self.value)?;
+            _os.write_bytes(1, &self.value)?;
         }
         ::std::result::Result::Ok(())
     }

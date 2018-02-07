@@ -114,11 +114,11 @@ impl ::protobuf::Message for FileDescriptorSet {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.file {
-            os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -803,54 +803,54 @@ impl ::protobuf::Message for FileDescriptorProto {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         if let Some(ref v) = self.package.as_ref() {
-            os.write_string(2, &v)?;
+            _os.write_string(2, &v)?;
         }
         for v in &self.dependency {
-            os.write_string(3, &v)?;
+            _os.write_string(3, &v)?;
         };
         for v in &self.public_dependency {
-            os.write_int32(10, *v)?;
+            _os.write_int32(10, *v)?;
         };
         for v in &self.weak_dependency {
-            os.write_int32(11, *v)?;
+            _os.write_int32(11, *v)?;
         };
         for v in &self.message_type {
-            os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.enum_type {
-            os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.service {
-            os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.extension {
-            os.write_tag(7, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(7, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if let Some(ref v) = self.options.as_ref() {
-            os.write_tag(8, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(8, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         if let Some(ref v) = self.source_code_info.as_ref() {
-            os.write_tag(9, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(9, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         if let Some(ref v) = self.syntax.as_ref() {
-            os.write_string(12, &v)?;
+            _os.write_string(12, &v)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -1503,52 +1503,52 @@ impl ::protobuf::Message for DescriptorProto {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         for v in &self.field {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.extension {
-            os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.nested_type {
-            os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.enum_type {
-            os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.extension_range {
-            os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.oneof_decl {
-            os.write_tag(8, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(8, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if let Some(ref v) = self.options.as_ref() {
-            os.write_tag(7, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(7, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         for v in &self.reserved_range {
-            os.write_tag(9, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(9, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.reserved_name {
-            os.write_string(10, &v)?;
+            _os.write_string(10, &v)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -1798,12 +1798,12 @@ impl ::protobuf::Message for DescriptorProto_ExtensionRange {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(v) = self.start {
-            os.write_int32(1, v)?;
+            _os.write_int32(1, v)?;
         }
         if let Some(v) = self.end {
-            os.write_int32(2, v)?;
+            _os.write_int32(2, v)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -2005,12 +2005,12 @@ impl ::protobuf::Message for DescriptorProto_ReservedRange {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(v) = self.start {
-            os.write_int32(1, v)?;
+            _os.write_int32(1, v)?;
         }
         if let Some(v) = self.end {
-            os.write_int32(2, v)?;
+            _os.write_int32(2, v)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -2597,38 +2597,38 @@ impl ::protobuf::Message for FieldDescriptorProto {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         if let Some(v) = self.number {
-            os.write_int32(3, v)?;
+            _os.write_int32(3, v)?;
         }
         if let Some(v) = self.label {
-            os.write_enum(4, v.value())?;
+            _os.write_enum(4, v.value())?;
         }
         if let Some(v) = self.field_type {
-            os.write_enum(5, v.value())?;
+            _os.write_enum(5, v.value())?;
         }
         if let Some(ref v) = self.type_name.as_ref() {
-            os.write_string(6, &v)?;
+            _os.write_string(6, &v)?;
         }
         if let Some(ref v) = self.extendee.as_ref() {
-            os.write_string(2, &v)?;
+            _os.write_string(2, &v)?;
         }
         if let Some(ref v) = self.default_value.as_ref() {
-            os.write_string(7, &v)?;
+            _os.write_string(7, &v)?;
         }
         if let Some(v) = self.oneof_index {
-            os.write_int32(9, v)?;
+            _os.write_int32(9, v)?;
         }
         if let Some(ref v) = self.json_name.as_ref() {
-            os.write_string(10, &v)?;
+            _os.write_string(10, &v)?;
         }
         if let Some(ref v) = self.options.as_ref() {
-            os.write_tag(8, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(8, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -3056,14 +3056,14 @@ impl ::protobuf::Message for OneofDescriptorProto {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         if let Some(ref v) = self.options.as_ref() {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -3340,19 +3340,19 @@ impl ::protobuf::Message for EnumDescriptorProto {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         for v in &self.value {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if let Some(ref v) = self.options.as_ref() {
-            os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -3627,17 +3627,17 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         if let Some(v) = self.number {
-            os.write_int32(2, v)?;
+            _os.write_int32(2, v)?;
         }
         if let Some(ref v) = self.options.as_ref() {
-            os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -3920,19 +3920,19 @@ impl ::protobuf::Message for ServiceDescriptorProto {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         for v in &self.method {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if let Some(ref v) = self.options.as_ref() {
-            os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -4347,26 +4347,26 @@ impl ::protobuf::Message for MethodDescriptorProto {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         if let Some(ref v) = self.input_type.as_ref() {
-            os.write_string(2, &v)?;
+            _os.write_string(2, &v)?;
         }
         if let Some(ref v) = self.output_type.as_ref() {
-            os.write_string(3, &v)?;
+            _os.write_string(3, &v)?;
         }
         if let Some(ref v) = self.options.as_ref() {
-            os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         if let Some(v) = self.client_streaming {
-            os.write_bool(5, v)?;
+            _os.write_bool(5, v)?;
         }
         if let Some(v) = self.server_streaming {
-            os.write_bool(6, v)?;
+            _os.write_bool(6, v)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -5159,53 +5159,53 @@ impl ::protobuf::Message for FileOptions {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.java_package.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         if let Some(ref v) = self.java_outer_classname.as_ref() {
-            os.write_string(8, &v)?;
+            _os.write_string(8, &v)?;
         }
         if let Some(v) = self.java_multiple_files {
-            os.write_bool(10, v)?;
+            _os.write_bool(10, v)?;
         }
         if let Some(v) = self.java_generate_equals_and_hash {
-            os.write_bool(20, v)?;
+            _os.write_bool(20, v)?;
         }
         if let Some(v) = self.java_string_check_utf8 {
-            os.write_bool(27, v)?;
+            _os.write_bool(27, v)?;
         }
         if let Some(v) = self.optimize_for {
-            os.write_enum(9, v.value())?;
+            _os.write_enum(9, v.value())?;
         }
         if let Some(ref v) = self.go_package.as_ref() {
-            os.write_string(11, &v)?;
+            _os.write_string(11, &v)?;
         }
         if let Some(v) = self.cc_generic_services {
-            os.write_bool(16, v)?;
+            _os.write_bool(16, v)?;
         }
         if let Some(v) = self.java_generic_services {
-            os.write_bool(17, v)?;
+            _os.write_bool(17, v)?;
         }
         if let Some(v) = self.py_generic_services {
-            os.write_bool(18, v)?;
+            _os.write_bool(18, v)?;
         }
         if let Some(v) = self.deprecated {
-            os.write_bool(23, v)?;
+            _os.write_bool(23, v)?;
         }
         if let Some(v) = self.cc_enable_arenas {
-            os.write_bool(31, v)?;
+            _os.write_bool(31, v)?;
         }
         if let Some(ref v) = self.objc_class_prefix.as_ref() {
-            os.write_string(36, &v)?;
+            _os.write_string(36, &v)?;
         }
         if let Some(ref v) = self.csharp_namespace.as_ref() {
-            os.write_string(37, &v)?;
+            _os.write_string(37, &v)?;
         }
         for v in &self.uninterpreted_option {
-            os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -5659,23 +5659,23 @@ impl ::protobuf::Message for MessageOptions {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(v) = self.message_set_wire_format {
-            os.write_bool(1, v)?;
+            _os.write_bool(1, v)?;
         }
         if let Some(v) = self.no_standard_descriptor_accessor {
-            os.write_bool(2, v)?;
+            _os.write_bool(2, v)?;
         }
         if let Some(v) = self.deprecated {
-            os.write_bool(3, v)?;
+            _os.write_bool(3, v)?;
         }
         if let Some(v) = self.map_entry {
-            os.write_bool(7, v)?;
+            _os.write_bool(7, v)?;
         }
         for v in &self.uninterpreted_option {
-            os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -6093,29 +6093,29 @@ impl ::protobuf::Message for FieldOptions {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(v) = self.ctype {
-            os.write_enum(1, v.value())?;
+            _os.write_enum(1, v.value())?;
         }
         if let Some(v) = self.packed {
-            os.write_bool(2, v)?;
+            _os.write_bool(2, v)?;
         }
         if let Some(v) = self.jstype {
-            os.write_enum(6, v.value())?;
+            _os.write_enum(6, v.value())?;
         }
         if let Some(v) = self.lazy {
-            os.write_bool(5, v)?;
+            _os.write_bool(5, v)?;
         }
         if let Some(v) = self.deprecated {
-            os.write_bool(3, v)?;
+            _os.write_bool(3, v)?;
         }
         if let Some(v) = self.weak {
-            os.write_bool(10, v)?;
+            _os.write_bool(10, v)?;
         }
         for v in &self.uninterpreted_option {
-            os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -6421,11 +6421,11 @@ impl ::protobuf::Message for OneofOptions {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.uninterpreted_option {
-            os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -6667,17 +6667,17 @@ impl ::protobuf::Message for EnumOptions {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(v) = self.allow_alias {
-            os.write_bool(2, v)?;
+            _os.write_bool(2, v)?;
         }
         if let Some(v) = self.deprecated {
-            os.write_bool(3, v)?;
+            _os.write_bool(3, v)?;
         }
         for v in &self.uninterpreted_option {
-            os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -6893,14 +6893,14 @@ impl ::protobuf::Message for EnumValueOptions {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(v) = self.deprecated {
-            os.write_bool(1, v)?;
+            _os.write_bool(1, v)?;
         }
         for v in &self.uninterpreted_option {
-            os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -7110,14 +7110,14 @@ impl ::protobuf::Message for ServiceOptions {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(v) = self.deprecated {
-            os.write_bool(33, v)?;
+            _os.write_bool(33, v)?;
         }
         for v in &self.uninterpreted_option {
-            os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -7327,14 +7327,14 @@ impl ::protobuf::Message for MethodOptions {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(v) = self.deprecated {
-            os.write_bool(33, v)?;
+            _os.write_bool(33, v)?;
         }
         for v in &self.uninterpreted_option {
-            os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(999, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -7773,29 +7773,29 @@ impl ::protobuf::Message for UninterpretedOption {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.name {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if let Some(ref v) = self.identifier_value.as_ref() {
-            os.write_string(3, &v)?;
+            _os.write_string(3, &v)?;
         }
         if let Some(v) = self.positive_int_value {
-            os.write_uint64(4, v)?;
+            _os.write_uint64(4, v)?;
         }
         if let Some(v) = self.negative_int_value {
-            os.write_int64(5, v)?;
+            _os.write_int64(5, v)?;
         }
         if let Some(v) = self.double_value {
-            os.write_double(6, v)?;
+            _os.write_double(6, v)?;
         }
         if let Some(ref v) = self.string_value.as_ref() {
-            os.write_bytes(7, &v)?;
+            _os.write_bytes(7, &v)?;
         }
         if let Some(ref v) = self.aggregate_value.as_ref() {
-            os.write_string(8, &v)?;
+            _os.write_string(8, &v)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -8046,12 +8046,12 @@ impl ::protobuf::Message for UninterpretedOption_NamePart {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let Some(ref v) = self.name_part.as_ref() {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         }
         if let Some(v) = self.is_extension {
-            os.write_bool(2, v)?;
+            _os.write_bool(2, v)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -8223,11 +8223,11 @@ impl ::protobuf::Message for SourceCodeInfo {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.location {
-            os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -8569,31 +8569,31 @@ impl ::protobuf::Message for SourceCodeInfo_Location {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.path.is_empty() {
-            os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
             // TODO: Data size is computed again, it should be cached
-            os.write_raw_varint32(::protobuf::rt::vec_packed_varint_data_size(&self.path))?;
+            _os.write_raw_varint32(::protobuf::rt::vec_packed_varint_data_size(&self.path))?;
             for v in &self.path {
-                os.write_int32_no_tag(*v)?;
+                _os.write_int32_no_tag(*v)?;
             };
         }
         if !self.span.is_empty() {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
             // TODO: Data size is computed again, it should be cached
-            os.write_raw_varint32(::protobuf::rt::vec_packed_varint_data_size(&self.span))?;
+            _os.write_raw_varint32(::protobuf::rt::vec_packed_varint_data_size(&self.span))?;
             for v in &self.span {
-                os.write_int32_no_tag(*v)?;
+                _os.write_int32_no_tag(*v)?;
             };
         }
         if let Some(ref v) = self.leading_comments.as_ref() {
-            os.write_string(3, &v)?;
+            _os.write_string(3, &v)?;
         }
         if let Some(ref v) = self.trailing_comments.as_ref() {
-            os.write_string(4, &v)?;
+            _os.write_string(4, &v)?;
         }
         for v in &self.leading_detached_comments {
-            os.write_string(6, &v)?;
+            _os.write_string(6, &v)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -8783,11 +8783,11 @@ impl ::protobuf::Message for GeneratedCodeInfo {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.annotation {
-            os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -9074,23 +9074,23 @@ impl ::protobuf::Message for GeneratedCodeInfo_Annotation {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.path.is_empty() {
-            os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
             // TODO: Data size is computed again, it should be cached
-            os.write_raw_varint32(::protobuf::rt::vec_packed_varint_data_size(&self.path))?;
+            _os.write_raw_varint32(::protobuf::rt::vec_packed_varint_data_size(&self.path))?;
             for v in &self.path {
-                os.write_int32_no_tag(*v)?;
+                _os.write_int32_no_tag(*v)?;
             };
         }
         if let Some(ref v) = self.source_file.as_ref() {
-            os.write_string(2, &v)?;
+            _os.write_string(2, &v)?;
         }
         if let Some(v) = self.begin {
-            os.write_int32(3, v)?;
+            _os.write_int32(3, v)?;
         }
         if let Some(v) = self.end {
-            os.write_int32(4, v)?;
+            _os.write_int32(4, v)?;
         }
         ::std::result::Result::Ok(())
     }

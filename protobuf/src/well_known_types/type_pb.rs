@@ -329,30 +329,30 @@ impl ::protobuf::Message for Type {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.name.is_empty() {
-            os.write_string(1, &self.name)?;
+            _os.write_string(1, &self.name)?;
         }
         for v in &self.fields {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.oneofs {
-            os.write_string(3, &v)?;
+            _os.write_string(3, &v)?;
         };
         for v in &self.options {
-            os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if let Some(ref v) = self.source_context.as_ref() {
-            os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         if self.syntax != Syntax::SYNTAX_PROTO2 {
-            os.write_enum(6, self.syntax.value())?;
+            _os.write_enum(6, self.syntax.value())?;
         }
         ::std::result::Result::Ok(())
     }
@@ -882,38 +882,38 @@ impl ::protobuf::Message for Field {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if self.kind != Field_Kind::TYPE_UNKNOWN {
-            os.write_enum(1, self.kind.value())?;
+            _os.write_enum(1, self.kind.value())?;
         }
         if self.cardinality != Field_Cardinality::CARDINALITY_UNKNOWN {
-            os.write_enum(2, self.cardinality.value())?;
+            _os.write_enum(2, self.cardinality.value())?;
         }
         if self.number != 0 {
-            os.write_int32(3, self.number)?;
+            _os.write_int32(3, self.number)?;
         }
         if !self.name.is_empty() {
-            os.write_string(4, &self.name)?;
+            _os.write_string(4, &self.name)?;
         }
         if !self.type_url.is_empty() {
-            os.write_string(6, &self.type_url)?;
+            _os.write_string(6, &self.type_url)?;
         }
         if self.oneof_index != 0 {
-            os.write_int32(7, self.oneof_index)?;
+            _os.write_int32(7, self.oneof_index)?;
         }
         if self.packed != false {
-            os.write_bool(8, self.packed)?;
+            _os.write_bool(8, self.packed)?;
         }
         for v in &self.options {
-            os.write_tag(9, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(9, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if !self.json_name.is_empty() {
-            os.write_string(10, &self.json_name)?;
+            _os.write_string(10, &self.json_name)?;
         }
         if !self.default_value.is_empty() {
-            os.write_string(11, &self.default_value)?;
+            _os.write_string(11, &self.default_value)?;
         }
         ::std::result::Result::Ok(())
     }
@@ -1475,27 +1475,27 @@ impl ::protobuf::Message for Enum {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.name.is_empty() {
-            os.write_string(1, &self.name)?;
+            _os.write_string(1, &self.name)?;
         }
         for v in &self.enumvalue {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.options {
-            os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if let Some(ref v) = self.source_context.as_ref() {
-            os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         if self.syntax != Syntax::SYNTAX_PROTO2 {
-            os.write_enum(5, self.syntax.value())?;
+            _os.write_enum(5, self.syntax.value())?;
         }
         ::std::result::Result::Ok(())
     }
@@ -1760,17 +1760,17 @@ impl ::protobuf::Message for EnumValue {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.name.is_empty() {
-            os.write_string(1, &self.name)?;
+            _os.write_string(1, &self.name)?;
         }
         if self.number != 0 {
-            os.write_int32(2, self.number)?;
+            _os.write_int32(2, self.number)?;
         }
         for v in &self.options {
-            os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
@@ -1997,14 +1997,14 @@ impl ::protobuf::Message for Option {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.name.is_empty() {
-            os.write_string(1, &self.name)?;
+            _os.write_string(1, &self.name)?;
         }
         if let Some(ref v) = self.value.as_ref() {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
     }

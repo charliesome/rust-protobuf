@@ -108,9 +108,9 @@ impl ::protobuf::Message for FieldMask {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.paths {
-            os.write_string(1, &v)?;
+            _os.write_string(1, &v)?;
         };
         ::std::result::Result::Ok(())
     }

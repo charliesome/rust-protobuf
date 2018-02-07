@@ -376,35 +376,35 @@ impl ::protobuf::Message for Api {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.name.is_empty() {
-            os.write_string(1, &self.name)?;
+            _os.write_string(1, &self.name)?;
         }
         for v in &self.methods {
-            os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(2, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         for v in &self.options {
-            os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(3, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if !self.version.is_empty() {
-            os.write_string(4, &self.version)?;
+            _os.write_string(4, &self.version)?;
         }
         if let Some(ref v) = self.source_context.as_ref() {
-            os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         }
         for v in &self.mixins {
-            os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if self.syntax != ::protobuf::well_known_types::Syntax::SYNTAX_PROTO2 {
-            os.write_enum(7, self.syntax.value())?;
+            _os.write_enum(7, self.syntax.value())?;
         }
         ::std::result::Result::Ok(())
     }
@@ -831,29 +831,29 @@ impl ::protobuf::Message for Method {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.name.is_empty() {
-            os.write_string(1, &self.name)?;
+            _os.write_string(1, &self.name)?;
         }
         if !self.request_type_url.is_empty() {
-            os.write_string(2, &self.request_type_url)?;
+            _os.write_string(2, &self.request_type_url)?;
         }
         if self.request_streaming != false {
-            os.write_bool(3, self.request_streaming)?;
+            _os.write_bool(3, self.request_streaming)?;
         }
         if !self.response_type_url.is_empty() {
-            os.write_string(4, &self.response_type_url)?;
+            _os.write_string(4, &self.response_type_url)?;
         }
         if self.response_streaming != false {
-            os.write_bool(5, self.response_streaming)?;
+            _os.write_bool(5, self.response_streaming)?;
         }
         for v in &self.options {
-            os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         if self.syntax != ::protobuf::well_known_types::Syntax::SYNTAX_PROTO2 {
-            os.write_enum(7, self.syntax.value())?;
+            _os.write_enum(7, self.syntax.value())?;
         }
         ::std::result::Result::Ok(())
     }
@@ -1091,12 +1091,12 @@ impl ::protobuf::Message for Mixin {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.name.is_empty() {
-            os.write_string(1, &self.name)?;
+            _os.write_string(1, &self.name)?;
         }
         if !self.root.is_empty() {
-            os.write_string(2, &self.root)?;
+            _os.write_string(2, &self.root)?;
         }
         ::std::result::Result::Ok(())
     }

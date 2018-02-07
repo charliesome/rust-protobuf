@@ -150,12 +150,12 @@ impl ::protobuf::Message for Any {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.type_url.is_empty() {
-            os.write_string(1, &self.type_url)?;
+            _os.write_string(1, &self.type_url)?;
         }
         if !self.value.is_empty() {
-            os.write_bytes(2, &self.value)?;
+            _os.write_bytes(2, &self.value)?;
         }
         ::std::result::Result::Ok(())
     }

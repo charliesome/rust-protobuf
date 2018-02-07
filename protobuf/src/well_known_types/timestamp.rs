@@ -136,12 +136,12 @@ impl ::protobuf::Message for Timestamp {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if self.seconds != 0 {
-            os.write_int64(1, self.seconds)?;
+            _os.write_int64(1, self.seconds)?;
         }
         if self.nanos != 0 {
-            os.write_int32(2, self.nanos)?;
+            _os.write_int32(2, self.nanos)?;
         }
         ::std::result::Result::Ok(())
     }

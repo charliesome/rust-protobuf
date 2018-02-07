@@ -109,9 +109,9 @@ impl ::protobuf::Message for SourceContext {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if !self.file_name.is_empty() {
-            os.write_string(1, &self.file_name)?;
+            _os.write_string(1, &self.file_name)?;
         }
         ::std::result::Result::Ok(())
     }

@@ -106,8 +106,8 @@ impl ::protobuf::Message for Struct {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
-        os.write_map::<::protobuf::types::ProtobufTypeString, ::protobuf::types::ProtobufTypeMessage<Value>>(1, &self.fields)?;
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+        _os.write_map::<::protobuf::types::ProtobufTypeString, ::protobuf::types::ProtobufTypeMessage<Value>>(1, &self.fields)?;
         ::std::result::Result::Ok(())
     }
 
@@ -529,30 +529,30 @@ impl ::protobuf::Message for Value {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         if let ::std::option::Option::Some(ref v) = self.kind {
             match v {
                 &Value_oneof_kind::null_value(v) => {
-                    os.write_enum(1, v.value())?;
+                    _os.write_enum(1, v.value())?;
                 },
                 &Value_oneof_kind::number_value(v) => {
-                    os.write_double(2, v)?;
+                    _os.write_double(2, v)?;
                 },
                 &Value_oneof_kind::string_value(ref v) => {
-                    os.write_string(3, v)?;
+                    _os.write_string(3, v)?;
                 },
                 &Value_oneof_kind::bool_value(v) => {
-                    os.write_bool(4, v)?;
+                    _os.write_bool(4, v)?;
                 },
                 &Value_oneof_kind::struct_value(ref v) => {
-                    os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-                    os.write_raw_varint32(v.compute_size())?;
-                    v.write_to_with_cached_sizes(os)?;
+                    _os.write_tag(5, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+                    _os.write_raw_varint32(v.compute_size())?;
+                    v.write_to_with_cached_sizes(_os)?;
                 },
                 &Value_oneof_kind::list_value(ref v) => {
-                    os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-                    os.write_raw_varint32(v.compute_size())?;
-                    v.write_to_with_cached_sizes(os)?;
+                    _os.write_tag(6, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+                    _os.write_raw_varint32(v.compute_size())?;
+                    v.write_to_with_cached_sizes(_os)?;
                 },
             };
         }
@@ -750,11 +750,11 @@ impl ::protobuf::Message for ListValue {
         _size
     }
 
-    fn write_to_with_cached_sizes(&self, os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
+    fn write_to_with_cached_sizes(&self, _os: &mut ::protobuf::CodedOutputStream) -> ::protobuf::ProtobufResult<()> {
         for v in &self.values {
-            os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.compute_size())?;
-            v.write_to_with_cached_sizes(os)?;
+            _os.write_tag(1, ::protobuf::wire_format::WireTypeLengthDelimited)?;
+            _os.write_raw_varint32(v.compute_size())?;
+            v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
     }
