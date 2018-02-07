@@ -14,7 +14,6 @@ pub use unknown::UnknownValues;
 pub use unknown::UnknownValuesIter;
 pub use singular::SingularField;
 pub use singular::SingularPtrField;
-pub use clear::Clear;
 pub use core::Message;
 pub use core::ProtobufEnum;
 pub use core::parse_from_bytes;
@@ -43,7 +42,6 @@ pub mod rt;
 pub mod lazy;
 pub mod compiler_plugin;
 mod singular;
-mod clear;
 pub mod reflect;
 pub mod text_format;
 pub mod stream;
@@ -94,6 +92,5 @@ mod protobuf {
     pub use unknown::UnknownValuesIter;
     pub use singular::SingularField;
     pub use singular::SingularPtrField;
-    pub use clear::Clear;
     pub use cached_size::CachedSize;
 }

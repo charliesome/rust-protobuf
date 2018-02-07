@@ -4,8 +4,6 @@ use std::fmt;
 
 use bytes::Bytes;
 
-use clear::Clear;
-
 /// Thin wrapper around `Bytes` which guarantees that bytes are valid UTF-8 string.
 #[derive(Clone, PartialEq, Eq, Hash, PartialOrd, Ord)]
 pub struct Chars(Bytes);
@@ -56,12 +54,6 @@ impl Deref for Chars {
 
     fn deref(&self) -> &str {
         unsafe { str::from_utf8_unchecked(&self.0) }
-    }
-}
-
-impl Clear for Chars {
-    fn clear(&mut self) {
-        self.0.clear();
     }
 }
 

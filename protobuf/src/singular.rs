@@ -461,34 +461,3 @@ impl<'a, T> IntoIterator for &'a SingularPtrField<T> {
         self.iter()
     }
 }
-
-
-#[cfg(test)]
-mod test {
-    use clear::Clear;
-    use super::SingularField;
-
-    #[test]
-    fn test_set_default_clears() {
-        #[derive(Default)]
-        struct Foo {
-            b: isize,
-        }
-
-        impl Clear for Foo {
-            fn clear(&mut self) {
-                self.b = 0;
-            }
-        }
-
-        let mut x = SingularField::some(Foo { b: 10 });
-        x.clear();
-        x.set_default();
-        assert_eq!(0, x.as_ref().unwrap().b);
-
-        x.as_mut().unwrap().b = 11;
-        // without clear
-        x.set_default();
-        assert_eq!(0, x.as_ref().unwrap().b);
-    }
-}

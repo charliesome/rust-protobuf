@@ -7,7 +7,6 @@ use std::io::Write;
 #[cfg(feature = "bytes")]
 use bytes::Bytes;
 
-use clear::Clear;
 use reflect::MessageDescriptor;
 use reflect::EnumDescriptor;
 use reflect::EnumValueDescriptor;

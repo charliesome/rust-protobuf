@@ -3,7 +3,6 @@ use std::collections::hash_map;
 use std::default::Default;
 use std::slice;
 use stream::wire_format;
-use clear::Clear;
 
 #[derive(Debug)]
 pub enum UnknownValue {
@@ -173,14 +172,6 @@ impl UnknownFields {
         match self.fields {
             Some(ref map) => map.get(&field_number),
             None => None,
-        }
-    }
-}
-
-impl Clear for UnknownFields {
-    fn clear(&mut self) {
-        if let Some(ref mut fields) = self.fields {
-            fields.clear();
         }
     }
 }
