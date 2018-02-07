@@ -5,8 +5,6 @@ use std::default::Default;
 use std::fmt;
 use std::mem;
 
-use clear::Clear;
-
 
 /// Like `Option<T>`, but keeps the actual element on `clear`.
 pub struct SingularField<T> {
@@ -158,6 +156,23 @@ impl<T : Default> SingularField<T> {
         } else {
             None
         }
+    }
+
+    /// Get contained data, consume self. Return default value for type if this is empty.
+    #[inline]
+    pub fn unwrap_or_default(mut self) -> T {
+        self.value = Default::default();
+        self.value
+    }
+
+    /// Initialize this object with default value.
+    /// This operation can be more efficient then construction of clear element,
+    /// because it may reuse previously contained object.
+    #[inline]
+    pub fn set_default<'a>(&'a mut self) -> &'a mut T {
+        self.set = true;
+        self.value = Default::default();
+        &mut self.value
     }
 }
 
@@ -311,33 +326,14 @@ impl<T> SingularPtrField<T> {
     }
 }
 
-impl<T : Default + Clear> SingularField<T> {
-    /// Get contained data, consume self. Return default value for type if this is empty.
-    #[inline]
-    pub fn unwrap_or_default(mut self) -> T {
-        self.value.clear();
-        self.value
-    }
-
-    /// Initialize this object with default value.
-    /// This operation can be more efficient then construction of clear element,
-    /// because it may reuse previously contained object.
-    #[inline]
-    pub fn set_default<'a>(&'a mut self) -> &'a mut T {
-        self.set = true;
-        self.value.clear();
-        &mut self.value
-    }
-}
-
-impl<T : Default + Clear> SingularPtrField<T> {
+impl<T : Default> SingularPtrField<T> {
     /// Get contained data, consume self. Return default value for type if this is empty.
     #[inline]
     pub fn unwrap_or_default(mut self) -> T {
         if self.set {
             self.unwrap()
         } else if self.value.is_some() {
-            self.value.clear();
+            self.value = Default::default();
             *self.value.unwrap()
         } else {
             Default::default()
@@ -351,7 +347,7 @@ impl<T : Default + Clear> SingularPtrField<T> {
     pub fn set_default<'a>(&'a mut self) -> &'a mut T {
         self.set = true;
         if self.value.is_some() {
-            self.value.as_mut().unwrap().clear();
+            *self.value.as_mut().unwrap() = Default::default();
         } else {
             self.value = Some(Default::default());
         }

@@ -74,11 +74,9 @@ impl TestRunner {
             random_data.len() as u64,
             || {
                 let mut coded_input_stream = protobuf::CodedInputStream::from_bytes(&buf);
-                let mut msg: M = Message::new();
                 let mut count = 0;
                 while !coded_input_stream.eof().unwrap() {
-                    msg.clear();
-                    coded_input_stream.merge_message(&mut msg).unwrap();
+                    coded_input_stream.merge_message(&mut M::new()).unwrap();
                     count += 1;
                 }
                 count
