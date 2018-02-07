@@ -681,11 +681,6 @@ impl<'a> FieldGen<'a> {
         }
     }
 
-    // for field `foo`, return type if `fn take_foo(..)`
-    fn take_xxx_return_type(&self) -> RustType {
-        self.set_xxx_param_type()
-    }
-
     // for field `foo`, return type of `fn mut_foo(..)`
     fn mut_xxx_return_type(&self) -> RustType {
         RustType::Ref(Box::new(match self.kind {
@@ -1711,17 +1706,6 @@ impl<'a> FieldGen<'a> {
         }
     }
 
-    fn has_take(&self) -> bool {
-        match self.kind {
-            FieldKind::Repeated(..) |
-            FieldKind::Map(..) => true,
-            // TODO: string should be public, and mut is not needed
-            FieldKind::Singular(..) |
-            FieldKind::Oneof(..) => !self.elem_type_is_copy(),
-        }
-
-    }
-
     fn has_name(&self) -> String {
         format!("has_{}", self.rust_name)
     }
@@ -1829,87 +1813,6 @@ impl<'a> FieldGen<'a> {
         });
     }
 
-    fn write_message_field_take_oneof(&self, w: &mut CodeWriter) {
-        let take_xxx_return_type = self.take_xxx_return_type();
-
-        // TODO: replace with if let
-        w.write_line(&format!("if self.{}() {{", self.has_name()));
-        w.indented(|w| {
-            let self_field_oneof = self.self_field_oneof();
-            w.match_expr(format!("{}.take()", self_field_oneof), |w| {
-                let value_in_some = self.oneof().rust_type().value("v".to_owned());
-                let converted = value_in_some.into_type(self.take_xxx_return_type());
-                w.case_expr(
-                    format!("::std::option::Option::Some({}(v))", self.variant_path()),
-                    &converted.value,
-                );
-                w.case_expr("_", "panic!()");
-            });
-        });
-        w.write_line("} else {");
-        w.indented(|w| {
-            w.write_line(
-                self.elem()
-                    .rust_type()
-                    .default_value_typed()
-                    .into_type(take_xxx_return_type.clone())
-                    .value,
-            );
-        });
-        w.write_line("}");
-    }
-
-    fn write_message_field_take(&self, w: &mut CodeWriter) {
-        let take_xxx_return_type = self.take_xxx_return_type();
-        w.comment("Take field");
-        w.pub_fn(
-            &format!(
-                "take_{}(&mut self) -> {}",
-                self.rust_name,
-                take_xxx_return_type
-            ),
-            |w| match self.kind {
-                FieldKind::Oneof(..) => {
-                    self.write_message_field_take_oneof(w);
-                }
-                FieldKind::Repeated(..) |
-                FieldKind::Map(..) => {
-                    w.write_line(&format!(
-                        "::std::mem::replace(&mut self.{}, {})",
-                        self.rust_name,
-                        take_xxx_return_type.default_value()
-                    ));
-
-                }
-                FieldKind::Singular(SingularField {
-                    ref elem,
-                    flag: SingularFieldFlag::WithFlag { .. },
-                }) => {
-                    if !elem.is_copy() {
-                        w.write_line(&format!(
-                            "{}.take().unwrap_or_else(|| {})",
-                            self.self_field(),
-                            elem.rust_type().default_value()
-                        ));
-                    } else {
-                        w.write_line(&format!(
-                            "{}.take().unwrap_or({})",
-                            self.self_field(),
-                            self.element_default_value_rust().value
-                        ));
-                    }
-                }
-                FieldKind::Singular(SingularField { flag: SingularFieldFlag::WithoutFlag, .. }) => {
-                    w.write_line(&format!(
-                        "::std::mem::replace(&mut {}, {})",
-                        self.self_field(),
-                        self.full_storage_type().default_value()
-                    ))
-                }
-            },
-        );
-    }
-
     pub fn write_message_single_field_accessors(&self, w: &mut CodeWriter) {
         let clear_field_func = self.clear_field_func();
         w.pub_fn(&format!("{}(&mut self)", clear_field_func), |w| {
@@ -1927,11 +1830,6 @@ impl<'a> FieldGen<'a> {
         if self.has_mut() {
             w.write_line("");
             self.write_message_field_mut(w);
-        }
-
-        if self.has_take() {
-            w.write_line("");
-            self.write_message_field_take(w);
         }
 
         w.write_line("");
