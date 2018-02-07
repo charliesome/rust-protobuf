@@ -24,7 +24,7 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 #[derive(PartialEq,Clone,Default)]
 pub struct FileDescriptorSet {
     // message fields
-    file: ::protobuf::RepeatedField<FileDescriptorProto>,
+    pub file: ::protobuf::RepeatedField<FileDescriptorProto>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -194,18 +194,18 @@ impl ::protobuf::reflect::ProtobufValue for FileDescriptorSet {
 #[derive(PartialEq,Clone,Default)]
 pub struct FileDescriptorProto {
     // message fields
-    name: ::protobuf::SingularField<::std::string::String>,
-    package: ::protobuf::SingularField<::std::string::String>,
-    dependency: ::protobuf::RepeatedField<::std::string::String>,
-    public_dependency: ::std::vec::Vec<i32>,
-    weak_dependency: ::std::vec::Vec<i32>,
-    message_type: ::protobuf::RepeatedField<DescriptorProto>,
-    enum_type: ::protobuf::RepeatedField<EnumDescriptorProto>,
-    service: ::protobuf::RepeatedField<ServiceDescriptorProto>,
-    extension: ::protobuf::RepeatedField<FieldDescriptorProto>,
-    options: ::protobuf::SingularPtrField<FileOptions>,
-    source_code_info: ::protobuf::SingularPtrField<SourceCodeInfo>,
-    syntax: ::protobuf::SingularField<::std::string::String>,
+    pub name: ::protobuf::SingularField<::std::string::String>,
+    pub package: ::protobuf::SingularField<::std::string::String>,
+    pub dependency: ::protobuf::RepeatedField<::std::string::String>,
+    pub public_dependency: ::std::vec::Vec<i32>,
+    pub weak_dependency: ::std::vec::Vec<i32>,
+    pub message_type: ::protobuf::RepeatedField<DescriptorProto>,
+    pub enum_type: ::protobuf::RepeatedField<EnumDescriptorProto>,
+    pub service: ::protobuf::RepeatedField<ServiceDescriptorProto>,
+    pub extension: ::protobuf::RepeatedField<FieldDescriptorProto>,
+    pub options: ::protobuf::SingularPtrField<FileOptions>,
+    pub source_code_info: ::protobuf::SingularPtrField<SourceCodeInfo>,
+    pub syntax: ::protobuf::SingularField<::std::string::String>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -992,16 +992,16 @@ impl ::protobuf::reflect::ProtobufValue for FileDescriptorProto {
 #[derive(PartialEq,Clone,Default)]
 pub struct DescriptorProto {
     // message fields
-    name: ::protobuf::SingularField<::std::string::String>,
-    field: ::protobuf::RepeatedField<FieldDescriptorProto>,
-    extension: ::protobuf::RepeatedField<FieldDescriptorProto>,
-    nested_type: ::protobuf::RepeatedField<DescriptorProto>,
-    enum_type: ::protobuf::RepeatedField<EnumDescriptorProto>,
-    extension_range: ::protobuf::RepeatedField<DescriptorProto_ExtensionRange>,
-    oneof_decl: ::protobuf::RepeatedField<OneofDescriptorProto>,
-    options: ::protobuf::SingularPtrField<MessageOptions>,
-    reserved_range: ::protobuf::RepeatedField<DescriptorProto_ReservedRange>,
-    reserved_name: ::protobuf::RepeatedField<::std::string::String>,
+    pub name: ::protobuf::SingularField<::std::string::String>,
+    pub field: ::protobuf::RepeatedField<FieldDescriptorProto>,
+    pub extension: ::protobuf::RepeatedField<FieldDescriptorProto>,
+    pub nested_type: ::protobuf::RepeatedField<DescriptorProto>,
+    pub enum_type: ::protobuf::RepeatedField<EnumDescriptorProto>,
+    pub extension_range: ::protobuf::RepeatedField<DescriptorProto_ExtensionRange>,
+    pub oneof_decl: ::protobuf::RepeatedField<OneofDescriptorProto>,
+    pub options: ::protobuf::SingularPtrField<MessageOptions>,
+    pub reserved_range: ::protobuf::RepeatedField<DescriptorProto_ReservedRange>,
+    pub reserved_name: ::protobuf::RepeatedField<::std::string::String>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -1678,8 +1678,8 @@ impl ::protobuf::reflect::ProtobufValue for DescriptorProto {
 #[derive(PartialEq,Clone,Default)]
 pub struct DescriptorProto_ExtensionRange {
     // message fields
-    start: ::std::option::Option<i32>,
-    end: ::std::option::Option<i32>,
+    pub start: ::std::option::Option<i32>,
+    pub end: ::std::option::Option<i32>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -1885,8 +1885,8 @@ impl ::protobuf::reflect::ProtobufValue for DescriptorProto_ExtensionRange {
 #[derive(PartialEq,Clone,Default)]
 pub struct DescriptorProto_ReservedRange {
     // message fields
-    start: ::std::option::Option<i32>,
-    end: ::std::option::Option<i32>,
+    pub start: ::std::option::Option<i32>,
+    pub end: ::std::option::Option<i32>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -2092,16 +2092,16 @@ impl ::protobuf::reflect::ProtobufValue for DescriptorProto_ReservedRange {
 #[derive(PartialEq,Clone,Default)]
 pub struct FieldDescriptorProto {
     // message fields
-    name: ::protobuf::SingularField<::std::string::String>,
-    number: ::std::option::Option<i32>,
-    label: ::std::option::Option<FieldDescriptorProto_Label>,
-    field_type: ::std::option::Option<FieldDescriptorProto_Type>,
-    type_name: ::protobuf::SingularField<::std::string::String>,
-    extendee: ::protobuf::SingularField<::std::string::String>,
-    default_value: ::protobuf::SingularField<::std::string::String>,
-    oneof_index: ::std::option::Option<i32>,
-    json_name: ::protobuf::SingularField<::std::string::String>,
-    options: ::protobuf::SingularPtrField<FieldOptions>,
+    pub name: ::protobuf::SingularField<::std::string::String>,
+    pub number: ::std::option::Option<i32>,
+    pub label: ::std::option::Option<FieldDescriptorProto_Label>,
+    pub field_type: ::std::option::Option<FieldDescriptorProto_Type>,
+    pub type_name: ::protobuf::SingularField<::std::string::String>,
+    pub extendee: ::protobuf::SingularField<::std::string::String>,
+    pub default_value: ::protobuf::SingularField<::std::string::String>,
+    pub oneof_index: ::std::option::Option<i32>,
+    pub json_name: ::protobuf::SingularField<::std::string::String>,
+    pub options: ::protobuf::SingularPtrField<FieldOptions>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -2907,8 +2907,8 @@ impl ::protobuf::reflect::ProtobufValue for FieldDescriptorProto_Label {
 #[derive(PartialEq,Clone,Default)]
 pub struct OneofDescriptorProto {
     // message fields
-    name: ::protobuf::SingularField<::std::string::String>,
-    options: ::protobuf::SingularPtrField<OneofOptions>,
+    pub name: ::protobuf::SingularField<::std::string::String>,
+    pub options: ::protobuf::SingularPtrField<OneofOptions>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -3145,9 +3145,9 @@ impl ::protobuf::reflect::ProtobufValue for OneofDescriptorProto {
 #[derive(PartialEq,Clone,Default)]
 pub struct EnumDescriptorProto {
     // message fields
-    name: ::protobuf::SingularField<::std::string::String>,
-    value: ::protobuf::RepeatedField<EnumValueDescriptorProto>,
-    options: ::protobuf::SingularPtrField<EnumOptions>,
+    pub name: ::protobuf::SingularField<::std::string::String>,
+    pub value: ::protobuf::RepeatedField<EnumValueDescriptorProto>,
+    pub options: ::protobuf::SingularPtrField<EnumOptions>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -3440,9 +3440,9 @@ impl ::protobuf::reflect::ProtobufValue for EnumDescriptorProto {
 #[derive(PartialEq,Clone,Default)]
 pub struct EnumValueDescriptorProto {
     // message fields
-    name: ::protobuf::SingularField<::std::string::String>,
-    number: ::std::option::Option<i32>,
-    options: ::protobuf::SingularPtrField<EnumValueOptions>,
+    pub name: ::protobuf::SingularField<::std::string::String>,
+    pub number: ::std::option::Option<i32>,
+    pub options: ::protobuf::SingularPtrField<EnumValueOptions>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -3725,9 +3725,9 @@ impl ::protobuf::reflect::ProtobufValue for EnumValueDescriptorProto {
 #[derive(PartialEq,Clone,Default)]
 pub struct ServiceDescriptorProto {
     // message fields
-    name: ::protobuf::SingularField<::std::string::String>,
-    method: ::protobuf::RepeatedField<MethodDescriptorProto>,
-    options: ::protobuf::SingularPtrField<ServiceOptions>,
+    pub name: ::protobuf::SingularField<::std::string::String>,
+    pub method: ::protobuf::RepeatedField<MethodDescriptorProto>,
+    pub options: ::protobuf::SingularPtrField<ServiceOptions>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -4020,12 +4020,12 @@ impl ::protobuf::reflect::ProtobufValue for ServiceDescriptorProto {
 #[derive(PartialEq,Clone,Default)]
 pub struct MethodDescriptorProto {
     // message fields
-    name: ::protobuf::SingularField<::std::string::String>,
-    input_type: ::protobuf::SingularField<::std::string::String>,
-    output_type: ::protobuf::SingularField<::std::string::String>,
-    options: ::protobuf::SingularPtrField<MethodOptions>,
-    client_streaming: ::std::option::Option<bool>,
-    server_streaming: ::std::option::Option<bool>,
+    pub name: ::protobuf::SingularField<::std::string::String>,
+    pub input_type: ::protobuf::SingularField<::std::string::String>,
+    pub output_type: ::protobuf::SingularField<::std::string::String>,
+    pub options: ::protobuf::SingularPtrField<MethodOptions>,
+    pub client_streaming: ::std::option::Option<bool>,
+    pub server_streaming: ::std::option::Option<bool>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -4472,21 +4472,21 @@ impl ::protobuf::reflect::ProtobufValue for MethodDescriptorProto {
 #[derive(PartialEq,Clone,Default)]
 pub struct FileOptions {
     // message fields
-    java_package: ::protobuf::SingularField<::std::string::String>,
-    java_outer_classname: ::protobuf::SingularField<::std::string::String>,
-    java_multiple_files: ::std::option::Option<bool>,
-    java_generate_equals_and_hash: ::std::option::Option<bool>,
-    java_string_check_utf8: ::std::option::Option<bool>,
-    optimize_for: ::std::option::Option<FileOptions_OptimizeMode>,
-    go_package: ::protobuf::SingularField<::std::string::String>,
-    cc_generic_services: ::std::option::Option<bool>,
-    java_generic_services: ::std::option::Option<bool>,
-    py_generic_services: ::std::option::Option<bool>,
-    deprecated: ::std::option::Option<bool>,
-    cc_enable_arenas: ::std::option::Option<bool>,
-    objc_class_prefix: ::protobuf::SingularField<::std::string::String>,
-    csharp_namespace: ::protobuf::SingularField<::std::string::String>,
-    uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub java_package: ::protobuf::SingularField<::std::string::String>,
+    pub java_outer_classname: ::protobuf::SingularField<::std::string::String>,
+    pub java_multiple_files: ::std::option::Option<bool>,
+    pub java_generate_equals_and_hash: ::std::option::Option<bool>,
+    pub java_string_check_utf8: ::std::option::Option<bool>,
+    pub optimize_for: ::std::option::Option<FileOptions_OptimizeMode>,
+    pub go_package: ::protobuf::SingularField<::std::string::String>,
+    pub cc_generic_services: ::std::option::Option<bool>,
+    pub java_generic_services: ::std::option::Option<bool>,
+    pub py_generic_services: ::std::option::Option<bool>,
+    pub deprecated: ::std::option::Option<bool>,
+    pub cc_enable_arenas: ::std::option::Option<bool>,
+    pub objc_class_prefix: ::protobuf::SingularField<::std::string::String>,
+    pub csharp_namespace: ::protobuf::SingularField<::std::string::String>,
+    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -5417,11 +5417,11 @@ impl ::protobuf::reflect::ProtobufValue for FileOptions_OptimizeMode {
 #[derive(PartialEq,Clone,Default)]
 pub struct MessageOptions {
     // message fields
-    message_set_wire_format: ::std::option::Option<bool>,
-    no_standard_descriptor_accessor: ::std::option::Option<bool>,
-    deprecated: ::std::option::Option<bool>,
-    map_entry: ::std::option::Option<bool>,
-    uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub message_set_wire_format: ::std::option::Option<bool>,
+    pub no_standard_descriptor_accessor: ::std::option::Option<bool>,
+    pub deprecated: ::std::option::Option<bool>,
+    pub map_entry: ::std::option::Option<bool>,
+    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -5775,13 +5775,13 @@ impl ::protobuf::reflect::ProtobufValue for MessageOptions {
 #[derive(PartialEq,Clone,Default)]
 pub struct FieldOptions {
     // message fields
-    ctype: ::std::option::Option<FieldOptions_CType>,
-    packed: ::std::option::Option<bool>,
-    jstype: ::std::option::Option<FieldOptions_JSType>,
-    lazy: ::std::option::Option<bool>,
-    deprecated: ::std::option::Option<bool>,
-    weak: ::std::option::Option<bool>,
-    uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub ctype: ::std::option::Option<FieldOptions_CType>,
+    pub packed: ::std::option::Option<bool>,
+    pub jstype: ::std::option::Option<FieldOptions_JSType>,
+    pub lazy: ::std::option::Option<bool>,
+    pub deprecated: ::std::option::Option<bool>,
+    pub weak: ::std::option::Option<bool>,
+    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -6331,7 +6331,7 @@ impl ::protobuf::reflect::ProtobufValue for FieldOptions_JSType {
 #[derive(PartialEq,Clone,Default)]
 pub struct OneofOptions {
     // message fields
-    uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -6501,9 +6501,9 @@ impl ::protobuf::reflect::ProtobufValue for OneofOptions {
 #[derive(PartialEq,Clone,Default)]
 pub struct EnumOptions {
     // message fields
-    allow_alias: ::std::option::Option<bool>,
-    deprecated: ::std::option::Option<bool>,
-    uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub allow_alias: ::std::option::Option<bool>,
+    pub deprecated: ::std::option::Option<bool>,
+    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -6765,8 +6765,8 @@ impl ::protobuf::reflect::ProtobufValue for EnumOptions {
 #[derive(PartialEq,Clone,Default)]
 pub struct EnumValueOptions {
     // message fields
-    deprecated: ::std::option::Option<bool>,
-    uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub deprecated: ::std::option::Option<bool>,
+    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -6982,8 +6982,8 @@ impl ::protobuf::reflect::ProtobufValue for EnumValueOptions {
 #[derive(PartialEq,Clone,Default)]
 pub struct ServiceOptions {
     // message fields
-    deprecated: ::std::option::Option<bool>,
-    uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub deprecated: ::std::option::Option<bool>,
+    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -7199,8 +7199,8 @@ impl ::protobuf::reflect::ProtobufValue for ServiceOptions {
 #[derive(PartialEq,Clone,Default)]
 pub struct MethodOptions {
     // message fields
-    deprecated: ::std::option::Option<bool>,
-    uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
+    pub deprecated: ::std::option::Option<bool>,
+    pub uninterpreted_option: ::protobuf::RepeatedField<UninterpretedOption>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -7416,13 +7416,13 @@ impl ::protobuf::reflect::ProtobufValue for MethodOptions {
 #[derive(PartialEq,Clone,Default)]
 pub struct UninterpretedOption {
     // message fields
-    name: ::protobuf::RepeatedField<UninterpretedOption_NamePart>,
-    identifier_value: ::protobuf::SingularField<::std::string::String>,
-    positive_int_value: ::std::option::Option<u64>,
-    negative_int_value: ::std::option::Option<i64>,
-    double_value: ::std::option::Option<f64>,
-    string_value: ::protobuf::SingularField<::std::vec::Vec<u8>>,
-    aggregate_value: ::protobuf::SingularField<::std::string::String>,
+    pub name: ::protobuf::RepeatedField<UninterpretedOption_NamePart>,
+    pub identifier_value: ::protobuf::SingularField<::std::string::String>,
+    pub positive_int_value: ::std::option::Option<u64>,
+    pub negative_int_value: ::std::option::Option<i64>,
+    pub double_value: ::std::option::Option<f64>,
+    pub string_value: ::protobuf::SingularField<::std::vec::Vec<u8>>,
+    pub aggregate_value: ::protobuf::SingularField<::std::string::String>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -7907,8 +7907,8 @@ impl ::protobuf::reflect::ProtobufValue for UninterpretedOption {
 #[derive(PartialEq,Clone,Default)]
 pub struct UninterpretedOption_NamePart {
     // message fields
-    name_part: ::protobuf::SingularField<::std::string::String>,
-    is_extension: ::std::option::Option<bool>,
+    pub name_part: ::protobuf::SingularField<::std::string::String>,
+    pub is_extension: ::std::option::Option<bool>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -8133,7 +8133,7 @@ impl ::protobuf::reflect::ProtobufValue for UninterpretedOption_NamePart {
 #[derive(PartialEq,Clone,Default)]
 pub struct SourceCodeInfo {
     // message fields
-    location: ::protobuf::RepeatedField<SourceCodeInfo_Location>,
+    pub location: ::protobuf::RepeatedField<SourceCodeInfo_Location>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -8303,11 +8303,11 @@ impl ::protobuf::reflect::ProtobufValue for SourceCodeInfo {
 #[derive(PartialEq,Clone,Default)]
 pub struct SourceCodeInfo_Location {
     // message fields
-    path: ::std::vec::Vec<i32>,
-    span: ::std::vec::Vec<i32>,
-    leading_comments: ::protobuf::SingularField<::std::string::String>,
-    trailing_comments: ::protobuf::SingularField<::std::string::String>,
-    leading_detached_comments: ::protobuf::RepeatedField<::std::string::String>,
+    pub path: ::std::vec::Vec<i32>,
+    pub span: ::std::vec::Vec<i32>,
+    pub leading_comments: ::protobuf::SingularField<::std::string::String>,
+    pub trailing_comments: ::protobuf::SingularField<::std::string::String>,
+    pub leading_detached_comments: ::protobuf::RepeatedField<::std::string::String>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -8693,7 +8693,7 @@ impl ::protobuf::reflect::ProtobufValue for SourceCodeInfo_Location {
 #[derive(PartialEq,Clone,Default)]
 pub struct GeneratedCodeInfo {
     // message fields
-    annotation: ::protobuf::RepeatedField<GeneratedCodeInfo_Annotation>,
+    pub annotation: ::protobuf::RepeatedField<GeneratedCodeInfo_Annotation>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -8863,10 +8863,10 @@ impl ::protobuf::reflect::ProtobufValue for GeneratedCodeInfo {
 #[derive(PartialEq,Clone,Default)]
 pub struct GeneratedCodeInfo_Annotation {
     // message fields
-    path: ::std::vec::Vec<i32>,
-    source_file: ::protobuf::SingularField<::std::string::String>,
-    begin: ::std::option::Option<i32>,
-    end: ::std::option::Option<i32>,
+    pub path: ::std::vec::Vec<i32>,
+    pub source_file: ::protobuf::SingularField<::std::string::String>,
+    pub begin: ::std::option::Option<i32>,
+    pub end: ::std::option::Option<i32>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }

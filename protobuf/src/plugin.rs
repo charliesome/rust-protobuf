@@ -24,9 +24,9 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 #[derive(PartialEq,Clone,Default)]
 pub struct CodeGeneratorRequest {
     // message fields
-    file_to_generate: ::protobuf::RepeatedField<::std::string::String>,
-    parameter: ::protobuf::SingularField<::std::string::String>,
-    proto_file: ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto>,
+    pub file_to_generate: ::protobuf::RepeatedField<::std::string::String>,
+    pub parameter: ::protobuf::SingularField<::std::string::String>,
+    pub proto_file: ::protobuf::RepeatedField<::protobuf::descriptor::FileDescriptorProto>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -303,8 +303,8 @@ impl ::protobuf::reflect::ProtobufValue for CodeGeneratorRequest {
 #[derive(PartialEq,Clone,Default)]
 pub struct CodeGeneratorResponse {
     // message fields
-    error: ::protobuf::SingularField<::std::string::String>,
-    file: ::protobuf::RepeatedField<CodeGeneratorResponse_File>,
+    pub error: ::protobuf::SingularField<::std::string::String>,
+    pub file: ::protobuf::RepeatedField<CodeGeneratorResponse_File>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
@@ -533,9 +533,9 @@ impl ::protobuf::reflect::ProtobufValue for CodeGeneratorResponse {
 #[derive(PartialEq,Clone,Default)]
 pub struct CodeGeneratorResponse_File {
     // message fields
-    name: ::protobuf::SingularField<::std::string::String>,
-    insertion_point: ::protobuf::SingularField<::std::string::String>,
-    content: ::protobuf::SingularField<::std::string::String>,
+    pub name: ::protobuf::SingularField<::std::string::String>,
+    pub insertion_point: ::protobuf::SingularField<::std::string::String>,
+    pub content: ::protobuf::SingularField<::std::string::String>,
     // special fields
     unknown_fields: ::protobuf::UnknownFields,
 }
