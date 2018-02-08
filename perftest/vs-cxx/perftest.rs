@@ -76,7 +76,7 @@ impl TestRunner {
                 let mut coded_input_stream = protobuf::CodedInputStream::from_bytes(&buf);
                 let mut count = 0;
                 while !coded_input_stream.eof().unwrap() {
-                    coded_input_stream.merge_message(&mut M::new()).unwrap();
+                    M::read_from(&mut coded_input_stream).unwrap();
                     count += 1;
                 }
                 count

@@ -690,19 +690,12 @@ impl<'a> CodedInputStream<'a> {
         Ok(())
     }
 
-    pub fn merge_message<M : Message>(&mut self, message: &mut M) -> ProtobufResult<()> {
+    pub fn read_message<M : Message>(&mut self) -> ProtobufResult<M> {
         let len = self.read_raw_varint64()?;
         let old_limit = self.push_limit(len)?;
-        message.merge_from(self)?;
+        let result = M::read_from(self);
         self.pop_limit(old_limit);
-        Ok(())
-    }
-
-    pub fn read_message<M : Message>(&mut self) -> ProtobufResult<M> {
-        let mut r: M = Message::new();
-        self.merge_message(&mut r)?;
-        r.check_initialized()?;
-        Ok(r)
+        result
     }
 }
 

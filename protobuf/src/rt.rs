@@ -651,9 +651,7 @@ pub fn read_repeated_message_into<M : Message + Default>(
     match wire_type {
         WireTypeLengthDelimited => {
             is.incr_recursion()?;
-            let mut msg = Default::default();
-            is.merge_message(&mut msg)?;
-            target.push(msg);
+            target.push(is.read_message()?);
             is.decr_recursion();
             Ok(())
         }
@@ -670,10 +668,9 @@ pub fn read_singular_message_into<M : Message + Default>(
     match wire_type {
         WireTypeLengthDelimited => {
             is.incr_recursion()?;
-            let tmp = target.set_default();
-            let res = is.merge_message(tmp);
+            *target = SingularPtrField::some(is.read_message()?);
             is.decr_recursion();
-            res
+            Ok(())
         }
         _ => Err(unexpected_wire_type(wire_type)),
     }

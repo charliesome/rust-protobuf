@@ -211,10 +211,7 @@ pub trait ProtobufEnum: Eq + Sized + Copy + 'static {
 
 /// Parse message from stream.
 pub fn parse_from<M : Message>(is: &mut CodedInputStream) -> ProtobufResult<M> {
-    let mut r: M = Message::new();
-    r.merge_from(is)?;
-    r.check_initialized()?;
-    Ok(r)
+    M::read_from(is)
 }
 
 /// Parse message from reader.
