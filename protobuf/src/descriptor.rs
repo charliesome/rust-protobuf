@@ -25,8 +25,6 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 pub struct FileDescriptorSet {
     // message fields
     pub file: ::std::vec::Vec<FileDescriptorProto>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl FileDescriptorSet {
@@ -90,14 +88,13 @@ impl ::protobuf::Message for FileDescriptorSet {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_file)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
 
         ::std::result::Result::Ok(FileDescriptorSet {
             file: _field_file,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -109,7 +106,7 @@ impl ::protobuf::Message for FileDescriptorSet {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.file)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -134,14 +131,6 @@ impl ::protobuf::Message for FileDescriptorSet {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -212,8 +201,6 @@ pub struct FileDescriptorProto {
     pub options: ::protobuf::SingularPtrField<FileOptions>,
     pub source_code_info: ::protobuf::SingularPtrField<SourceCodeInfo>,
     pub syntax: ::protobuf::SingularField<::std::string::String>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl FileDescriptorProto {
@@ -685,7 +672,7 @@ impl ::protobuf::Message for FileDescriptorProto {
                     _field_syntax = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -703,7 +690,6 @@ impl ::protobuf::Message for FileDescriptorProto {
             options: _field_options.unwrap_or_default(),
             source_code_info: _field_source_code_info.unwrap_or_default(),
             syntax: _field_syntax.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -748,7 +734,7 @@ impl ::protobuf::Message for FileDescriptorProto {
                     ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.syntax)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -854,14 +840,6 @@ impl ::protobuf::Message for FileDescriptorProto {
             _os.write_string(12, &v)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -985,8 +963,6 @@ pub struct DescriptorProto {
     pub options: ::protobuf::SingularPtrField<MessageOptions>,
     pub reserved_range: ::std::vec::Vec<DescriptorProto_ReservedRange>,
     pub reserved_name: ::std::vec::Vec<::std::string::String>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl DescriptorProto {
@@ -1371,7 +1347,7 @@ impl ::protobuf::Message for DescriptorProto {
                     ::protobuf::rt::read_repeated_string_into(wire_type, _is, &mut _field_reserved_name)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -1387,7 +1363,6 @@ impl ::protobuf::Message for DescriptorProto {
             options: _field_options.unwrap_or_default(),
             reserved_range: _field_reserved_range,
             reserved_name: _field_reserved_name,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -1426,7 +1401,7 @@ impl ::protobuf::Message for DescriptorProto {
                     ::protobuf::rt::read_repeated_string_into(wire_type, is, &mut self.reserved_name)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -1526,14 +1501,6 @@ impl ::protobuf::Message for DescriptorProto {
             _os.write_string(10, &v)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -1639,8 +1606,6 @@ pub struct DescriptorProto_ExtensionRange {
     // message fields
     pub start: ::std::option::Option<i32>,
     pub end: ::std::option::Option<i32>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl DescriptorProto_ExtensionRange {
@@ -1732,7 +1697,7 @@ impl ::protobuf::Message for DescriptorProto_ExtensionRange {
                     _field_end = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -1740,7 +1705,6 @@ impl ::protobuf::Message for DescriptorProto_ExtensionRange {
         ::std::result::Result::Ok(DescriptorProto_ExtensionRange {
             start: _field_start.unwrap_or_default(),
             end: _field_end.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -1763,7 +1727,7 @@ impl ::protobuf::Message for DescriptorProto_ExtensionRange {
                     self.end = ::std::option::Option::Some(tmp);
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -1791,14 +1755,6 @@ impl ::protobuf::Message for DescriptorProto_ExtensionRange {
             _os.write_int32(2, v)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -1864,8 +1820,6 @@ pub struct DescriptorProto_ReservedRange {
     // message fields
     pub start: ::std::option::Option<i32>,
     pub end: ::std::option::Option<i32>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl DescriptorProto_ReservedRange {
@@ -1957,7 +1911,7 @@ impl ::protobuf::Message for DescriptorProto_ReservedRange {
                     _field_end = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -1965,7 +1919,6 @@ impl ::protobuf::Message for DescriptorProto_ReservedRange {
         ::std::result::Result::Ok(DescriptorProto_ReservedRange {
             start: _field_start.unwrap_or_default(),
             end: _field_end.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -1988,7 +1941,7 @@ impl ::protobuf::Message for DescriptorProto_ReservedRange {
                     self.end = ::std::option::Option::Some(tmp);
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -2016,14 +1969,6 @@ impl ::protobuf::Message for DescriptorProto_ReservedRange {
             _os.write_int32(2, v)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -2097,8 +2042,6 @@ pub struct FieldDescriptorProto {
     pub oneof_index: ::std::option::Option<i32>,
     pub json_name: ::protobuf::SingularField<::std::string::String>,
     pub options: ::protobuf::SingularPtrField<FieldOptions>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl FieldDescriptorProto {
@@ -2512,7 +2455,7 @@ impl ::protobuf::Message for FieldDescriptorProto {
                     _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -2528,7 +2471,6 @@ impl ::protobuf::Message for FieldDescriptorProto {
             oneof_index: _field_oneof_index.unwrap_or_default(),
             json_name: _field_json_name.unwrap_or_default(),
             options: _field_options.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -2583,7 +2525,7 @@ impl ::protobuf::Message for FieldDescriptorProto {
                     ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -2662,14 +2604,6 @@ impl ::protobuf::Message for FieldDescriptorProto {
             v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -2924,8 +2858,6 @@ pub struct OneofDescriptorProto {
     // message fields
     pub name: ::protobuf::SingularField<::std::string::String>,
     pub options: ::protobuf::SingularPtrField<OneofOptions>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl OneofDescriptorProto {
@@ -3043,7 +2975,7 @@ impl ::protobuf::Message for OneofDescriptorProto {
                     _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -3051,7 +2983,6 @@ impl ::protobuf::Message for OneofDescriptorProto {
         ::std::result::Result::Ok(OneofDescriptorProto {
             name: _field_name.unwrap_or_default(),
             options: _field_options.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -3066,7 +2997,7 @@ impl ::protobuf::Message for OneofDescriptorProto {
                     ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -3097,14 +3028,6 @@ impl ::protobuf::Message for OneofDescriptorProto {
             v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -3171,8 +3094,6 @@ pub struct EnumDescriptorProto {
     pub name: ::protobuf::SingularField<::std::string::String>,
     pub value: ::std::vec::Vec<EnumValueDescriptorProto>,
     pub options: ::protobuf::SingularPtrField<EnumOptions>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl EnumDescriptorProto {
@@ -3324,7 +3245,7 @@ impl ::protobuf::Message for EnumDescriptorProto {
                     _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -3333,7 +3254,6 @@ impl ::protobuf::Message for EnumDescriptorProto {
             name: _field_name.unwrap_or_default(),
             value: _field_value,
             options: _field_options.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -3351,7 +3271,7 @@ impl ::protobuf::Message for EnumDescriptorProto {
                     ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -3391,14 +3311,6 @@ impl ::protobuf::Message for EnumDescriptorProto {
             v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -3470,8 +3382,6 @@ pub struct EnumValueDescriptorProto {
     pub name: ::protobuf::SingularField<::std::string::String>,
     pub number: ::std::option::Option<i32>,
     pub options: ::protobuf::SingularPtrField<EnumValueOptions>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl EnumValueDescriptorProto {
@@ -3620,7 +3530,7 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
                     _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -3629,7 +3539,6 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
             name: _field_name.unwrap_or_default(),
             number: _field_number.unwrap_or_default(),
             options: _field_options.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -3651,7 +3560,7 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
                     ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -3688,14 +3597,6 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
             v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -3767,8 +3668,6 @@ pub struct ServiceDescriptorProto {
     pub name: ::protobuf::SingularField<::std::string::String>,
     pub method: ::std::vec::Vec<MethodDescriptorProto>,
     pub options: ::protobuf::SingularPtrField<ServiceOptions>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl ServiceDescriptorProto {
@@ -3920,7 +3819,7 @@ impl ::protobuf::Message for ServiceDescriptorProto {
                     _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -3929,7 +3828,6 @@ impl ::protobuf::Message for ServiceDescriptorProto {
             name: _field_name.unwrap_or_default(),
             method: _field_method,
             options: _field_options.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -3947,7 +3845,7 @@ impl ::protobuf::Message for ServiceDescriptorProto {
                     ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -3987,14 +3885,6 @@ impl ::protobuf::Message for ServiceDescriptorProto {
             v.write_to_with_cached_sizes(_os)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -4069,8 +3959,6 @@ pub struct MethodDescriptorProto {
     pub options: ::protobuf::SingularPtrField<MethodOptions>,
     pub client_streaming: ::std::option::Option<bool>,
     pub server_streaming: ::std::option::Option<bool>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl MethodDescriptorProto {
@@ -4336,7 +4224,7 @@ impl ::protobuf::Message for MethodDescriptorProto {
                     _field_server_streaming = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -4348,7 +4236,6 @@ impl ::protobuf::Message for MethodDescriptorProto {
             options: _field_options.unwrap_or_default(),
             client_streaming: _field_client_streaming.unwrap_or_default(),
             server_streaming: _field_server_streaming.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -4383,7 +4270,7 @@ impl ::protobuf::Message for MethodDescriptorProto {
                     self.server_streaming = ::std::option::Option::Some(tmp);
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -4438,14 +4325,6 @@ impl ::protobuf::Message for MethodDescriptorProto {
             _os.write_bool(6, v)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -4544,8 +4423,6 @@ pub struct FileOptions {
     pub objc_class_prefix: ::protobuf::SingularField<::std::string::String>,
     pub csharp_namespace: ::protobuf::SingularField<::std::string::String>,
     pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl FileOptions {
@@ -5103,7 +4980,7 @@ impl ::protobuf::Message for FileOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -5124,7 +5001,6 @@ impl ::protobuf::Message for FileOptions {
             objc_class_prefix: _field_objc_class_prefix.unwrap_or_default(),
             csharp_namespace: _field_csharp_namespace.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -5214,7 +5090,7 @@ impl ::protobuf::Message for FileOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -5323,14 +5199,6 @@ impl ::protobuf::Message for FileOptions {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -5516,8 +5384,6 @@ pub struct MessageOptions {
     pub deprecated: ::std::option::Option<bool>,
     pub map_entry: ::std::option::Option<bool>,
     pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl MessageOptions {
@@ -5705,7 +5571,7 @@ impl ::protobuf::Message for MessageOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -5716,7 +5582,6 @@ impl ::protobuf::Message for MessageOptions {
             deprecated: _field_deprecated.unwrap_or_default(),
             map_entry: _field_map_entry.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -5756,7 +5621,7 @@ impl ::protobuf::Message for MessageOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -5805,14 +5670,6 @@ impl ::protobuf::Message for MessageOptions {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -5898,8 +5755,6 @@ pub struct FieldOptions {
     pub deprecated: ::std::option::Option<bool>,
     pub weak: ::std::option::Option<bool>,
     pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl FieldOptions {
@@ -6149,7 +6004,7 @@ impl ::protobuf::Message for FieldOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -6162,7 +6017,6 @@ impl ::protobuf::Message for FieldOptions {
             deprecated: _field_deprecated.unwrap_or_default(),
             weak: _field_weak.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -6216,7 +6070,7 @@ impl ::protobuf::Message for FieldOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -6277,14 +6131,6 @@ impl ::protobuf::Message for FieldOptions {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -6478,8 +6324,6 @@ impl ::protobuf::reflect::ProtobufValue for FieldOptions_JSType {
 pub struct OneofOptions {
     // message fields
     pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl OneofOptions {
@@ -6543,14 +6387,13 @@ impl ::protobuf::Message for OneofOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
 
         ::std::result::Result::Ok(OneofOptions {
             uninterpreted_option: _field_uninterpreted_option,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -6562,7 +6405,7 @@ impl ::protobuf::Message for OneofOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -6587,14 +6430,6 @@ impl ::protobuf::Message for OneofOptions {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -6656,8 +6491,6 @@ pub struct EnumOptions {
     pub allow_alias: ::std::option::Option<bool>,
     pub deprecated: ::std::option::Option<bool>,
     pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl EnumOptions {
@@ -6783,7 +6616,7 @@ impl ::protobuf::Message for EnumOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -6792,7 +6625,6 @@ impl ::protobuf::Message for EnumOptions {
             allow_alias: _field_allow_alias.unwrap_or_default(),
             deprecated: _field_deprecated.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -6818,7 +6650,7 @@ impl ::protobuf::Message for EnumOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -6855,14 +6687,6 @@ impl ::protobuf::Message for EnumOptions {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -6933,8 +6757,6 @@ pub struct EnumValueOptions {
     // message fields
     pub deprecated: ::std::option::Option<bool>,
     pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl EnumValueOptions {
@@ -7029,7 +6851,7 @@ impl ::protobuf::Message for EnumValueOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -7037,7 +6859,6 @@ impl ::protobuf::Message for EnumValueOptions {
         ::std::result::Result::Ok(EnumValueOptions {
             deprecated: _field_deprecated.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -7056,7 +6877,7 @@ impl ::protobuf::Message for EnumValueOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -7087,14 +6908,6 @@ impl ::protobuf::Message for EnumValueOptions {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -7160,8 +6973,6 @@ pub struct ServiceOptions {
     // message fields
     pub deprecated: ::std::option::Option<bool>,
     pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl ServiceOptions {
@@ -7256,7 +7067,7 @@ impl ::protobuf::Message for ServiceOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -7264,7 +7075,6 @@ impl ::protobuf::Message for ServiceOptions {
         ::std::result::Result::Ok(ServiceOptions {
             deprecated: _field_deprecated.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -7283,7 +7093,7 @@ impl ::protobuf::Message for ServiceOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -7314,14 +7124,6 @@ impl ::protobuf::Message for ServiceOptions {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -7387,8 +7189,6 @@ pub struct MethodOptions {
     // message fields
     pub deprecated: ::std::option::Option<bool>,
     pub uninterpreted_option: ::std::vec::Vec<UninterpretedOption>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl MethodOptions {
@@ -7483,7 +7283,7 @@ impl ::protobuf::Message for MethodOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -7491,7 +7291,6 @@ impl ::protobuf::Message for MethodOptions {
         ::std::result::Result::Ok(MethodOptions {
             deprecated: _field_deprecated.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -7510,7 +7309,7 @@ impl ::protobuf::Message for MethodOptions {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -7541,14 +7340,6 @@ impl ::protobuf::Message for MethodOptions {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -7619,8 +7410,6 @@ pub struct UninterpretedOption {
     pub double_value: ::std::option::Option<f64>,
     pub string_value: ::protobuf::SingularField<::std::vec::Vec<u8>>,
     pub aggregate_value: ::protobuf::SingularField<::std::string::String>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl UninterpretedOption {
@@ -7906,7 +7695,7 @@ impl ::protobuf::Message for UninterpretedOption {
                     _field_aggregate_value = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -7919,7 +7708,6 @@ impl ::protobuf::Message for UninterpretedOption {
             double_value: _field_double_value.unwrap_or_default(),
             string_value: _field_string_value.unwrap_or_default(),
             aggregate_value: _field_aggregate_value.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -7961,7 +7749,7 @@ impl ::protobuf::Message for UninterpretedOption {
                     ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.aggregate_value)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -8022,14 +7810,6 @@ impl ::protobuf::Message for UninterpretedOption {
             _os.write_string(8, &v)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -8120,8 +7900,6 @@ pub struct UninterpretedOption_NamePart {
     // message fields
     pub name_part: ::protobuf::SingularField<::std::string::String>,
     pub is_extension: ::std::option::Option<bool>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl UninterpretedOption_NamePart {
@@ -8231,7 +8009,7 @@ impl ::protobuf::Message for UninterpretedOption_NamePart {
                     _field_is_extension = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -8239,7 +8017,6 @@ impl ::protobuf::Message for UninterpretedOption_NamePart {
         ::std::result::Result::Ok(UninterpretedOption_NamePart {
             name_part: _field_name_part.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption_NamePart::name_part"))?,
             is_extension: _field_is_extension.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption_NamePart::is_extension"))?,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -8258,7 +8035,7 @@ impl ::protobuf::Message for UninterpretedOption_NamePart {
                     self.is_extension = ::std::option::Option::Some(tmp);
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -8286,14 +8063,6 @@ impl ::protobuf::Message for UninterpretedOption_NamePart {
             _os.write_bool(2, v)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -8358,8 +8127,6 @@ impl ::protobuf::reflect::ProtobufValue for UninterpretedOption_NamePart {
 pub struct SourceCodeInfo {
     // message fields
     pub location: ::std::vec::Vec<SourceCodeInfo_Location>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl SourceCodeInfo {
@@ -8423,14 +8190,13 @@ impl ::protobuf::Message for SourceCodeInfo {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_location)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
 
         ::std::result::Result::Ok(SourceCodeInfo {
             location: _field_location,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -8442,7 +8208,7 @@ impl ::protobuf::Message for SourceCodeInfo {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.location)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -8467,14 +8233,6 @@ impl ::protobuf::Message for SourceCodeInfo {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -8538,8 +8296,6 @@ pub struct SourceCodeInfo_Location {
     pub leading_comments: ::protobuf::SingularField<::std::string::String>,
     pub trailing_comments: ::protobuf::SingularField<::std::string::String>,
     pub leading_detached_comments: ::std::vec::Vec<::std::string::String>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl SourceCodeInfo_Location {
@@ -8742,7 +8498,7 @@ impl ::protobuf::Message for SourceCodeInfo_Location {
                     ::protobuf::rt::read_repeated_string_into(wire_type, _is, &mut _field_leading_detached_comments)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -8753,7 +8509,6 @@ impl ::protobuf::Message for SourceCodeInfo_Location {
             leading_comments: _field_leading_comments.unwrap_or_default(),
             trailing_comments: _field_trailing_comments.unwrap_or_default(),
             leading_detached_comments: _field_leading_detached_comments,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -8777,7 +8532,7 @@ impl ::protobuf::Message for SourceCodeInfo_Location {
                     ::protobuf::rt::read_repeated_string_into(wire_type, is, &mut self.leading_detached_comments)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -8833,14 +8588,6 @@ impl ::protobuf::Message for SourceCodeInfo_Location {
             _os.write_string(6, &v)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -8920,8 +8667,6 @@ impl ::protobuf::reflect::ProtobufValue for SourceCodeInfo_Location {
 pub struct GeneratedCodeInfo {
     // message fields
     pub annotation: ::std::vec::Vec<GeneratedCodeInfo_Annotation>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl GeneratedCodeInfo {
@@ -8985,14 +8730,13 @@ impl ::protobuf::Message for GeneratedCodeInfo {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_annotation)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
 
         ::std::result::Result::Ok(GeneratedCodeInfo {
             annotation: _field_annotation,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -9004,7 +8748,7 @@ impl ::protobuf::Message for GeneratedCodeInfo {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.annotation)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -9029,14 +8773,6 @@ impl ::protobuf::Message for GeneratedCodeInfo {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -9099,8 +8835,6 @@ pub struct GeneratedCodeInfo_Annotation {
     pub source_file: ::protobuf::SingularField<::std::string::String>,
     pub begin: ::std::option::Option<i32>,
     pub end: ::std::option::Option<i32>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl GeneratedCodeInfo_Annotation {
@@ -9264,7 +8998,7 @@ impl ::protobuf::Message for GeneratedCodeInfo_Annotation {
                     _field_end = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -9274,7 +9008,6 @@ impl ::protobuf::Message for GeneratedCodeInfo_Annotation {
             source_file: _field_source_file.unwrap_or_default(),
             begin: _field_begin.unwrap_or_default(),
             end: _field_end.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -9303,7 +9036,7 @@ impl ::protobuf::Message for GeneratedCodeInfo_Annotation {
                     self.end = ::std::option::Option::Some(tmp);
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -9348,14 +9081,6 @@ impl ::protobuf::Message for GeneratedCodeInfo_Annotation {
             _os.write_int32(4, v)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {

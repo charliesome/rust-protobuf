@@ -26,8 +26,6 @@ pub struct Duration {
     // message fields
     pub seconds: i64,
     pub nanos: i32,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl Duration {
@@ -111,7 +109,7 @@ impl ::protobuf::Message for Duration {
                     _field_nanos = ::std::option::Option::Some(_is.read_int32()?);
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -119,7 +117,6 @@ impl ::protobuf::Message for Duration {
         ::std::result::Result::Ok(Duration {
             seconds: _field_seconds.unwrap_or_default(),
             nanos: _field_nanos.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -142,7 +139,7 @@ impl ::protobuf::Message for Duration {
                     self.nanos = tmp;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -170,14 +167,6 @@ impl ::protobuf::Message for Duration {
             _os.write_int32(2, self.nanos)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {

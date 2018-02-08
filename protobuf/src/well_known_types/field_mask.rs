@@ -25,8 +25,6 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 pub struct FieldMask {
     // message fields
     pub paths: ::std::vec::Vec<::std::string::String>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl FieldMask {
@@ -85,14 +83,13 @@ impl ::protobuf::Message for FieldMask {
                     ::protobuf::rt::read_repeated_string_into(wire_type, _is, &mut _field_paths)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
 
         ::std::result::Result::Ok(FieldMask {
             paths: _field_paths,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -104,7 +101,7 @@ impl ::protobuf::Message for FieldMask {
                     ::protobuf::rt::read_repeated_string_into(wire_type, is, &mut self.paths)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -126,14 +123,6 @@ impl ::protobuf::Message for FieldMask {
             _os.write_string(1, &v)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {

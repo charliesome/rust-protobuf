@@ -25,8 +25,6 @@ use protobuf::ProtobufEnum as ProtobufEnum_imported_for_functions;
 pub struct SourceContext {
     // message fields
     pub file_name: ::std::string::String,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl SourceContext {
@@ -89,14 +87,13 @@ impl ::protobuf::Message for SourceContext {
                     _field_file_name = ::std::option::Option::Some(_is.read_string()?);
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
 
         ::std::result::Result::Ok(SourceContext {
             file_name: _field_file_name.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -108,7 +105,7 @@ impl ::protobuf::Message for SourceContext {
                     ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.file_name)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -130,14 +127,6 @@ impl ::protobuf::Message for SourceContext {
             _os.write_string(1, &self.file_name)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {

@@ -31,8 +31,6 @@ pub struct Api {
     pub source_context: ::protobuf::SingularPtrField<::protobuf::well_known_types::SourceContext>,
     pub mixins: ::std::vec::Vec<Mixin>,
     pub syntax: ::protobuf::well_known_types::Syntax,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl Api {
@@ -302,7 +300,7 @@ impl ::protobuf::Message for Api {
                     _field_syntax = ::std::option::Option::Some(_is.read_enum()?);
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -315,7 +313,6 @@ impl ::protobuf::Message for Api {
             source_context: _field_source_context.unwrap_or_default(),
             mixins: _field_mixins,
             syntax: _field_syntax.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -349,7 +346,7 @@ impl ::protobuf::Message for Api {
                     self.syntax = tmp;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -419,14 +416,6 @@ impl ::protobuf::Message for Api {
             _os.write_enum(7, self.syntax.value())?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -522,8 +511,6 @@ pub struct Method {
     pub response_streaming: bool,
     pub options: ::std::vec::Vec<::protobuf::well_known_types::Option>,
     pub syntax: ::protobuf::well_known_types::Syntax,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl Method {
@@ -767,7 +754,7 @@ impl ::protobuf::Message for Method {
                     _field_syntax = ::std::option::Option::Some(_is.read_enum()?);
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -780,7 +767,6 @@ impl ::protobuf::Message for Method {
             response_streaming: _field_response_streaming.unwrap_or_default(),
             options: _field_options,
             syntax: _field_syntax.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -822,7 +808,7 @@ impl ::protobuf::Message for Method {
                     self.syntax = tmp;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -883,14 +869,6 @@ impl ::protobuf::Message for Method {
             _os.write_enum(7, self.syntax.value())?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -981,8 +959,6 @@ pub struct Mixin {
     // message fields
     pub name: ::std::string::String,
     pub root: ::std::string::String,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl Mixin {
@@ -1078,7 +1054,7 @@ impl ::protobuf::Message for Mixin {
                     _field_root = ::std::option::Option::Some(_is.read_string()?);
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -1086,7 +1062,6 @@ impl ::protobuf::Message for Mixin {
         ::std::result::Result::Ok(Mixin {
             name: _field_name.unwrap_or_default(),
             root: _field_root.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -1101,7 +1076,7 @@ impl ::protobuf::Message for Mixin {
                     ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.root)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -1129,14 +1104,6 @@ impl ::protobuf::Message for Mixin {
             _os.write_string(2, &self.root)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {

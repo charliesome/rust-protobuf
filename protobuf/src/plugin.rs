@@ -27,8 +27,6 @@ pub struct CodeGeneratorRequest {
     pub file_to_generate: ::std::vec::Vec<::std::string::String>,
     pub parameter: ::protobuf::SingularField<::std::string::String>,
     pub proto_file: ::std::vec::Vec<::protobuf::descriptor::FileDescriptorProto>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl CodeGeneratorRequest {
@@ -164,7 +162,7 @@ impl ::protobuf::Message for CodeGeneratorRequest {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_proto_file)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -173,7 +171,6 @@ impl ::protobuf::Message for CodeGeneratorRequest {
             file_to_generate: _field_file_to_generate,
             parameter: _field_parameter.unwrap_or_default(),
             proto_file: _field_proto_file,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -191,7 +188,7 @@ impl ::protobuf::Message for CodeGeneratorRequest {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.proto_file)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -228,14 +225,6 @@ impl ::protobuf::Message for CodeGeneratorRequest {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -306,8 +295,6 @@ pub struct CodeGeneratorResponse {
     // message fields
     pub error: ::protobuf::SingularField<::std::string::String>,
     pub file: ::std::vec::Vec<CodeGeneratorResponse_File>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl CodeGeneratorResponse {
@@ -414,7 +401,7 @@ impl ::protobuf::Message for CodeGeneratorResponse {
                     ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_file)?;
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -422,7 +409,6 @@ impl ::protobuf::Message for CodeGeneratorResponse {
         ::std::result::Result::Ok(CodeGeneratorResponse {
             error: _field_error.unwrap_or_default(),
             file: _field_file,
-            unknown_fields: Default::default(),
         })
     }
 
@@ -437,7 +423,7 @@ impl ::protobuf::Message for CodeGeneratorResponse {
                     ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.file)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -468,14 +454,6 @@ impl ::protobuf::Message for CodeGeneratorResponse {
             v.write_to_with_cached_sizes(_os)?;
         };
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
@@ -542,8 +520,6 @@ pub struct CodeGeneratorResponse_File {
     pub name: ::protobuf::SingularField<::std::string::String>,
     pub insertion_point: ::protobuf::SingularField<::std::string::String>,
     pub content: ::protobuf::SingularField<::std::string::String>,
-    // special fields
-    unknown_fields: ::protobuf::UnknownFields,
 }
 
 impl CodeGeneratorResponse_File {
@@ -702,7 +678,7 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
                     _field_content = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
                 },
                 _ => {
-                    panic!("TODO unknown field!")
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;
                 },
             };
         }
@@ -711,7 +687,6 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
             name: _field_name.unwrap_or_default(),
             insertion_point: _field_insertion_point.unwrap_or_default(),
             content: _field_content.unwrap_or_default(),
-            unknown_fields: Default::default(),
         })
     }
 
@@ -729,7 +704,7 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
                     ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.content)?;
                 },
                 _ => {
-                    ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
+                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
                 },
             };
         }
@@ -763,14 +738,6 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
             _os.write_string(15, &v)?;
         }
         ::std::result::Result::Ok(())
-    }
-
-    fn get_unknown_fields(&self) -> &::protobuf::UnknownFields {
-        &self.unknown_fields
-    }
-
-    fn mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields {
-        &mut self.unknown_fields
     }
 
     fn as_any(&self) -> &::std::any::Any {
