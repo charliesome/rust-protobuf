@@ -712,19 +712,26 @@ fn skip_group(is: &mut CodedInputStream) -> ProtobufResult<()> {
     }
 }
 
-/// Handle unknown field in generated code.
-/// Either store a value in unknown, or skip a group.
 pub fn read_unknown_or_skip_group(
     field_number: u32,
     wire_type: WireType,
     is: &mut CodedInputStream,
-    unknown_fields: &mut UnknownFields,
+    _unknown_fields: &mut UnknownFields,
+) -> ProtobufResult<()> {
+    skip_unknown_or_group(field_number, wire_type, is)
+}
+
+/// Handle unknown field in generated code.
+/// Either store a value in unknown, or skip a group.
+pub fn skip_unknown_or_group(
+    field_number: u32,
+    wire_type: WireType,
+    is: &mut CodedInputStream,
 ) -> ProtobufResult<()> {
     match wire_type {
         wire_format::WireTypeStartGroup => skip_group(is),
         _ => {
-            let unknown = is.read_unknown(wire_type)?;
-            unknown_fields.add_value(field_number, unknown);
+            is.read_unknown(wire_type)?;
             Ok(())
         }
     }

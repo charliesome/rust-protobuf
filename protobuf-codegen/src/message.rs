@@ -175,17 +175,6 @@ impl<'a> MessageGen<'a> {
         });
     }
 
-    fn write_unknown_fields(&self, w: &mut CodeWriter) {
-        w.def_fn(
-            "get_unknown_fields(&self) -> &::protobuf::UnknownFields",
-            |w| { w.write_line("&self.unknown_fields"); },
-        );
-        w.write_line("");
-        w.def_fn("mut_unknown_fields(&mut self) -> &mut ::protobuf::UnknownFields", |w| {
-            w.write_line("&mut self.unknown_fields");
-        });
-    }
-
     fn write_read_from(&self, w: &mut CodeWriter) {
         w.def_fn(&format!("read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized"), |w| {
             for f in self.fields_except_oneof_and_group() {
@@ -224,7 +213,7 @@ impl<'a> MessageGen<'a> {
                         });
                     }
                     w.case_block("_", |w| {
-                        w.write_line("panic!(\"TODO unknown field!\")");
+                        w.write_line("::protobuf::rt::skip_unknown_or_group(field_number, wire_type, _is)?;");
                     });
                 });
             });
@@ -260,8 +249,6 @@ impl<'a> MessageGen<'a> {
                         }
                     }
                 }
-
-                w.write_line("unknown_fields: Default::default(),");
             });
             w.write_line("})");
         })
@@ -279,7 +266,7 @@ impl<'a> MessageGen<'a> {
                         });
                     }
                     w.case_block("_", |w| {
-                        w.write_line("::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;");
+                        w.write_line("::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;");
                     });
                 });
             });
@@ -367,8 +354,6 @@ impl<'a> MessageGen<'a> {
             w.write_line("");
             self.write_write_to_with_cached_sizes(w);
             w.write_line("");
-            self.write_unknown_fields(w);
-            w.write_line("");
             w.def_fn("as_any(&self) -> &::std::any::Any", |w| {
                 w.write_line("self as &::std::any::Any");
             });
@@ -436,9 +421,6 @@ impl<'a> MessageGen<'a> {
                     w.pub_field_decl(oneof.name(), &oneof.full_storage_type().to_string());
                 }
             }
-            w.comment("special fields");
-            // TODO: make public
-            w.field_decl("unknown_fields", "::protobuf::UnknownFields");
         });
     }
 

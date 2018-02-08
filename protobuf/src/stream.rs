@@ -1042,25 +1042,6 @@ impl<'a> CodedOutputStream<'a> {
         self.write_enum(field_number, value.value())
     }
 
-    pub fn write_unknown(
-        &mut self,
-        field_number: u32,
-        value: UnknownValueRef,
-    ) -> ProtobufResult<()> {
-        self.write_tag(field_number, value.wire_type())?;
-        self.write_unknown_no_tag(value)?;
-        Ok(())
-    }
-
-    pub fn write_unknown_fields(&mut self, fields: &UnknownFields) -> ProtobufResult<()> {
-        for (number, values) in fields {
-            for value in values {
-                self.write_unknown(number, value)?;
-            }
-        }
-        Ok(())
-    }
-
     pub fn write_bytes_no_tag(&mut self, bytes: &[u8]) -> ProtobufResult<()> {
         self.write_raw_varint32(bytes.len() as u32)?;
         self.write_raw_bytes(bytes)?;

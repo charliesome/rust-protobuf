@@ -136,9 +136,9 @@ pub trait Message: fmt::Debug + Any + Send + Sync {
     }
 
     /// Get a reference to unknown fields.
-    fn get_unknown_fields<'s>(&'s self) -> &'s UnknownFields;
+    fn get_unknown_fields<'s>(&'s self) -> &'s UnknownFields { panic!("NOPE") }
     /// Get a mutable reference to unknown fields.
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut UnknownFields;
+    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut UnknownFields { panic!("NOPE") }
 
     /// Get type id for downcasting.
     fn type_id(&self) -> TypeId {
