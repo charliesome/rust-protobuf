@@ -10,7 +10,6 @@ use bytes::Bytes;
 use reflect::MessageDescriptor;
 use reflect::EnumDescriptor;
 use reflect::EnumValueDescriptor;
-use unknown::UnknownFields;
 use stream::WithCodedInputStream;
 use stream::WithCodedOutputStream;
 use stream::CodedInputStream;
@@ -134,11 +133,6 @@ pub trait Message: fmt::Debug + Any + Send + Sync {
     fn write_length_delimited_to_bytes(&self) -> ProtobufResult<Vec<u8>> {
         with_coded_output_stream_to_bytes(|os| self.write_length_delimited_to(os))
     }
-
-    /// Get a reference to unknown fields.
-    fn get_unknown_fields<'s>(&'s self) -> &'s UnknownFields { panic!("NOPE") }
-    /// Get a mutable reference to unknown fields.
-    fn mut_unknown_fields<'s>(&'s mut self) -> &'s mut UnknownFields { panic!("NOPE") }
 
     /// Get type id for downcasting.
     fn type_id(&self) -> TypeId {

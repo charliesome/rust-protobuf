@@ -26,8 +26,6 @@ use singular::SingularPtrField;
 use stream::CodedInputStream;
 use types::*;
 
-use unknown::UnknownFields;
-
 
 /// Given `u64` value compute varint encoded length.
 pub fn compute_raw_varint64_size(value: u64) -> u32 {
@@ -239,27 +237,6 @@ fn string_size_no_tag(s: &str) -> u32 {
 pub fn string_size(field_number: u32, s: &str) -> u32 {
     tag_size(field_number) + string_size_no_tag(s)
 }
-
-/// Size of encoded unknown fields size.
-pub fn unknown_fields_size(unknown_fields: &UnknownFields) -> u32 {
-    let mut r = 0;
-    for (number, values) in unknown_fields {
-        r += (tag_size(number) + 4) * values.fixed32.len() as u32;
-        r += (tag_size(number) + 8) * values.fixed64.len() as u32;
-
-        r += tag_size(number) * values.varint.len() as u32;
-        for varint in &values.varint {
-            r += varint.len_varint();
-        }
-
-        r += tag_size(number) * values.length_delimited.len() as u32;
-        for bytes in &values.length_delimited {
-            r += bytes_size_no_tag(&bytes);
-        }
-    }
-    r
-}
-
 
 /// Read repeated `int32` field into given vec.
 pub fn read_repeated_int32_into(
@@ -712,19 +689,10 @@ fn skip_group(is: &mut CodedInputStream) -> ProtobufResult<()> {
     }
 }
 
-pub fn read_unknown_or_skip_group(
-    field_number: u32,
-    wire_type: WireType,
-    is: &mut CodedInputStream,
-    _unknown_fields: &mut UnknownFields,
-) -> ProtobufResult<()> {
-    skip_unknown_or_group(field_number, wire_type, is)
-}
-
 /// Handle unknown field in generated code.
 /// Either store a value in unknown, or skip a group.
 pub fn skip_unknown_or_group(
-    field_number: u32,
+    _field_number: u32,
     wire_type: WireType,
     is: &mut CodedInputStream,
 ) -> ProtobufResult<()> {

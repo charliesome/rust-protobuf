@@ -15,7 +15,6 @@ use varint;
 use cached_size::SizeCache;
 use core::Message;
 use core::ProtobufEnum;
-use unknown::UnknownFields;
 use unknown::UnknownValue;
 use unknown::UnknownValueRef;
 use zigzag::decode_zig_zag_32;

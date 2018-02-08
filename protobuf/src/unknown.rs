@@ -1,6 +1,3 @@
-use std::collections::HashMap;
-use std::collections::hash_map;
-use std::default::Default;
 use std::slice;
 use stream::wire_format;
 
@@ -112,90 +109,5 @@ impl<'o> Iterator for UnknownValuesIter<'o> {
             return Some(UnknownValueRef::LengthDelimited(&length_delimited.unwrap()));
         }
         None
-    }
-}
-
-#[derive(Clone, PartialEq, Eq, Debug, Default)]
-pub struct UnknownFields {
-    // option is needed, because HashMap constructor performs allocation,
-    // and very expensive
-    pub fields: Option<Box<HashMap<u32, UnknownValues>>>,
-}
-
-impl UnknownFields {
-    pub fn new() -> UnknownFields {
-        Default::default()
-    }
-
-    fn init_map(&mut self) {
-        if self.fields.is_none() {
-            self.fields = Some(Default::default());
-        }
-    }
-
-    fn find_field<'a>(&'a mut self, number: &'a u32) -> &'a mut UnknownValues {
-        self.init_map();
-
-        match self.fields.as_mut().unwrap().entry(*number) {
-            hash_map::Entry::Occupied(e) => e.into_mut(),
-            hash_map::Entry::Vacant(e) => e.insert(Default::default()),
-        }
-    }
-
-    pub fn add_fixed32(&mut self, number: u32, fixed32: u32) {
-        self.find_field(&number).fixed32.push(fixed32);
-    }
-
-    pub fn add_fixed64(&mut self, number: u32, fixed64: u64) {
-        self.find_field(&number).fixed64.push(fixed64);
-    }
-
-    pub fn add_varint(&mut self, number: u32, varint: u64) {
-        self.find_field(&number).varint.push(varint);
-    }
-
-    pub fn add_length_delimited(&mut self, number: u32, length_delimited: Vec<u8>) {
-        self.find_field(&number)
-            .length_delimited
-            .push(length_delimited);
-    }
-
-    pub fn add_value(&mut self, number: u32, value: UnknownValue) {
-        self.find_field(&number).add_value(value);
-    }
-
-    pub fn iter<'s>(&'s self) -> UnknownFieldsIter<'s> {
-        UnknownFieldsIter { entries: self.fields.as_ref().map(|m| m.iter()) }
-    }
-
-    pub fn get(&self, field_number: u32) -> Option<&UnknownValues> {
-        match self.fields {
-            Some(ref map) => map.get(&field_number),
-            None => None,
-        }
-    }
-}
-
-impl<'a> IntoIterator for &'a UnknownFields {
-    type Item = (u32, &'a UnknownValues);
-    type IntoIter = UnknownFieldsIter<'a>;
-
-    fn into_iter(self) -> UnknownFieldsIter<'a> {
-        self.iter()
-    }
-}
-
-pub struct UnknownFieldsIter<'s> {
-    entries: Option<hash_map::Iter<'s, u32, UnknownValues>>,
-}
-
-impl<'s> Iterator for UnknownFieldsIter<'s> {
-    type Item = (u32, &'s UnknownValues);
-
-    fn next(&mut self) -> Option<(u32, &'s UnknownValues)> {
-        match self.entries {
-            Some(ref mut entries) => entries.next().map(|(&number, values)| (number, values)),
-            None => None,
-        }
     }
 }

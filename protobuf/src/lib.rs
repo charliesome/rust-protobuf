@@ -6,8 +6,6 @@
 #[cfg(feature = "bytes")]
 extern crate bytes;
 
-pub use unknown::UnknownFields;
-pub use unknown::UnknownFieldsIter;
 pub use unknown::UnknownValue;
 pub use unknown::UnknownValueRef;
 pub use unknown::UnknownValues;
@@ -84,8 +82,6 @@ mod protobuf {
     pub use lazy;
     pub use well_known_types;
     pub use ext;
-    pub use unknown::UnknownFields;
-    pub use unknown::UnknownFieldsIter;
     pub use unknown::UnknownValue;
     pub use unknown::UnknownValueRef;
     pub use unknown::UnknownValues;
