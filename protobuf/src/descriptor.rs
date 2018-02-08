@@ -80,6 +80,27 @@ impl ::protobuf::Message for FileDescriptorSet {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_file: ::std::vec::Vec<FileDescriptorProto> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_file)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(FileDescriptorSet {
+            file: _field_file,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -593,6 +614,97 @@ impl ::protobuf::Message for FileDescriptorProto {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_package: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_dependency: ::std::vec::Vec<::std::string::String> = ::std::vec::Vec::new();
+        let mut _field_public_dependency: ::std::vec::Vec<i32> = ::std::vec::Vec::new();
+        let mut _field_weak_dependency: ::std::vec::Vec<i32> = ::std::vec::Vec::new();
+        let mut _field_message_type: ::std::vec::Vec<DescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_enum_type: ::std::vec::Vec<EnumDescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_service: ::std::vec::Vec<ServiceDescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_extension: ::std::vec::Vec<FieldDescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_options: ::std::option::Option<::protobuf::SingularPtrField<FileOptions>> = None;
+        let mut _field_source_code_info: ::std::option::Option<::protobuf::SingularPtrField<SourceCodeInfo>> = None;
+        let mut _field_syntax: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_package = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                3 => {
+                    ::protobuf::rt::read_repeated_string_into(wire_type, _is, &mut _field_dependency)?;
+                },
+                10 => {
+                    ::protobuf::rt::read_repeated_int32_into(wire_type, _is, &mut _field_public_dependency)?;
+                },
+                11 => {
+                    ::protobuf::rt::read_repeated_int32_into(wire_type, _is, &mut _field_weak_dependency)?;
+                },
+                4 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_message_type)?;
+                },
+                5 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_enum_type)?;
+                },
+                6 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_service)?;
+                },
+                7 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_extension)?;
+                },
+                8 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                9 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_source_code_info = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                12 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_syntax = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(FileDescriptorProto {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::name"))?,
+            package: _field_package.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::package"))?,
+            dependency: _field_dependency,
+            public_dependency: _field_public_dependency,
+            weak_dependency: _field_weak_dependency,
+            message_type: _field_message_type,
+            enum_type: _field_enum_type,
+            service: _field_service,
+            extension: _field_extension,
+            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::options"))?,
+            source_code_info: _field_source_code_info.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::source_code_info"))?,
+            syntax: _field_syntax.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::syntax"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -1207,6 +1319,78 @@ impl ::protobuf::Message for DescriptorProto {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_field: ::std::vec::Vec<FieldDescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_extension: ::std::vec::Vec<FieldDescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_nested_type: ::std::vec::Vec<DescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_enum_type: ::std::vec::Vec<EnumDescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_extension_range: ::std::vec::Vec<DescriptorProto_ExtensionRange> = ::std::vec::Vec::new();
+        let mut _field_oneof_decl: ::std::vec::Vec<OneofDescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_options: ::std::option::Option<::protobuf::SingularPtrField<MessageOptions>> = None;
+        let mut _field_reserved_range: ::std::vec::Vec<DescriptorProto_ReservedRange> = ::std::vec::Vec::new();
+        let mut _field_reserved_name: ::std::vec::Vec<::std::string::String> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                2 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_field)?;
+                },
+                6 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_extension)?;
+                },
+                3 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_nested_type)?;
+                },
+                4 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_enum_type)?;
+                },
+                5 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_extension_range)?;
+                },
+                8 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_oneof_decl)?;
+                },
+                7 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                9 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_reserved_range)?;
+                },
+                10 => {
+                    ::protobuf::rt::read_repeated_string_into(wire_type, _is, &mut _field_reserved_name)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(DescriptorProto {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto::name"))?,
+            field: _field_field,
+            extension: _field_extension,
+            nested_type: _field_nested_type,
+            enum_type: _field_enum_type,
+            extension_range: _field_extension_range,
+            oneof_decl: _field_oneof_decl,
+            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto::options"))?,
+            reserved_range: _field_reserved_range,
+            reserved_name: _field_reserved_name,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -1528,6 +1712,38 @@ impl ::protobuf::Message for DescriptorProto_ExtensionRange {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_start: ::std::option::Option<::std::option::Option<i32>> = None;
+        let mut _field_end: ::std::option::Option<::std::option::Option<i32>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_start = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_end = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(DescriptorProto_ExtensionRange {
+            start: _field_start.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto_ExtensionRange::start"))?,
+            end: _field_end.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto_ExtensionRange::end"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -1719,6 +1935,38 @@ impl DescriptorProto_ReservedRange {
 impl ::protobuf::Message for DescriptorProto_ReservedRange {
     fn is_initialized(&self) -> bool {
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_start: ::std::option::Option<::std::option::Option<i32>> = None;
+        let mut _field_end: ::std::option::Option<::std::option::Option<i32>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_start = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_end = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(DescriptorProto_ReservedRange {
+            start: _field_start.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto_ReservedRange::start"))?,
+            end: _field_end.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto_ReservedRange::end"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -2186,6 +2434,102 @@ impl ::protobuf::Message for FieldDescriptorProto {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_number: ::std::option::Option<::std::option::Option<i32>> = None;
+        let mut _field_label: ::std::option::Option<::std::option::Option<FieldDescriptorProto_Label>> = None;
+        let mut _field_field_type: ::std::option::Option<::std::option::Option<FieldDescriptorProto_Type>> = None;
+        let mut _field_type_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_extendee: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_default_value: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_oneof_index: ::std::option::Option<::std::option::Option<i32>> = None;
+        let mut _field_json_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_options: ::std::option::Option<::protobuf::SingularPtrField<FieldOptions>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_number = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
+                },
+                4 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_label = ::std::option::Option::Some(::std::option::Option::Some(_is.read_enum()?));
+                },
+                5 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_field_type = ::std::option::Option::Some(::std::option::Option::Some(_is.read_enum()?));
+                },
+                6 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_type_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_extendee = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                7 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_default_value = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                9 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_oneof_index = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
+                },
+                10 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_json_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                8 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(FieldDescriptorProto {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::name"))?,
+            number: _field_number.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::number"))?,
+            label: _field_label.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::label"))?,
+            field_type: _field_field_type.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::field_type"))?,
+            type_name: _field_type_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::type_name"))?,
+            extendee: _field_extendee.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::extendee"))?,
+            default_value: _field_default_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::default_value"))?,
+            oneof_index: _field_oneof_index.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::oneof_index"))?,
+            json_name: _field_json_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::json_name"))?,
+            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::options"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -2679,6 +3023,38 @@ impl ::protobuf::Message for OneofDescriptorProto {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_options: ::std::option::Option<::protobuf::SingularPtrField<OneofOptions>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(OneofDescriptorProto {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: OneofDescriptorProto::name"))?,
+            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: OneofDescriptorProto::options"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -2922,6 +3298,43 @@ impl ::protobuf::Message for EnumDescriptorProto {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_value: ::std::vec::Vec<EnumValueDescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_options: ::std::option::Option<::protobuf::SingularPtrField<EnumOptions>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                2 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_value)?;
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(EnumDescriptorProto {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumDescriptorProto::name"))?,
+            value: _field_value,
+            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumDescriptorProto::options"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -3178,6 +3591,46 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_number: ::std::option::Option<::std::option::Option<i32>> = None;
+        let mut _field_options: ::std::option::Option<::protobuf::SingularPtrField<EnumValueOptions>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_number = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(EnumValueDescriptorProto {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValueDescriptorProto::name"))?,
+            number: _field_number.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValueDescriptorProto::number"))?,
+            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValueDescriptorProto::options"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -3441,6 +3894,43 @@ impl ::protobuf::Message for ServiceDescriptorProto {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_method: ::std::vec::Vec<MethodDescriptorProto> = ::std::vec::Vec::new();
+        let mut _field_options: ::std::option::Option<::protobuf::SingularPtrField<ServiceOptions>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                2 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_method)?;
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(ServiceDescriptorProto {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: ServiceDescriptorProto::name"))?,
+            method: _field_method,
+            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: ServiceDescriptorProto::options"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -3796,6 +4286,70 @@ impl ::protobuf::Message for MethodDescriptorProto {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_input_type: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_output_type: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_options: ::std::option::Option<::protobuf::SingularPtrField<MethodOptions>> = None;
+        let mut _field_client_streaming: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_server_streaming: ::std::option::Option<::std::option::Option<bool>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_input_type = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_output_type = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                4 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_options = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                5 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_client_streaming = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                6 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_server_streaming = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(MethodDescriptorProto {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::name"))?,
+            input_type: _field_input_type.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::input_type"))?,
+            output_type: _field_output_type.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::output_type"))?,
+            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::options"))?,
+            client_streaming: _field_client_streaming.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::client_streaming"))?,
+            server_streaming: _field_server_streaming.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::server_streaming"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -4441,6 +4995,139 @@ impl ::protobuf::Message for FileOptions {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_java_package: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_java_outer_classname: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_java_multiple_files: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_java_generate_equals_and_hash: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_java_string_check_utf8: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_optimize_for: ::std::option::Option<::std::option::Option<FileOptions_OptimizeMode>> = None;
+        let mut _field_go_package: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_cc_generic_services: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_java_generic_services: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_py_generic_services: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_deprecated: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_cc_enable_arenas: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_objc_class_prefix: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_csharp_namespace: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_uninterpreted_option: ::std::vec::Vec<UninterpretedOption> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_java_package = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                8 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_java_outer_classname = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                10 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_java_multiple_files = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                20 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_java_generate_equals_and_hash = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                27 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_java_string_check_utf8 = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                9 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_optimize_for = ::std::option::Option::Some(::std::option::Option::Some(_is.read_enum()?));
+                },
+                11 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_go_package = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                16 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_cc_generic_services = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                17 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_java_generic_services = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                18 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_py_generic_services = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                23 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_deprecated = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                31 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_cc_enable_arenas = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                36 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_objc_class_prefix = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                37 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_csharp_namespace = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                999 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(FileOptions {
+            java_package: _field_java_package.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_package"))?,
+            java_outer_classname: _field_java_outer_classname.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_outer_classname"))?,
+            java_multiple_files: _field_java_multiple_files.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_multiple_files"))?,
+            java_generate_equals_and_hash: _field_java_generate_equals_and_hash.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_generate_equals_and_hash"))?,
+            java_string_check_utf8: _field_java_string_check_utf8.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_string_check_utf8"))?,
+            optimize_for: _field_optimize_for.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::optimize_for"))?,
+            go_package: _field_go_package.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::go_package"))?,
+            cc_generic_services: _field_cc_generic_services.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::cc_generic_services"))?,
+            java_generic_services: _field_java_generic_services.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_generic_services"))?,
+            py_generic_services: _field_py_generic_services.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::py_generic_services"))?,
+            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::deprecated"))?,
+            cc_enable_arenas: _field_cc_enable_arenas.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::cc_enable_arenas"))?,
+            objc_class_prefix: _field_objc_class_prefix.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::objc_class_prefix"))?,
+            csharp_namespace: _field_csharp_namespace.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::csharp_namespace"))?,
+            uninterpreted_option: _field_uninterpreted_option,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -4980,6 +5667,59 @@ impl ::protobuf::Message for MessageOptions {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_message_set_wire_format: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_no_standard_descriptor_accessor: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_deprecated: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_map_entry: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_uninterpreted_option: ::std::vec::Vec<UninterpretedOption> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_message_set_wire_format = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_no_standard_descriptor_accessor = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_deprecated = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                7 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_map_entry = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                999 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(MessageOptions {
+            message_set_wire_format: _field_message_set_wire_format.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MessageOptions::message_set_wire_format"))?,
+            no_standard_descriptor_accessor: _field_no_standard_descriptor_accessor.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MessageOptions::no_standard_descriptor_accessor"))?,
+            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MessageOptions::deprecated"))?,
+            map_entry: _field_map_entry.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MessageOptions::map_entry"))?,
+            uninterpreted_option: _field_uninterpreted_option,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -5357,6 +6097,75 @@ impl ::protobuf::Message for FieldOptions {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_ctype: ::std::option::Option<::std::option::Option<FieldOptions_CType>> = None;
+        let mut _field_packed: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_jstype: ::std::option::Option<::std::option::Option<FieldOptions_JSType>> = None;
+        let mut _field_lazy: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_deprecated: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_weak: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_uninterpreted_option: ::std::vec::Vec<UninterpretedOption> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_ctype = ::std::option::Option::Some(::std::option::Option::Some(_is.read_enum()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_packed = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                6 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_jstype = ::std::option::Option::Some(::std::option::Option::Some(_is.read_enum()?));
+                },
+                5 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_lazy = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_deprecated = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                10 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_weak = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                999 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(FieldOptions {
+            ctype: _field_ctype.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::ctype"))?,
+            packed: _field_packed.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::packed"))?,
+            jstype: _field_jstype.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::jstype"))?,
+            lazy: _field_lazy.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::lazy"))?,
+            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::deprecated"))?,
+            weak: _field_weak.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::weak"))?,
+            uninterpreted_option: _field_uninterpreted_option,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -5724,6 +6533,27 @@ impl ::protobuf::Message for OneofOptions {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_uninterpreted_option: ::std::vec::Vec<UninterpretedOption> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                999 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(OneofOptions {
+            uninterpreted_option: _field_uninterpreted_option,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -5927,6 +6757,43 @@ impl ::protobuf::Message for EnumOptions {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_allow_alias: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_deprecated: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_uninterpreted_option: ::std::vec::Vec<UninterpretedOption> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_allow_alias = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_deprecated = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                999 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(EnumOptions {
+            allow_alias: _field_allow_alias.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumOptions::allow_alias"))?,
+            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumOptions::deprecated"))?,
+            uninterpreted_option: _field_uninterpreted_option,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -6145,6 +7012,35 @@ impl ::protobuf::Message for EnumValueOptions {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_deprecated: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_uninterpreted_option: ::std::vec::Vec<UninterpretedOption> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_deprecated = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                999 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(EnumValueOptions {
+            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValueOptions::deprecated"))?,
+            uninterpreted_option: _field_uninterpreted_option,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -6343,6 +7239,35 @@ impl ::protobuf::Message for ServiceOptions {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_deprecated: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_uninterpreted_option: ::std::vec::Vec<UninterpretedOption> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                33 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_deprecated = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                999 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(ServiceOptions {
+            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: ServiceOptions::deprecated"))?,
+            uninterpreted_option: _field_uninterpreted_option,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -6539,6 +7464,35 @@ impl ::protobuf::Message for MethodOptions {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_deprecated: ::std::option::Option<::std::option::Option<bool>> = None;
+        let mut _field_uninterpreted_option: ::std::vec::Vec<UninterpretedOption> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                33 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_deprecated = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                999 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_uninterpreted_option)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(MethodOptions {
+            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodOptions::deprecated"))?,
+            uninterpreted_option: _field_uninterpreted_option,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -6900,6 +7854,75 @@ impl ::protobuf::Message for UninterpretedOption {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::vec::Vec<UninterpretedOption_NamePart> = ::std::vec::Vec::new();
+        let mut _field_identifier_value: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_positive_int_value: ::std::option::Option<::std::option::Option<u64>> = None;
+        let mut _field_negative_int_value: ::std::option::Option<::std::option::Option<i64>> = None;
+        let mut _field_double_value: ::std::option::Option<::std::option::Option<f64>> = None;
+        let mut _field_string_value: ::std::option::Option<::protobuf::SingularField<::std::vec::Vec<u8>>> = None;
+        let mut _field_aggregate_value: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                2 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_name)?;
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_identifier_value = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                4 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_positive_int_value = ::std::option::Option::Some(::std::option::Option::Some(_is.read_uint64()?));
+                },
+                5 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_negative_int_value = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int64()?));
+                },
+                6 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_double_value = ::std::option::Option::Some(::std::option::Option::Some(_is.read_double()?));
+                },
+                7 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_string_value = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_bytes()?));
+                },
+                8 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_aggregate_value = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(UninterpretedOption {
+            name: _field_name,
+            identifier_value: _field_identifier_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::identifier_value"))?,
+            positive_int_value: _field_positive_int_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::positive_int_value"))?,
+            negative_int_value: _field_negative_int_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::negative_int_value"))?,
+            double_value: _field_double_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::double_value"))?,
+            string_value: _field_string_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::string_value"))?,
+            aggregate_value: _field_aggregate_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::aggregate_value"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -7188,6 +8211,38 @@ impl ::protobuf::Message for UninterpretedOption_NamePart {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name_part: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_is_extension: ::std::option::Option<::std::option::Option<bool>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name_part = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_is_extension = ::std::option::Option::Some(::std::option::Option::Some(_is.read_bool()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(UninterpretedOption_NamePart {
+            name_part: _field_name_part.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption_NamePart::name_part"))?,
+            is_extension: _field_is_extension.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption_NamePart::is_extension"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -7356,6 +8411,27 @@ impl ::protobuf::Message for SourceCodeInfo {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_location: ::std::vec::Vec<SourceCodeInfo_Location> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_location)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(SourceCodeInfo {
+            location: _field_location,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -7634,6 +8710,53 @@ impl ::protobuf::Message for SourceCodeInfo_Location {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_path: ::std::vec::Vec<i32> = ::std::vec::Vec::new();
+        let mut _field_span: ::std::vec::Vec<i32> = ::std::vec::Vec::new();
+        let mut _field_leading_comments: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_trailing_comments: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_leading_detached_comments: ::std::vec::Vec<::std::string::String> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_repeated_int32_into(wire_type, _is, &mut _field_path)?;
+                },
+                2 => {
+                    ::protobuf::rt::read_repeated_int32_into(wire_type, _is, &mut _field_span)?;
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_leading_comments = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                4 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_trailing_comments = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                6 => {
+                    ::protobuf::rt::read_repeated_string_into(wire_type, _is, &mut _field_leading_detached_comments)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(SourceCodeInfo_Location {
+            path: _field_path,
+            span: _field_span,
+            leading_comments: _field_leading_comments.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: SourceCodeInfo_Location::leading_comments"))?,
+            trailing_comments: _field_trailing_comments.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: SourceCodeInfo_Location::trailing_comments"))?,
+            leading_detached_comments: _field_leading_detached_comments,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -7850,6 +8973,27 @@ impl ::protobuf::Message for GeneratedCodeInfo {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_annotation: ::std::vec::Vec<GeneratedCodeInfo_Annotation> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_annotation)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(GeneratedCodeInfo {
+            annotation: _field_annotation,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -8087,6 +9231,51 @@ impl GeneratedCodeInfo_Annotation {
 impl ::protobuf::Message for GeneratedCodeInfo_Annotation {
     fn is_initialized(&self) -> bool {
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_path: ::std::vec::Vec<i32> = ::std::vec::Vec::new();
+        let mut _field_source_file: ::std::option::Option<::protobuf::SingularField<::std::string::String>> = None;
+        let mut _field_begin: ::std::option::Option<::std::option::Option<i32>> = None;
+        let mut _field_end: ::std::option::Option<::std::option::Option<i32>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_repeated_int32_into(wire_type, _is, &mut _field_path)?;
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_source_file = ::std::option::Option::Some(::protobuf::SingularField::some(_is.read_string()?));
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_begin = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
+                },
+                4 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_end = ::std::option::Option::Some(::std::option::Option::Some(_is.read_int32()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(GeneratedCodeInfo_Annotation {
+            path: _field_path,
+            source_file: _field_source_file.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: GeneratedCodeInfo_Annotation::source_file"))?,
+            begin: _field_begin.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: GeneratedCodeInfo_Annotation::begin"))?,
+            end: _field_end.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: GeneratedCodeInfo_Annotation::end"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {

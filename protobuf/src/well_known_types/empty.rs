@@ -48,6 +48,22 @@ impl ::protobuf::Message for Empty {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(Empty {
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;

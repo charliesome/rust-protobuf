@@ -224,6 +224,61 @@ impl ::protobuf::Message for Type {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::std::string::String> = None;
+        let mut _field_fields: ::std::vec::Vec<Field> = ::std::vec::Vec::new();
+        let mut _field_oneofs: ::std::vec::Vec<::std::string::String> = ::std::vec::Vec::new();
+        let mut _field_options: ::std::vec::Vec<Option> = ::std::vec::Vec::new();
+        let mut _field_source_context: ::std::option::Option<::protobuf::SingularPtrField<::protobuf::well_known_types::SourceContext>> = None;
+        let mut _field_syntax: ::std::option::Option<Syntax> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(_is.read_string()?);
+                },
+                2 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_fields)?;
+                },
+                3 => {
+                    ::protobuf::rt::read_repeated_string_into(wire_type, _is, &mut _field_oneofs)?;
+                },
+                4 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_options)?;
+                },
+                5 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_source_context = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                6 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_syntax = ::std::option::Option::Some(_is.read_enum()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(Type {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Type::name"))?,
+            fields: _field_fields,
+            oneofs: _field_oneofs,
+            options: _field_options,
+            source_context: _field_source_context.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Type::source_context"))?,
+            syntax: _field_syntax.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Type::syntax"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -670,6 +725,99 @@ impl ::protobuf::Message for Field {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_kind: ::std::option::Option<Field_Kind> = None;
+        let mut _field_cardinality: ::std::option::Option<Field_Cardinality> = None;
+        let mut _field_number: ::std::option::Option<i32> = None;
+        let mut _field_name: ::std::option::Option<::std::string::String> = None;
+        let mut _field_type_url: ::std::option::Option<::std::string::String> = None;
+        let mut _field_oneof_index: ::std::option::Option<i32> = None;
+        let mut _field_packed: ::std::option::Option<bool> = None;
+        let mut _field_options: ::std::vec::Vec<Option> = ::std::vec::Vec::new();
+        let mut _field_json_name: ::std::option::Option<::std::string::String> = None;
+        let mut _field_default_value: ::std::option::Option<::std::string::String> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_kind = ::std::option::Option::Some(_is.read_enum()?);
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_cardinality = ::std::option::Option::Some(_is.read_enum()?);
+                },
+                3 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_number = ::std::option::Option::Some(_is.read_int32()?);
+                },
+                4 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(_is.read_string()?);
+                },
+                6 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_type_url = ::std::option::Option::Some(_is.read_string()?);
+                },
+                7 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_oneof_index = ::std::option::Option::Some(_is.read_int32()?);
+                },
+                8 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_packed = ::std::option::Option::Some(_is.read_bool()?);
+                },
+                9 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_options)?;
+                },
+                10 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_json_name = ::std::option::Option::Some(_is.read_string()?);
+                },
+                11 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_default_value = ::std::option::Option::Some(_is.read_string()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(Field {
+            kind: _field_kind.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::kind"))?,
+            cardinality: _field_cardinality.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::cardinality"))?,
+            number: _field_number.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::number"))?,
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::name"))?,
+            type_url: _field_type_url.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::type_url"))?,
+            oneof_index: _field_oneof_index.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::oneof_index"))?,
+            packed: _field_packed.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::packed"))?,
+            options: _field_options,
+            json_name: _field_json_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::json_name"))?,
+            default_value: _field_default_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::default_value"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -1258,6 +1406,56 @@ impl ::protobuf::Message for Enum {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::std::string::String> = None;
+        let mut _field_enumvalue: ::std::vec::Vec<EnumValue> = ::std::vec::Vec::new();
+        let mut _field_options: ::std::vec::Vec<Option> = ::std::vec::Vec::new();
+        let mut _field_source_context: ::std::option::Option<::protobuf::SingularPtrField<::protobuf::well_known_types::SourceContext>> = None;
+        let mut _field_syntax: ::std::option::Option<Syntax> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(_is.read_string()?);
+                },
+                2 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_enumvalue)?;
+                },
+                3 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_options)?;
+                },
+                4 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_source_context = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                5 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_syntax = ::std::option::Option::Some(_is.read_enum()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(Enum {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Enum::name"))?,
+            enumvalue: _field_enumvalue,
+            options: _field_options,
+            source_context: _field_source_context.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Enum::source_context"))?,
+            syntax: _field_syntax.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Enum::syntax"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -1527,6 +1725,43 @@ impl ::protobuf::Message for EnumValue {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::std::string::String> = None;
+        let mut _field_number: ::std::option::Option<i32> = None;
+        let mut _field_options: ::std::vec::Vec<Option> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(_is.read_string()?);
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_number = ::std::option::Option::Some(_is.read_int32()?);
+                },
+                3 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_options)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(EnumValue {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValue::name"))?,
+            number: _field_number.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValue::number"))?,
+            options: _field_options,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -1747,6 +1982,38 @@ impl ::protobuf::Message for Option {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_name: ::std::option::Option<::std::string::String> = None;
+        let mut _field_value: ::std::option::Option<::protobuf::SingularPtrField<::protobuf::well_known_types::Any>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_name = ::std::option::Option::Some(_is.read_string()?);
+                },
+                2 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(::protobuf::SingularPtrField::some(_is.read_message()?));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(Option {
+            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Option::name"))?,
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Option::value"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {

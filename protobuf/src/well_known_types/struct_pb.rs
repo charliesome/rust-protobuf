@@ -75,6 +75,27 @@ impl ::protobuf::Message for Struct {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_fields: ::std::collections::HashMap<::std::string::String, Value> = ::std::collections::HashMap::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_map_into::<::protobuf::types::ProtobufTypeString, ::protobuf::types::ProtobufTypeMessage<Value>>(wire_type, _is, &mut _field_fields)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(Struct {
+            fields: _field_fields,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -381,6 +402,42 @@ impl ::protobuf::Message for Value {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_kind: ::std::option::Option<::std::option::Option<Value_oneof_kind>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    _field_kind = ::std::option::Option::Some(::std::option::Option::Some(Value_oneof_kind::null_value(_is.read_enum()?)));
+                },
+                2 => {
+                    _field_kind = ::std::option::Option::Some(::std::option::Option::Some(Value_oneof_kind::number_value(_is.read_double()?)));
+                },
+                3 => {
+                    _field_kind = ::std::option::Option::Some(::std::option::Option::Some(Value_oneof_kind::string_value(_is.read_string()?)));
+                },
+                4 => {
+                    _field_kind = ::std::option::Option::Some(::std::option::Option::Some(Value_oneof_kind::bool_value(_is.read_bool()?)));
+                },
+                5 => {
+                    _field_kind = ::std::option::Option::Some(::std::option::Option::Some(Value_oneof_kind::struct_value(_is.read_message()?)));
+                },
+                6 => {
+                    _field_kind = ::std::option::Option::Some(::std::option::Option::Some(Value_oneof_kind::list_value(_is.read_message()?)));
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(Value {
+            kind: _field_kind.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Value::kind"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -633,6 +690,27 @@ impl ::protobuf::Message for ListValue {
             }
         };
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_values: ::std::vec::Vec<Value> = ::std::vec::Vec::new();
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    ::protobuf::rt::read_repeated_message_into(wire_type, _is, &mut _field_values)?;
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(ListValue {
+            values: _field_values,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {

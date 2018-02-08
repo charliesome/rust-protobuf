@@ -70,6 +70,30 @@ impl ::protobuf::Message for DoubleValue {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_value: ::std::option::Option<f64> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(_is.read_double()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(DoubleValue {
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DoubleValue::value"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -214,6 +238,30 @@ impl FloatValue {
 impl ::protobuf::Message for FloatValue {
     fn is_initialized(&self) -> bool {
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_value: ::std::option::Option<f32> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeFixed32 {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(_is.read_float()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(FloatValue {
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FloatValue::value"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -362,6 +410,30 @@ impl ::protobuf::Message for Int64Value {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_value: ::std::option::Option<i64> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(_is.read_int64()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(Int64Value {
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Int64Value::value"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -506,6 +578,30 @@ impl UInt64Value {
 impl ::protobuf::Message for UInt64Value {
     fn is_initialized(&self) -> bool {
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_value: ::std::option::Option<u64> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(_is.read_uint64()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(UInt64Value {
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UInt64Value::value"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -654,6 +750,30 @@ impl ::protobuf::Message for Int32Value {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_value: ::std::option::Option<i32> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(_is.read_int32()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(Int32Value {
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Int32Value::value"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -800,6 +920,30 @@ impl ::protobuf::Message for UInt32Value {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_value: ::std::option::Option<u32> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(_is.read_uint32()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(UInt32Value {
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UInt32Value::value"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -944,6 +1088,30 @@ impl BoolValue {
 impl ::protobuf::Message for BoolValue {
     fn is_initialized(&self) -> bool {
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_value: ::std::option::Option<bool> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(_is.read_bool()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(BoolValue {
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: BoolValue::value"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
@@ -1098,6 +1266,30 @@ impl ::protobuf::Message for StringValue {
         true
     }
 
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_value: ::std::option::Option<::std::string::String> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(_is.read_string()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(StringValue {
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: StringValue::value"))?,
+            unknown_fields: Default::default(),
+        })
+    }
+
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
         while !is.eof()? {
             let (field_number, wire_type) = is.read_tag_unpack()?;
@@ -1244,6 +1436,30 @@ impl BytesValue {
 impl ::protobuf::Message for BytesValue {
     fn is_initialized(&self) -> bool {
         true
+    }
+
+    fn read_from(_is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<Self> where Self : Sized {
+        let mut _field_value: ::std::option::Option<::std::vec::Vec<u8>> = None;
+
+        while !_is.eof()? {
+            let (field_number, wire_type) = _is.read_tag_unpack()?;
+            match field_number {
+                1 => {
+                    if wire_type != ::protobuf::wire_format::WireTypeLengthDelimited {
+                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
+                    }
+                    _field_value = ::std::option::Option::Some(_is.read_bytes()?);
+                },
+                _ => {
+                    panic!("TODO unknown field!")
+                },
+            };
+        }
+
+        ::std::result::Result::Ok(BytesValue {
+            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: BytesValue::value"))?,
+            unknown_fields: Default::default(),
+        })
     }
 
     fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
