@@ -2,15 +2,15 @@ use std::borrow::Cow;
 
 use protobuf::descriptor::*;
 use protobuf::descriptorx::*;
-use protobuf::rustproto; // TODO: should probably live here
+// use protobuf::rustproto; // TODO: should probably live here
 use protobuf::wire_format;
 use protobuf::rt;
 use protobuf::rust;
 use protobuf::text_format;
-use protobuf::types::ProtobufType;
-use protobuf::reflect::ProtobufValue;
+// use protobuf::types::ProtobufType;
+// use protobuf::reflect::ProtobufValue;
 
-use protobuf::ext::ExtFieldOptional;
+// use protobuf::ext::ExtFieldOptional;
 
 use super::message::*;
 use super::rust_types_values::*;
@@ -345,6 +345,7 @@ impl FieldElem {
     }
 }
 
+/*
 fn join_field_ext<A : ProtobufValue + Clone, T : ProtobufType<Value = A>>(
     source: &FieldWithContext,
     field_ext: ExtFieldOptional<FieldOptions, T>,
@@ -361,6 +362,7 @@ fn join_field_ext<A : ProtobufValue + Clone, T : ProtobufType<Value = A>>(
     }
     return file_ext.get(source.message.scope.get_file_descriptor().get_options());
 }
+*/
 
 fn field_elem(
     field: &FieldWithContext,
@@ -428,18 +430,18 @@ fn field_elem(
             _ => panic!("unknown named type: {:?}", field.field.get_field_type()),
         }
     } else if field.field.has_field_type() {
-        let carllerche_for_bytes = join_field_ext(
+        let carllerche_for_bytes = false; /* join_field_ext(
             field,
             rustproto::exts::carllerche_bytes_for_bytes_field,
             rustproto::exts::carllerche_bytes_for_bytes,
             rustproto::exts::carllerche_bytes_for_bytes_all,
-        ).unwrap_or(false);
-        let carllerche_for_string = join_field_ext(
+        ).unwrap_or(false); */
+        let carllerche_for_string = false; /* join_field_ext(
             field,
             rustproto::exts::carllerche_bytes_for_string_field,
             rustproto::exts::carllerche_bytes_for_string,
             rustproto::exts::carllerche_bytes_for_string_all,
-        ).unwrap_or(false);
+        ).unwrap_or(false); */
 
         let elem = match field.field.get_field_type() {
             FieldDescriptorProto_Type::TYPE_STRING if carllerche_for_string => {
