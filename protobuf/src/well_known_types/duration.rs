@@ -120,32 +120,6 @@ impl ::protobuf::Message for Duration {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int64()?;
-                    self.seconds = tmp;
-                },
-                2 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.nanos = tmp;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {

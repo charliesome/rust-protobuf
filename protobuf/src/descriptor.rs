@@ -98,21 +98,6 @@ impl ::protobuf::Message for FileDescriptorSet {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.file)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -691,54 +676,6 @@ impl ::protobuf::Message for FileDescriptorProto {
             source_code_info: _field_source_code_info.unwrap_or_default(),
             syntax: _field_syntax.unwrap_or_default(),
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.package)?;
-                },
-                3 => {
-                    ::protobuf::rt::read_repeated_string_into(wire_type, is, &mut self.dependency)?;
-                },
-                10 => {
-                    ::protobuf::rt::read_repeated_int32_into(wire_type, is, &mut self.public_dependency)?;
-                },
-                11 => {
-                    ::protobuf::rt::read_repeated_int32_into(wire_type, is, &mut self.weak_dependency)?;
-                },
-                4 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.message_type)?;
-                },
-                5 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.enum_type)?;
-                },
-                6 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.service)?;
-                },
-                7 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.extension)?;
-                },
-                8 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
-                },
-                9 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.source_code_info)?;
-                },
-                12 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.syntax)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
@@ -1366,48 +1303,6 @@ impl ::protobuf::Message for DescriptorProto {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.field)?;
-                },
-                6 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.extension)?;
-                },
-                3 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.nested_type)?;
-                },
-                4 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.enum_type)?;
-                },
-                5 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.extension_range)?;
-                },
-                8 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.oneof_decl)?;
-                },
-                7 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
-                },
-                9 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.reserved_range)?;
-                },
-                10 => {
-                    ::protobuf::rt::read_repeated_string_into(wire_type, is, &mut self.reserved_name)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -1708,32 +1603,6 @@ impl ::protobuf::Message for DescriptorProto_ExtensionRange {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.start = ::std::option::Option::Some(tmp);
-                },
-                2 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.end = ::std::option::Option::Some(tmp);
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -1920,32 +1789,6 @@ impl ::protobuf::Message for DescriptorProto_ReservedRange {
             start: _field_start.unwrap_or_default(),
             end: _field_end.unwrap_or_default(),
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.start = ::std::option::Option::Some(tmp);
-                },
-                2 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.end = ::std::option::Option::Some(tmp);
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
@@ -2474,64 +2317,6 @@ impl ::protobuf::Message for FieldDescriptorProto {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name)?;
-                },
-                3 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.number = ::std::option::Option::Some(tmp);
-                },
-                4 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_enum()?;
-                    self.label = ::std::option::Option::Some(tmp);
-                },
-                5 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_enum()?;
-                    self.field_type = ::std::option::Option::Some(tmp);
-                },
-                6 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.type_name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.extendee)?;
-                },
-                7 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.default_value)?;
-                },
-                9 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.oneof_index = ::std::option::Option::Some(tmp);
-                },
-                10 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.json_name)?;
-                },
-                8 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -2986,24 +2771,6 @@ impl ::protobuf::Message for OneofDescriptorProto {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -3255,27 +3022,6 @@ impl ::protobuf::Message for EnumDescriptorProto {
             value: _field_value,
             options: _field_options.unwrap_or_default(),
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.value)?;
-                },
-                3 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
@@ -3542,31 +3288,6 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.number = ::std::option::Option::Some(tmp);
-                },
-                3 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -3829,27 +3550,6 @@ impl ::protobuf::Message for ServiceDescriptorProto {
             method: _field_method,
             options: _field_options.unwrap_or_default(),
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.method)?;
-                },
-                3 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
@@ -4237,44 +3937,6 @@ impl ::protobuf::Message for MethodDescriptorProto {
             client_streaming: _field_client_streaming.unwrap_or_default(),
             server_streaming: _field_server_streaming.unwrap_or_default(),
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.input_type)?;
-                },
-                3 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.output_type)?;
-                },
-                4 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.options)?;
-                },
-                5 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.client_streaming = ::std::option::Option::Some(tmp);
-                },
-                6 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.server_streaming = ::std::option::Option::Some(tmp);
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
@@ -5004,99 +4666,6 @@ impl ::protobuf::Message for FileOptions {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.java_package)?;
-                },
-                8 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.java_outer_classname)?;
-                },
-                10 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.java_multiple_files = ::std::option::Option::Some(tmp);
-                },
-                20 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.java_generate_equals_and_hash = ::std::option::Option::Some(tmp);
-                },
-                27 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.java_string_check_utf8 = ::std::option::Option::Some(tmp);
-                },
-                9 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_enum()?;
-                    self.optimize_for = ::std::option::Option::Some(tmp);
-                },
-                11 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.go_package)?;
-                },
-                16 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.cc_generic_services = ::std::option::Option::Some(tmp);
-                },
-                17 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.java_generic_services = ::std::option::Option::Some(tmp);
-                },
-                18 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.py_generic_services = ::std::option::Option::Some(tmp);
-                },
-                23 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.deprecated = ::std::option::Option::Some(tmp);
-                },
-                31 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.cc_enable_arenas = ::std::option::Option::Some(tmp);
-                },
-                36 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.objc_class_prefix)?;
-                },
-                37 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.csharp_namespace)?;
-                },
-                999 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -5585,49 +5154,6 @@ impl ::protobuf::Message for MessageOptions {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.message_set_wire_format = ::std::option::Option::Some(tmp);
-                },
-                2 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.no_standard_descriptor_accessor = ::std::option::Option::Some(tmp);
-                },
-                3 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.deprecated = ::std::option::Option::Some(tmp);
-                },
-                7 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.map_entry = ::std::option::Option::Some(tmp);
-                },
-                999 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -6020,63 +5546,6 @@ impl ::protobuf::Message for FieldOptions {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_enum()?;
-                    self.ctype = ::std::option::Option::Some(tmp);
-                },
-                2 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.packed = ::std::option::Option::Some(tmp);
-                },
-                6 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_enum()?;
-                    self.jstype = ::std::option::Option::Some(tmp);
-                },
-                5 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.lazy = ::std::option::Option::Some(tmp);
-                },
-                3 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.deprecated = ::std::option::Option::Some(tmp);
-                },
-                10 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.weak = ::std::option::Option::Some(tmp);
-                },
-                999 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -6397,21 +5866,6 @@ impl ::protobuf::Message for OneofOptions {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                999 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -6628,35 +6082,6 @@ impl ::protobuf::Message for EnumOptions {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                2 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.allow_alias = ::std::option::Option::Some(tmp);
-                },
-                3 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.deprecated = ::std::option::Option::Some(tmp);
-                },
-                999 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -6862,28 +6287,6 @@ impl ::protobuf::Message for EnumValueOptions {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.deprecated = ::std::option::Option::Some(tmp);
-                },
-                999 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -7078,28 +6481,6 @@ impl ::protobuf::Message for ServiceOptions {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                33 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.deprecated = ::std::option::Option::Some(tmp);
-                },
-                999 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -7292,28 +6673,6 @@ impl ::protobuf::Message for MethodOptions {
             deprecated: _field_deprecated.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                33 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.deprecated = ::std::option::Option::Some(tmp);
-                },
-                999 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.uninterpreted_option)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
@@ -7711,51 +7070,6 @@ impl ::protobuf::Message for UninterpretedOption {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                2 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.name)?;
-                },
-                3 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.identifier_value)?;
-                },
-                4 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_uint64()?;
-                    self.positive_int_value = ::std::option::Option::Some(tmp);
-                },
-                5 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int64()?;
-                    self.negative_int_value = ::std::option::Option::Some(tmp);
-                },
-                6 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeFixed64 {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_double()?;
-                    self.double_value = ::std::option::Option::Some(tmp);
-                },
-                7 => {
-                    ::protobuf::rt::read_singular_bytes_into(wire_type, is, &mut self.string_value)?;
-                },
-                8 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.aggregate_value)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -8020,28 +7334,6 @@ impl ::protobuf::Message for UninterpretedOption_NamePart {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name_part)?;
-                },
-                2 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.is_extension = ::std::option::Option::Some(tmp);
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -8198,21 +7490,6 @@ impl ::protobuf::Message for SourceCodeInfo {
         ::std::result::Result::Ok(SourceCodeInfo {
             location: _field_location,
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.location)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
@@ -8512,33 +7789,6 @@ impl ::protobuf::Message for SourceCodeInfo_Location {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_repeated_int32_into(wire_type, is, &mut self.path)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_repeated_int32_into(wire_type, is, &mut self.span)?;
-                },
-                3 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.leading_comments)?;
-                },
-                4 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.trailing_comments)?;
-                },
-                6 => {
-                    ::protobuf::rt::read_repeated_string_into(wire_type, is, &mut self.leading_detached_comments)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -8738,21 +7988,6 @@ impl ::protobuf::Message for GeneratedCodeInfo {
         ::std::result::Result::Ok(GeneratedCodeInfo {
             annotation: _field_annotation,
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.annotation)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
@@ -9009,38 +8244,6 @@ impl ::protobuf::Message for GeneratedCodeInfo_Annotation {
             begin: _field_begin.unwrap_or_default(),
             end: _field_end.unwrap_or_default(),
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_repeated_int32_into(wire_type, is, &mut self.path)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.source_file)?;
-                },
-                3 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.begin = ::std::option::Option::Some(tmp);
-                },
-                4 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_int32()?;
-                    self.end = ::std::option::Option::Some(tmp);
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages

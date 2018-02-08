@@ -316,43 +316,6 @@ impl ::protobuf::Message for Api {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.methods)?;
-                },
-                3 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.options)?;
-                },
-                4 => {
-                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.version)?;
-                },
-                5 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.source_context)?;
-                },
-                6 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.mixins)?;
-                },
-                7 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_enum()?;
-                    self.syntax = tmp;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -770,51 +733,6 @@ impl ::protobuf::Message for Method {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.request_type_url)?;
-                },
-                3 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.request_streaming = tmp;
-                },
-                4 => {
-                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.response_type_url)?;
-                },
-                5 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_bool()?;
-                    self.response_streaming = tmp;
-                },
-                6 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.options)?;
-                },
-                7 => {
-                    if wire_type != ::protobuf::wire_format::WireTypeVarint {
-                        return ::std::result::Result::Err(::protobuf::rt::unexpected_wire_type(wire_type));
-                    }
-                    let tmp = is.read_enum()?;
-                    self.syntax = tmp;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -1063,24 +981,6 @@ impl ::protobuf::Message for Mixin {
             name: _field_name.unwrap_or_default(),
             root: _field_root.unwrap_or_default(),
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_singular_proto3_string_into(wire_type, is, &mut self.root)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages

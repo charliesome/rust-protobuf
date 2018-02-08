@@ -174,27 +174,6 @@ impl ::protobuf::Message for CodeGeneratorRequest {
         })
     }
 
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_repeated_string_into(wire_type, is, &mut self.file_to_generate)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.parameter)?;
-                },
-                15 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.proto_file)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
-    }
-
     // Compute sizes of nested messages
     #[allow(unused_variables)]
     fn compute_size(&self) -> u32 {
@@ -410,24 +389,6 @@ impl ::protobuf::Message for CodeGeneratorResponse {
             error: _field_error.unwrap_or_default(),
             file: _field_file,
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.error)?;
-                },
-                15 => {
-                    ::protobuf::rt::read_repeated_message_into(wire_type, is, &mut self.file)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
@@ -688,27 +649,6 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
             insertion_point: _field_insertion_point.unwrap_or_default(),
             content: _field_content.unwrap_or_default(),
         })
-    }
-
-    fn merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()> {
-        while !is.eof()? {
-            let (field_number, wire_type) = is.read_tag_unpack()?;
-            match field_number {
-                1 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.name)?;
-                },
-                2 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.insertion_point)?;
-                },
-                15 => {
-                    ::protobuf::rt::read_singular_string_into(wire_type, is, &mut self.content)?;
-                },
-                _ => {
-                    ::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;
-                },
-            };
-        }
-        ::std::result::Result::Ok(())
     }
 
     // Compute sizes of nested messages
