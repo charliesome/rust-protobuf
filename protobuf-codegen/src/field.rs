@@ -309,16 +309,6 @@ pub enum FieldKind {
     Oneof(OneofField),
 }
 
-impl FieldKind {
-    fn primitive_type_variant(&self) -> PrimitiveTypeVariant {
-        match self {
-            &FieldKind::Singular(ref s) => s.elem.primitive_type_variant(),
-            &FieldKind::Repeated(ref r) => r.elem.primitive_type_variant(),
-            _ => panic!("not a primitive type"), // TODO: map
-        }
-    }
-}
-
 enum FieldElem {
     Primitive(FieldDescriptorProto_Type, PrimitiveTypeVariant),
     // name, file name, entry
@@ -608,13 +598,6 @@ impl<'a> FieldGen<'a> {
         match self.kind {
             FieldKind::Singular(ref singular) => &singular,
             _ => panic!("not a singular field: {}", self.reconstruct_def()),
-        }
-    }
-
-    fn map(&self) -> &MapField {
-        match self.kind {
-            FieldKind::Map(ref map) => &map,
-            _ => panic!("not a map field: {}", self.reconstruct_def()),
         }
     }
 
@@ -1342,90 +1325,6 @@ impl<'a> FieldGen<'a> {
 
     fn self_field_oneof(&self) -> String {
         format!("self.{}", self.oneof().oneof_name)
-    }
-
-    fn write_merge_from_field_message_string_bytes(&self, w: &mut CodeWriter) {
-        let singular_or_repeated = match self.kind {
-            FieldKind::Repeated(..) => "repeated",
-            FieldKind::Map(..) => "repeated", // TODO
-            FieldKind::Singular(SingularField { flag: SingularFieldFlag::WithFlag { .. }, .. }) => {
-                "singular"
-            }
-            FieldKind::Singular(SingularField { flag: SingularFieldFlag::WithoutFlag, .. }) => {
-                "singular_proto3"
-            }
-            FieldKind::Oneof(..) => unreachable!(),
-        };
-        let carllerche = match self.kind.primitive_type_variant() {
-            PrimitiveTypeVariant::Carllerche => "carllerche_",
-            PrimitiveTypeVariant::Default => "",
-        };
-        let type_name_for_fn = protobuf_name(self.proto_type);
-        w.write_line(&format!(
-            "::protobuf::rt::read_{}_{}{}_into(wire_type, is, &mut self.{})?;",
-            singular_or_repeated,
-            carllerche,
-            type_name_for_fn,
-            self.rust_name
-        ));
-    }
-
-    fn write_merge_from_oneof(&self, f: &OneofField, w: &mut CodeWriter) {
-        w.assert_wire_type(self.wire_type);
-
-        let typed = RustValueTyped {
-            value: format!("{}?", self.proto_type.read("is")),
-            rust_type: self.full_storage_iter_elem_type(),
-        };
-
-        let maybe_boxed = if f.boxed { typed.boxed() } else { typed };
-
-        w.write_line(&format!(
-            "self.{} = ::std::option::Option::Some({}({}));",
-            self.oneof().oneof_name,
-            self.variant_path(),
-            maybe_boxed.value
-        )); // TODO: into_type
-    }
-
-    fn write_merge_from_map(&self, w: &mut CodeWriter) {
-        let &MapField { ref key, ref value, .. } = self.map();
-        w.write_line(&format!(
-            "::protobuf::rt::read_map_into::<{}, {}>(wire_type, is, &mut {})?;",
-            key.lib_protobuf_type(),
-            value.lib_protobuf_type(),
-            self.self_field()
-        ));
-    }
-
-    pub fn write_merge_from_field(&self, w: &mut CodeWriter) {
-        match self.kind {
-            FieldKind::Oneof(ref f) => self.write_merge_from_oneof(&f, w),
-            FieldKind::Map(..) => self.write_merge_from_map(w),
-            _ => {
-                if !self.elem_type_is_copy() {
-                    self.write_merge_from_field_message_string_bytes(w);
-                } else {
-                    let wire_type = field_type_wire_type(self.proto_type);
-                    let read_proc = format!("is.read_{}()?", protobuf_name(self.proto_type));
-
-                    match self.kind {
-                        FieldKind::Singular(..) => {
-                            w.assert_wire_type(wire_type);
-                            w.write_line(&format!("let tmp = {};", read_proc));
-                            self.write_self_field_assign_some(w, "tmp");
-                        }
-                        FieldKind::Repeated(..) => {
-                            w.write_line(&format!(
-                                "::protobuf::rt::read_repeated_{}_into(wire_type, is, &mut self.{})?;",
-                                protobuf_name(self.proto_type),
-                                self.rust_name));
-                        }
-                        _ => unreachable!(),
-                    }
-                }
-            }
-        }
     }
 
     pub fn write_read_from_field(&self, w: &mut CodeWriter, is: &str) {

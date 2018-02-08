@@ -33,7 +33,7 @@ pub trait Message: fmt::Debug + Any + Send + Sync {
         where Self : Sized;
 
     /// Update this message object with fields read from given stream.
-    fn merge_from(&mut self, is: &mut CodedInputStream) -> ProtobufResult<()>;
+    fn merge_from(&mut self, _is: &mut CodedInputStream) -> ProtobufResult<()> { panic!() }
 
     /// Write message to the stream.
     ///

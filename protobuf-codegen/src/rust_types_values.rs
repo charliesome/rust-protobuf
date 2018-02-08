@@ -322,10 +322,6 @@ impl RustValueTyped {
             rust_type: target,
         }
     }
-
-    pub fn boxed(self) -> RustValueTyped {
-        self.into_type(RustType::Uniq(Box::new(self.rust_type.clone())))
-    }
 }
 
 

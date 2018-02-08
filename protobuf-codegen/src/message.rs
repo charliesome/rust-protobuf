@@ -254,26 +254,6 @@ impl<'a> MessageGen<'a> {
         })
     }
 
-    fn write_merge_from(&self, w: &mut CodeWriter) {
-        w.def_fn(&format!("merge_from(&mut self, is: &mut ::protobuf::CodedInputStream) -> ::protobuf::ProtobufResult<()>"), |w| {
-            w.while_block("!is.eof()?", |w| {
-                w.write_line(&format!("let (field_number, wire_type) = is.read_tag_unpack()?;"));
-                w.match_block("field_number", |w| {
-                    for f in &self.fields_except_group() {
-                        let number = f.proto_field.number();
-                        w.case_block(number.to_string(), |w| {
-                            f.write_merge_from_field(w);
-                        });
-                    }
-                    w.case_block("_", |w| {
-                        w.write_line("::protobuf::rt::skip_unknown_or_group(field_number, wire_type, is)?;");
-                    });
-                });
-            });
-            w.write_line("::std::result::Result::Ok(())");
-        });
-    }
-
     fn write_descriptor_field(&self, fields_var: &str, field: &FieldGen, w: &mut CodeWriter) {
         let accessor_fn = field.accessor_fn();
         w.write_line(&format!(
@@ -347,8 +327,6 @@ impl<'a> MessageGen<'a> {
             self.write_is_initialized(w);
             w.write_line("");
             self.write_read_from(w);
-            w.write_line("");
-            self.write_merge_from(w);
             w.write_line("");
             self.write_compute_size(w);
             w.write_line("");
