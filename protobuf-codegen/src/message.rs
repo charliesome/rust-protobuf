@@ -249,10 +249,14 @@ impl<'a> MessageGen<'a> {
                                     type_name = self.type_name));
                             }
                         }
-                        _ => {
+                        FieldKind::Singular(ref sing) if sing.flag.is_required() => {
                             w.write_line(format!("{rust_name}: _field_{rust_name}.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized(\"missing required field: {type_name}::{rust_name}\"))?,",
                                 rust_name = field.rust_name,
                                 type_name = self.type_name));
+                        }
+                        FieldKind::Singular(_) => {
+                            w.write_line(format!("{rust_name}: _field_{rust_name}.unwrap_or_default(),",
+                                rust_name = field.rust_name));
                         }
                     }
                 }
