@@ -129,8 +129,8 @@ impl ::protobuf::Message for Any {
         }
 
         ::std::result::Result::Ok(Any {
-            type_url: _field_type_url.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Any::type_url"))?,
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Any::value"))?,
+            type_url: _field_type_url.unwrap_or_default(),
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }

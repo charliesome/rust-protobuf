@@ -269,12 +269,12 @@ impl ::protobuf::Message for Type {
         }
 
         ::std::result::Result::Ok(Type {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Type::name"))?,
+            name: _field_name.unwrap_or_default(),
             fields: _field_fields,
             oneofs: _field_oneofs,
             options: _field_options,
-            source_context: _field_source_context.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Type::source_context"))?,
-            syntax: _field_syntax.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Type::syntax"))?,
+            source_context: _field_source_context.unwrap_or_default(),
+            syntax: _field_syntax.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -806,16 +806,16 @@ impl ::protobuf::Message for Field {
         }
 
         ::std::result::Result::Ok(Field {
-            kind: _field_kind.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::kind"))?,
-            cardinality: _field_cardinality.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::cardinality"))?,
-            number: _field_number.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::number"))?,
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::name"))?,
-            type_url: _field_type_url.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::type_url"))?,
-            oneof_index: _field_oneof_index.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::oneof_index"))?,
-            packed: _field_packed.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::packed"))?,
+            kind: _field_kind.unwrap_or_default(),
+            cardinality: _field_cardinality.unwrap_or_default(),
+            number: _field_number.unwrap_or_default(),
+            name: _field_name.unwrap_or_default(),
+            type_url: _field_type_url.unwrap_or_default(),
+            oneof_index: _field_oneof_index.unwrap_or_default(),
+            packed: _field_packed.unwrap_or_default(),
             options: _field_options,
-            json_name: _field_json_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::json_name"))?,
-            default_value: _field_default_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Field::default_value"))?,
+            json_name: _field_json_name.unwrap_or_default(),
+            default_value: _field_default_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -1447,11 +1447,11 @@ impl ::protobuf::Message for Enum {
         }
 
         ::std::result::Result::Ok(Enum {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Enum::name"))?,
+            name: _field_name.unwrap_or_default(),
             enumvalue: _field_enumvalue,
             options: _field_options,
-            source_context: _field_source_context.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Enum::source_context"))?,
-            syntax: _field_syntax.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Enum::syntax"))?,
+            source_context: _field_source_context.unwrap_or_default(),
+            syntax: _field_syntax.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -1755,8 +1755,8 @@ impl ::protobuf::Message for EnumValue {
         }
 
         ::std::result::Result::Ok(EnumValue {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValue::name"))?,
-            number: _field_number.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValue::number"))?,
+            name: _field_name.unwrap_or_default(),
+            number: _field_number.unwrap_or_default(),
             options: _field_options,
             unknown_fields: Default::default(),
         })
@@ -2010,8 +2010,8 @@ impl ::protobuf::Message for Option {
         }
 
         ::std::result::Result::Ok(Option {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Option::name"))?,
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Option::value"))?,
+            name: _field_name.unwrap_or_default(),
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }

@@ -117,8 +117,8 @@ impl ::protobuf::Message for Timestamp {
         }
 
         ::std::result::Result::Ok(Timestamp {
-            seconds: _field_seconds.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Timestamp::seconds"))?,
-            nanos: _field_nanos.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Timestamp::nanos"))?,
+            seconds: _field_seconds.unwrap_or_default(),
+            nanos: _field_nanos.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }

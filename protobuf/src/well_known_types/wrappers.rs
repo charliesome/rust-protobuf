@@ -89,7 +89,7 @@ impl ::protobuf::Message for DoubleValue {
         }
 
         ::std::result::Result::Ok(DoubleValue {
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DoubleValue::value"))?,
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -259,7 +259,7 @@ impl ::protobuf::Message for FloatValue {
         }
 
         ::std::result::Result::Ok(FloatValue {
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FloatValue::value"))?,
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -429,7 +429,7 @@ impl ::protobuf::Message for Int64Value {
         }
 
         ::std::result::Result::Ok(Int64Value {
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Int64Value::value"))?,
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -599,7 +599,7 @@ impl ::protobuf::Message for UInt64Value {
         }
 
         ::std::result::Result::Ok(UInt64Value {
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UInt64Value::value"))?,
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -769,7 +769,7 @@ impl ::protobuf::Message for Int32Value {
         }
 
         ::std::result::Result::Ok(Int32Value {
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Int32Value::value"))?,
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -939,7 +939,7 @@ impl ::protobuf::Message for UInt32Value {
         }
 
         ::std::result::Result::Ok(UInt32Value {
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UInt32Value::value"))?,
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -1109,7 +1109,7 @@ impl ::protobuf::Message for BoolValue {
         }
 
         ::std::result::Result::Ok(BoolValue {
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: BoolValue::value"))?,
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -1285,7 +1285,7 @@ impl ::protobuf::Message for StringValue {
         }
 
         ::std::result::Result::Ok(StringValue {
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: StringValue::value"))?,
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -1457,7 +1457,7 @@ impl ::protobuf::Message for BytesValue {
         }
 
         ::std::result::Result::Ok(BytesValue {
-            value: _field_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: BytesValue::value"))?,
+            value: _field_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }

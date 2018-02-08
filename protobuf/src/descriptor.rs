@@ -691,8 +691,8 @@ impl ::protobuf::Message for FileDescriptorProto {
         }
 
         ::std::result::Result::Ok(FileDescriptorProto {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::name"))?,
-            package: _field_package.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::package"))?,
+            name: _field_name.unwrap_or_default(),
+            package: _field_package.unwrap_or_default(),
             dependency: _field_dependency,
             public_dependency: _field_public_dependency,
             weak_dependency: _field_weak_dependency,
@@ -700,9 +700,9 @@ impl ::protobuf::Message for FileDescriptorProto {
             enum_type: _field_enum_type,
             service: _field_service,
             extension: _field_extension,
-            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::options"))?,
-            source_code_info: _field_source_code_info.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::source_code_info"))?,
-            syntax: _field_syntax.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileDescriptorProto::syntax"))?,
+            options: _field_options.unwrap_or_default(),
+            source_code_info: _field_source_code_info.unwrap_or_default(),
+            syntax: _field_syntax.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -1377,14 +1377,14 @@ impl ::protobuf::Message for DescriptorProto {
         }
 
         ::std::result::Result::Ok(DescriptorProto {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto::name"))?,
+            name: _field_name.unwrap_or_default(),
             field: _field_field,
             extension: _field_extension,
             nested_type: _field_nested_type,
             enum_type: _field_enum_type,
             extension_range: _field_extension_range,
             oneof_decl: _field_oneof_decl,
-            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto::options"))?,
+            options: _field_options.unwrap_or_default(),
             reserved_range: _field_reserved_range,
             reserved_name: _field_reserved_name,
             unknown_fields: Default::default(),
@@ -1738,8 +1738,8 @@ impl ::protobuf::Message for DescriptorProto_ExtensionRange {
         }
 
         ::std::result::Result::Ok(DescriptorProto_ExtensionRange {
-            start: _field_start.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto_ExtensionRange::start"))?,
-            end: _field_end.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto_ExtensionRange::end"))?,
+            start: _field_start.unwrap_or_default(),
+            end: _field_end.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -1963,8 +1963,8 @@ impl ::protobuf::Message for DescriptorProto_ReservedRange {
         }
 
         ::std::result::Result::Ok(DescriptorProto_ReservedRange {
-            start: _field_start.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto_ReservedRange::start"))?,
-            end: _field_end.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: DescriptorProto_ReservedRange::end"))?,
+            start: _field_start.unwrap_or_default(),
+            end: _field_end.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -2518,16 +2518,16 @@ impl ::protobuf::Message for FieldDescriptorProto {
         }
 
         ::std::result::Result::Ok(FieldDescriptorProto {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::name"))?,
-            number: _field_number.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::number"))?,
-            label: _field_label.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::label"))?,
-            field_type: _field_field_type.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::field_type"))?,
-            type_name: _field_type_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::type_name"))?,
-            extendee: _field_extendee.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::extendee"))?,
-            default_value: _field_default_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::default_value"))?,
-            oneof_index: _field_oneof_index.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::oneof_index"))?,
-            json_name: _field_json_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::json_name"))?,
-            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldDescriptorProto::options"))?,
+            name: _field_name.unwrap_or_default(),
+            number: _field_number.unwrap_or_default(),
+            label: _field_label.unwrap_or_default(),
+            field_type: _field_field_type.unwrap_or_default(),
+            type_name: _field_type_name.unwrap_or_default(),
+            extendee: _field_extendee.unwrap_or_default(),
+            default_value: _field_default_value.unwrap_or_default(),
+            oneof_index: _field_oneof_index.unwrap_or_default(),
+            json_name: _field_json_name.unwrap_or_default(),
+            options: _field_options.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -3049,8 +3049,8 @@ impl ::protobuf::Message for OneofDescriptorProto {
         }
 
         ::std::result::Result::Ok(OneofDescriptorProto {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: OneofDescriptorProto::name"))?,
-            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: OneofDescriptorProto::options"))?,
+            name: _field_name.unwrap_or_default(),
+            options: _field_options.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -3330,9 +3330,9 @@ impl ::protobuf::Message for EnumDescriptorProto {
         }
 
         ::std::result::Result::Ok(EnumDescriptorProto {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumDescriptorProto::name"))?,
+            name: _field_name.unwrap_or_default(),
             value: _field_value,
-            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumDescriptorProto::options"))?,
+            options: _field_options.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -3626,9 +3626,9 @@ impl ::protobuf::Message for EnumValueDescriptorProto {
         }
 
         ::std::result::Result::Ok(EnumValueDescriptorProto {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValueDescriptorProto::name"))?,
-            number: _field_number.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValueDescriptorProto::number"))?,
-            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValueDescriptorProto::options"))?,
+            name: _field_name.unwrap_or_default(),
+            number: _field_number.unwrap_or_default(),
+            options: _field_options.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -3926,9 +3926,9 @@ impl ::protobuf::Message for ServiceDescriptorProto {
         }
 
         ::std::result::Result::Ok(ServiceDescriptorProto {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: ServiceDescriptorProto::name"))?,
+            name: _field_name.unwrap_or_default(),
             method: _field_method,
-            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: ServiceDescriptorProto::options"))?,
+            options: _field_options.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -4342,12 +4342,12 @@ impl ::protobuf::Message for MethodDescriptorProto {
         }
 
         ::std::result::Result::Ok(MethodDescriptorProto {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::name"))?,
-            input_type: _field_input_type.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::input_type"))?,
-            output_type: _field_output_type.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::output_type"))?,
-            options: _field_options.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::options"))?,
-            client_streaming: _field_client_streaming.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::client_streaming"))?,
-            server_streaming: _field_server_streaming.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodDescriptorProto::server_streaming"))?,
+            name: _field_name.unwrap_or_default(),
+            input_type: _field_input_type.unwrap_or_default(),
+            output_type: _field_output_type.unwrap_or_default(),
+            options: _field_options.unwrap_or_default(),
+            client_streaming: _field_client_streaming.unwrap_or_default(),
+            server_streaming: _field_server_streaming.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -5109,20 +5109,20 @@ impl ::protobuf::Message for FileOptions {
         }
 
         ::std::result::Result::Ok(FileOptions {
-            java_package: _field_java_package.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_package"))?,
-            java_outer_classname: _field_java_outer_classname.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_outer_classname"))?,
-            java_multiple_files: _field_java_multiple_files.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_multiple_files"))?,
-            java_generate_equals_and_hash: _field_java_generate_equals_and_hash.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_generate_equals_and_hash"))?,
-            java_string_check_utf8: _field_java_string_check_utf8.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_string_check_utf8"))?,
-            optimize_for: _field_optimize_for.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::optimize_for"))?,
-            go_package: _field_go_package.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::go_package"))?,
-            cc_generic_services: _field_cc_generic_services.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::cc_generic_services"))?,
-            java_generic_services: _field_java_generic_services.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::java_generic_services"))?,
-            py_generic_services: _field_py_generic_services.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::py_generic_services"))?,
-            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::deprecated"))?,
-            cc_enable_arenas: _field_cc_enable_arenas.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::cc_enable_arenas"))?,
-            objc_class_prefix: _field_objc_class_prefix.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::objc_class_prefix"))?,
-            csharp_namespace: _field_csharp_namespace.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FileOptions::csharp_namespace"))?,
+            java_package: _field_java_package.unwrap_or_default(),
+            java_outer_classname: _field_java_outer_classname.unwrap_or_default(),
+            java_multiple_files: _field_java_multiple_files.unwrap_or_default(),
+            java_generate_equals_and_hash: _field_java_generate_equals_and_hash.unwrap_or_default(),
+            java_string_check_utf8: _field_java_string_check_utf8.unwrap_or_default(),
+            optimize_for: _field_optimize_for.unwrap_or_default(),
+            go_package: _field_go_package.unwrap_or_default(),
+            cc_generic_services: _field_cc_generic_services.unwrap_or_default(),
+            java_generic_services: _field_java_generic_services.unwrap_or_default(),
+            py_generic_services: _field_py_generic_services.unwrap_or_default(),
+            deprecated: _field_deprecated.unwrap_or_default(),
+            cc_enable_arenas: _field_cc_enable_arenas.unwrap_or_default(),
+            objc_class_prefix: _field_objc_class_prefix.unwrap_or_default(),
+            csharp_namespace: _field_csharp_namespace.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
             unknown_fields: Default::default(),
         })
@@ -5711,10 +5711,10 @@ impl ::protobuf::Message for MessageOptions {
         }
 
         ::std::result::Result::Ok(MessageOptions {
-            message_set_wire_format: _field_message_set_wire_format.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MessageOptions::message_set_wire_format"))?,
-            no_standard_descriptor_accessor: _field_no_standard_descriptor_accessor.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MessageOptions::no_standard_descriptor_accessor"))?,
-            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MessageOptions::deprecated"))?,
-            map_entry: _field_map_entry.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MessageOptions::map_entry"))?,
+            message_set_wire_format: _field_message_set_wire_format.unwrap_or_default(),
+            no_standard_descriptor_accessor: _field_no_standard_descriptor_accessor.unwrap_or_default(),
+            deprecated: _field_deprecated.unwrap_or_default(),
+            map_entry: _field_map_entry.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
             unknown_fields: Default::default(),
         })
@@ -6155,12 +6155,12 @@ impl ::protobuf::Message for FieldOptions {
         }
 
         ::std::result::Result::Ok(FieldOptions {
-            ctype: _field_ctype.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::ctype"))?,
-            packed: _field_packed.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::packed"))?,
-            jstype: _field_jstype.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::jstype"))?,
-            lazy: _field_lazy.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::lazy"))?,
-            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::deprecated"))?,
-            weak: _field_weak.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: FieldOptions::weak"))?,
+            ctype: _field_ctype.unwrap_or_default(),
+            packed: _field_packed.unwrap_or_default(),
+            jstype: _field_jstype.unwrap_or_default(),
+            lazy: _field_lazy.unwrap_or_default(),
+            deprecated: _field_deprecated.unwrap_or_default(),
+            weak: _field_weak.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
             unknown_fields: Default::default(),
         })
@@ -6789,8 +6789,8 @@ impl ::protobuf::Message for EnumOptions {
         }
 
         ::std::result::Result::Ok(EnumOptions {
-            allow_alias: _field_allow_alias.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumOptions::allow_alias"))?,
-            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumOptions::deprecated"))?,
+            allow_alias: _field_allow_alias.unwrap_or_default(),
+            deprecated: _field_deprecated.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
             unknown_fields: Default::default(),
         })
@@ -7035,7 +7035,7 @@ impl ::protobuf::Message for EnumValueOptions {
         }
 
         ::std::result::Result::Ok(EnumValueOptions {
-            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: EnumValueOptions::deprecated"))?,
+            deprecated: _field_deprecated.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
             unknown_fields: Default::default(),
         })
@@ -7262,7 +7262,7 @@ impl ::protobuf::Message for ServiceOptions {
         }
 
         ::std::result::Result::Ok(ServiceOptions {
-            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: ServiceOptions::deprecated"))?,
+            deprecated: _field_deprecated.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
             unknown_fields: Default::default(),
         })
@@ -7489,7 +7489,7 @@ impl ::protobuf::Message for MethodOptions {
         }
 
         ::std::result::Result::Ok(MethodOptions {
-            deprecated: _field_deprecated.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: MethodOptions::deprecated"))?,
+            deprecated: _field_deprecated.unwrap_or_default(),
             uninterpreted_option: _field_uninterpreted_option,
             unknown_fields: Default::default(),
         })
@@ -7913,12 +7913,12 @@ impl ::protobuf::Message for UninterpretedOption {
 
         ::std::result::Result::Ok(UninterpretedOption {
             name: _field_name,
-            identifier_value: _field_identifier_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::identifier_value"))?,
-            positive_int_value: _field_positive_int_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::positive_int_value"))?,
-            negative_int_value: _field_negative_int_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::negative_int_value"))?,
-            double_value: _field_double_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::double_value"))?,
-            string_value: _field_string_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::string_value"))?,
-            aggregate_value: _field_aggregate_value.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: UninterpretedOption::aggregate_value"))?,
+            identifier_value: _field_identifier_value.unwrap_or_default(),
+            positive_int_value: _field_positive_int_value.unwrap_or_default(),
+            negative_int_value: _field_negative_int_value.unwrap_or_default(),
+            double_value: _field_double_value.unwrap_or_default(),
+            string_value: _field_string_value.unwrap_or_default(),
+            aggregate_value: _field_aggregate_value.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -8750,8 +8750,8 @@ impl ::protobuf::Message for SourceCodeInfo_Location {
         ::std::result::Result::Ok(SourceCodeInfo_Location {
             path: _field_path,
             span: _field_span,
-            leading_comments: _field_leading_comments.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: SourceCodeInfo_Location::leading_comments"))?,
-            trailing_comments: _field_trailing_comments.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: SourceCodeInfo_Location::trailing_comments"))?,
+            leading_comments: _field_leading_comments.unwrap_or_default(),
+            trailing_comments: _field_trailing_comments.unwrap_or_default(),
             leading_detached_comments: _field_leading_detached_comments,
             unknown_fields: Default::default(),
         })
@@ -9271,9 +9271,9 @@ impl ::protobuf::Message for GeneratedCodeInfo_Annotation {
 
         ::std::result::Result::Ok(GeneratedCodeInfo_Annotation {
             path: _field_path,
-            source_file: _field_source_file.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: GeneratedCodeInfo_Annotation::source_file"))?,
-            begin: _field_begin.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: GeneratedCodeInfo_Annotation::begin"))?,
-            end: _field_end.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: GeneratedCodeInfo_Annotation::end"))?,
+            source_file: _field_source_file.unwrap_or_default(),
+            begin: _field_begin.unwrap_or_default(),
+            end: _field_end.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }

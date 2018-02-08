@@ -171,7 +171,7 @@ impl ::protobuf::Message for CodeGeneratorRequest {
 
         ::std::result::Result::Ok(CodeGeneratorRequest {
             file_to_generate: _field_file_to_generate,
-            parameter: _field_parameter.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: CodeGeneratorRequest::parameter"))?,
+            parameter: _field_parameter.unwrap_or_default(),
             proto_file: _field_proto_file,
             unknown_fields: Default::default(),
         })
@@ -420,7 +420,7 @@ impl ::protobuf::Message for CodeGeneratorResponse {
         }
 
         ::std::result::Result::Ok(CodeGeneratorResponse {
-            error: _field_error.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: CodeGeneratorResponse::error"))?,
+            error: _field_error.unwrap_or_default(),
             file: _field_file,
             unknown_fields: Default::default(),
         })
@@ -708,9 +708,9 @@ impl ::protobuf::Message for CodeGeneratorResponse_File {
         }
 
         ::std::result::Result::Ok(CodeGeneratorResponse_File {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: CodeGeneratorResponse_File::name"))?,
-            insertion_point: _field_insertion_point.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: CodeGeneratorResponse_File::insertion_point"))?,
-            content: _field_content.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: CodeGeneratorResponse_File::content"))?,
+            name: _field_name.unwrap_or_default(),
+            insertion_point: _field_insertion_point.unwrap_or_default(),
+            content: _field_content.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }

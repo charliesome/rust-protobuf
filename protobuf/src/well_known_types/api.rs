@@ -308,13 +308,13 @@ impl ::protobuf::Message for Api {
         }
 
         ::std::result::Result::Ok(Api {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Api::name"))?,
+            name: _field_name.unwrap_or_default(),
             methods: _field_methods,
             options: _field_options,
-            version: _field_version.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Api::version"))?,
-            source_context: _field_source_context.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Api::source_context"))?,
+            version: _field_version.unwrap_or_default(),
+            source_context: _field_source_context.unwrap_or_default(),
             mixins: _field_mixins,
-            syntax: _field_syntax.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Api::syntax"))?,
+            syntax: _field_syntax.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -773,13 +773,13 @@ impl ::protobuf::Message for Method {
         }
 
         ::std::result::Result::Ok(Method {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Method::name"))?,
-            request_type_url: _field_request_type_url.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Method::request_type_url"))?,
-            request_streaming: _field_request_streaming.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Method::request_streaming"))?,
-            response_type_url: _field_response_type_url.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Method::response_type_url"))?,
-            response_streaming: _field_response_streaming.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Method::response_streaming"))?,
+            name: _field_name.unwrap_or_default(),
+            request_type_url: _field_request_type_url.unwrap_or_default(),
+            request_streaming: _field_request_streaming.unwrap_or_default(),
+            response_type_url: _field_response_type_url.unwrap_or_default(),
+            response_streaming: _field_response_streaming.unwrap_or_default(),
             options: _field_options,
-            syntax: _field_syntax.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Method::syntax"))?,
+            syntax: _field_syntax.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
@@ -1084,8 +1084,8 @@ impl ::protobuf::Message for Mixin {
         }
 
         ::std::result::Result::Ok(Mixin {
-            name: _field_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Mixin::name"))?,
-            root: _field_root.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: Mixin::root"))?,
+            name: _field_name.unwrap_or_default(),
+            root: _field_root.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }

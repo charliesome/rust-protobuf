@@ -95,7 +95,7 @@ impl ::protobuf::Message for SourceContext {
         }
 
         ::std::result::Result::Ok(SourceContext {
-            file_name: _field_file_name.ok_or_else(|| ::protobuf::ProtobufError::message_not_initialized("missing required field: SourceContext::file_name"))?,
+            file_name: _field_file_name.unwrap_or_default(),
             unknown_fields: Default::default(),
         })
     }
