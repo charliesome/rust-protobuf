@@ -81,12 +81,6 @@ pub trait Message: fmt::Debug + Any + Send + Sync {
         Ok(())
     }
 
-    /// Update this message object with fields read from given stream.
-    fn merge_from_bytes(&mut self, bytes: &[u8]) -> ProtobufResult<()> {
-        let mut is = CodedInputStream::from_bytes(bytes);
-        self.merge_from(&mut is)
-    }
-
     /// Check if all required fields of this object are initialized.
     fn check_initialized(&self) -> ProtobufResult<()> {
         if !self.is_initialized() {

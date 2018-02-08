@@ -21,9 +21,8 @@ fn test_sync() {
             thread::spawn(move || {
                 let bytes = m_copy.write_to_bytes().unwrap();
                 let mut is = CodedInputStream::from_bytes(&bytes);
-                let mut read = TestSync::new();
+                let read = TestSync::read_from(&mut is).unwrap();
                 // API is not very convenient here
-                read.merge_from(&mut is).unwrap();
                 read.check_initialized().unwrap();
                 read.get_int32_field()
             })

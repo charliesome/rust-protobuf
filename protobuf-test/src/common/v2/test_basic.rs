@@ -57,11 +57,13 @@ fn test_recursion_limit() {
         if let Some(limit) = limit {
             is.set_recursion_limit(limit);
         }
-        let mut t = TestRecursion::new();
-        let res = t.merge_from(&mut is);
-        assert_eq!(res.is_err(), has_err, "limit: {:?}", limit);
-        if !has_err {
-            assert_eq!(t, test, "limit: {:?}", limit);
+
+        let t = TestRecursion::read_from(&mut is);
+
+        if has_err {
+            assert_eq!(t.is_err(), has_err, "limit: {:?}", limit);
+        } else {
+            assert_eq!(t.unwrap(), test, "limit: {:?}", limit);
         }
     }
 }
