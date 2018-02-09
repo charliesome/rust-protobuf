@@ -42,7 +42,7 @@ impl<'o> UnknownValueRef<'o> {
     }
 }
 
-#[derive(Clone, PartialEq, Eq, Debug, Default)]
+#[derive(Clone, PartialEq, Eq, Debug)]
 pub struct UnknownValues {
     pub fixed32: Vec<u32>,
     pub fixed64: Vec<u64>,

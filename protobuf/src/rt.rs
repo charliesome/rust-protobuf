@@ -1,7 +1,6 @@
 //! Functions used by generated protobuf code.
 //! Should not be used by programs written by hands.
 
-use std::default::Default;
 use std::hash::Hash;
 use std::collections::HashMap;
 
@@ -501,8 +500,8 @@ pub fn read_singular_string_into(
 ) -> ProtobufResult<()> {
     match wire_type {
         WireTypeLengthDelimited => {
-            let tmp = target.set_default();
-            is.read_string_into(tmp)
+            *target = SingularField::some(is.read_string()?);
+            Ok(())
         }
         _ => Err(unexpected_wire_type(wire_type)),
     }
@@ -643,7 +642,7 @@ pub fn read_singular_proto3_carllerche_bytes_into(
 }
 
 /// Read repeated `message` field.
-pub fn read_repeated_message_into<M : Message + Default>(
+pub fn read_repeated_message_into<M : Message>(
     wire_type: WireType,
     is: &mut CodedInputStream,
     target: &mut Vec<M>,
@@ -660,7 +659,7 @@ pub fn read_repeated_message_into<M : Message + Default>(
 }
 
 /// Read singular `message` field.
-pub fn read_singular_message_into<M : Message + Default>(
+pub fn read_singular_message_into<M : Message>(
     wire_type: WireType,
     is: &mut CodedInputStream,
     target: &mut SingularPtrField<M>,
