@@ -3,14 +3,8 @@ use std::hash::Hasher;
 use std::option;
 use std::default::Default;
 use std::fmt;
-use std::mem;
 
-
-/// Like `Option<T>`, but keeps the actual element on `clear`.
-pub struct SingularField<T> {
-    value: T,
-    set: bool,
-}
+pub struct SingularField<T>(Option<T>);
 
 /// Like `Option<Box<T>>`, but keeps the actual element on `clear`.
 pub struct SingularPtrField<T> {
@@ -22,16 +16,13 @@ impl<T> SingularField<T> {
     /// Construct this object from given value.
     #[inline]
     pub fn some(value: T) -> SingularField<T> {
-        SingularField {
-            value: value,
-            set: true,
-        }
+        SingularField(Some(value))
     }
 
     /// True iff this object contains data.
     #[inline]
     pub fn is_some(&self) -> bool {
-        self.set
+        self.0.is_some()
     }
 
     /// True iff this object contains no data.
@@ -43,23 +34,19 @@ impl<T> SingularField<T> {
     /// Convert this object into `Option`.
     #[inline]
     pub fn into_option(self) -> Option<T> {
-        if self.set { Some(self.value) } else { None }
+        self.0
     }
 
     /// View data as `Option`.
     #[inline]
     pub fn as_ref<'a>(&'a self) -> Option<&'a T> {
-        if self.set { Some(&self.value) } else { None }
+        self.0.as_ref()
     }
 
     /// View data as mutable `Option`.
     #[inline]
     pub fn as_mut<'a>(&'a mut self) -> Option<&'a mut T> {
-        if self.set {
-            Some(&mut self.value)
-        } else {
-            None
-        }
+        self.0.as_mut()
     }
 
     /// Unwrap data as reference.
@@ -77,17 +64,13 @@ impl<T> SingularField<T> {
     /// Unwrap data, panic if not set.
     #[inline]
     pub fn unwrap(self) -> T {
-        if self.set {
-            self.value
-        } else {
-            panic!();
-        }
+        self.0.unwrap()
     }
 
     /// Unwrap data or return given default value.
     #[inline]
     pub fn unwrap_or(self, def: T) -> T {
-        if self.set { self.value } else { def }
+        self.0.unwrap_or(def)
     }
 
     /// Unwrap data or return given default value.
@@ -96,7 +79,7 @@ impl<T> SingularField<T> {
     where
         F : FnOnce() -> T,
     {
-        if self.set { self.value } else { f() }
+        self.0.unwrap_or_else(f)
     }
 
     /// Apply a function to contained element and store result in new `SingularPtrField`.
@@ -124,45 +107,35 @@ impl<T> SingularField<T> {
     /// Note, contained object destructor is not called, so allocated memory could be reused.
     #[inline]
     pub fn clear(&mut self) {
-        self.set = false;
+        self.0 = None;
     }
 }
 
-impl<T : Default> SingularField<T> {
+impl<T> SingularField<T> {
     /// Construct a `SingularField` with no data.
     #[inline]
     pub fn none() -> SingularField<T> {
-        SingularField {
-            value: Default::default(),
-            set: false,
-        }
+        SingularField(None)
     }
 
     /// Construct `SingularField` from `Option`.
     #[inline]
     pub fn from_option(option: Option<T>) -> SingularField<T> {
-        match option {
-            Some(x) => SingularField::some(x),
-            None => SingularField::none(),
-        }
+        SingularField(option)
     }
 
     /// Return data as option, clear this object.
     #[inline]
     pub fn take(&mut self) -> Option<T> {
-        if self.set {
-            self.set = false;
-            Some(mem::replace(&mut self.value, Default::default()))
-        } else {
-            None
-        }
+        self.0.take()
     }
+}
 
+impl<T: Default> SingularField<T> {
     /// Get contained data, consume self. Return default value for type if this is empty.
     #[inline]
-    pub fn unwrap_or_default(mut self) -> T {
-        self.value = Default::default();
-        self.value
+    pub fn unwrap_or_default(self) -> T {
+        self.0.unwrap_or_default()
     }
 
     /// Initialize this object with default value.
@@ -170,9 +143,8 @@ impl<T : Default> SingularField<T> {
     /// because it may reuse previously contained object.
     #[inline]
     pub fn set_default<'a>(&'a mut self) -> &'a mut T {
-        self.set = true;
-        self.value = Default::default();
-        &mut self.value
+        self.0 = Some(Default::default());
+        self.0.as_mut().unwrap()
     }
 }
 
@@ -369,14 +341,10 @@ impl<T> Default for SingularPtrField<T> {
     }
 }
 
-impl<T : Clone + Default> Clone for SingularField<T> {
+impl<T: Clone> Clone for SingularField<T> {
     #[inline]
     fn clone(&self) -> SingularField<T> {
-        if self.set {
-            SingularField::some(self.value.clone())
-        } else {
-            SingularField::none()
-        }
+        SingularField(self.0.clone())
     }
 }
 
