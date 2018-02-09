@@ -590,8 +590,8 @@ pub fn read_singular_bytes_into(
 ) -> ProtobufResult<()> {
     match wire_type {
         WireTypeLengthDelimited => {
-            let tmp = target.set_default();
-            is.read_bytes_into(tmp)
+            *target = SingularField::from_option(Some(is.read_bytes()?));
+            Ok(())
         }
         _ => Err(unexpected_wire_type(wire_type)),
     }
